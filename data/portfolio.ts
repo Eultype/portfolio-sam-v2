@@ -1,7 +1,7 @@
 export const portfolioData = {
     personal: {
         name: "Samuël",
-        role: "Développeur Full-Stack & UI Designer",
+        role: "Développeur Full-Stack Junior",
         tagline: "Je crée des expériences web rapides, modernes et scalables.",
         description: "Passionné par l'intersection entre le design et la technologie, je conçois des applications web performantes avec une attention obsessionnelle aux détails.",
         email: "Sdarryy59@gmail.com",

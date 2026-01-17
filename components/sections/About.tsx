@@ -85,9 +85,6 @@ export default function AboutSection() {
                         <p className="text-gray-400 text-lg leading-relaxed font-light">
                             Mon voyage a commencé il y a {portfolioData.stats[0].value} ans. Depuis, j'ai exploré chaque recoin du développement web, du pixel parfait en CSS aux bases de données distribuées.
                         </p>
-                        <p className="text-gray-400 text-lg leading-relaxed font-light">
-                            Je crois en un web **rapide**, **accessible** et **beau**. Pas juste fonctionnel. Beau. Car l'émotion est la clé de l'expérience utilisateur.
-                        </p>
                     </div>
 
                     <div className="h-20" />
