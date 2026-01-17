@@ -2,6 +2,7 @@
 
 import { portfolioData } from '@/data/portfolio';
 import { useRef } from 'react';
+import Link from 'next/link';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -86,6 +87,14 @@ export default function AboutSection() {
                             Mon voyage a commencé il y a {portfolioData.stats[0].value} ans. Depuis, j'ai exploré chaque recoin du développement web, du pixel parfait en CSS aux bases de données distribuées.
                         </p>
                     </div>
+
+                    <div className="pt-8">
+                        <Link href="/about" className="group inline-flex items-center gap-3 text-xs uppercase tracking-widest text-blue-500 hover:text-white transition-colors">
+                            <span>Lire ma bio complète</span>
+                            <span className="w-8 h-px bg-blue-500 group-hover:w-12 group-hover:bg-white transition-all"></span>
+                        </Link>
+                    </div>
+
 
                     <div className="h-20" />
                 </div>

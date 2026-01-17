@@ -20,9 +20,9 @@ export const portfolioData = {
         { label: "Contact", path: "/contact" },
     ],
     stats: [
-        { label: "Années d'expérience", value: "5+" },
-        { label: "Projets livrés", value: "30+" },
-        { label: "Contributions Open Source", value: "500+" },
+        { label: "Années d'expérience", value: "0 à définir" },
+        { label: "Projets livrés", value: "0 à définir" },
+        { label: "Contributions Open Source", value: "0 à définir"},
     ],
     skills: {
         frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS", "GSAP", "Three.js"],
@@ -32,10 +32,10 @@ export const portfolioData = {
     projects: [
         {
             id: 1,
-            title: "Nebula Dashboard",
+            title: "Exemple Project 1",
             category: "Full-Stack",
-            description: "Un tableau de bord analytique SaaS avec visualisation de données en temps réel.",
-            stack: ["Next.js", "Tremor", "Supabase"],
+            description: "Exemple description 1",
+            stack: ["Stacks du projet à définir"],
             image: "/projects/nebula.jpg",
             demo: "#",
             code: "#",
@@ -43,10 +43,10 @@ export const portfolioData = {
         },
         {
             id: 2,
-            title: "E-Commerce Galaxy",
+            title: "Exemple Project 2",
             category: "Frontend",
-            description: "Expérience d'achat immersive 3D pour une marque de vêtements streetwear.",
-            stack: ["React", "Three.js", "Shopify API"],
+            description: "Exemple description 2",
+            stack: ["Stacks du projet à définir"],
             image: "/projects/ecommerce.jpg",
             demo: "#",
             code: "#",
@@ -54,10 +54,10 @@ export const portfolioData = {
         },
         {
             id: 3,
-            title: "Task Orbit",
+            title: "Exemple Project 3",
             category: "App",
-            description: "Gestionnaire de tâches collaboratif avec fonctionnalités IA.",
-            stack: ["Vue.js", "Firebase", "OpenAI API"],
+            description: "Exemple description 3",
+            stack: ["Stacks du projet à définir"],
             image: "/projects/task.jpg",
             demo: "#",
             code: "#",
@@ -65,10 +65,10 @@ export const portfolioData = {
         },
         {
             id: 4,
-            title: "Portfolio V1",
+            title: "Exemple Project 4",
             category: "Frontend",
-            description: "Mon ancien portfolio.",
-            stack: ["HTML", "SCSS", "JS"],
+            description: "Exemple description 4",
+            stack: ["Stacks du projet à définir"],
             image: "/projects/old.jpg",
             demo: "#",
             code: "#",
@@ -78,24 +78,24 @@ export const portfolioData = {
     experience: [
         {
             id: 1,
-            role: "Lead Developer",
-            company: "TechAgency",
-            date: "2023 - Présent",
-            description: "Gestion d'une équipe de 5 développeurs, architecture de solutions SaaS complexes."
+            role: "Exemple role 1",
+            company: "Company name à définir.",
+            date: "Date 1",
+            description: "Description exemple 1"
         },
         {
             id: 2,
-            role: "Full-Stack Developer",
-            company: "StartupSpace",
-            date: "2021 - 2023",
-            description: "Développement de fonctionnalités core, migration vers Next.js."
+            role: "Exemple role 2",
+            company: "Company name à définir.",
+            date: "Date 2",
+            description: "Description exemple 2"
         },
         {
             id: 3,
-            role: "Freelance",
-            company: "Indépendant",
-            date: "2019 - 2021",
-            description: "Création de sites vitrines et e-commerce pour divers clients internationaux."
+            role: "Exemple role 3",
+            company: "Company name à définir.",
+            date: "Date 3",
+            description: "Description exemple 3"
         }
     ]
 };
