@@ -60,7 +60,7 @@ export default function ProjectsPage() {
                         <div key={project.id} className="animate-full-project group flex flex-col space-y-8">
                             <div className="aspect-[16/10] relative overflow-hidden rounded-sm">
                                 <LiquidImage
-                                    src={`https://placehold.co/1200x800/050505/white?text=${project.title.replace(" ", "+")}`}
+                                    src={project.image}
                                     alt={project.title}
                                     className="w-full h-full grayscale group-hover:grayscale-0 transition-all duration-700"
                                 />

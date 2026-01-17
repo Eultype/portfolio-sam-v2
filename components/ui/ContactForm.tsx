@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react';
 import gsap from 'gsap';
+import { portfolioData } from '@/data/portfolio';
 
 export default function ContactForm() {
     const [status, setStatus] = useState<'idle' | 'sending' | 'success'>('idle');
@@ -28,7 +29,7 @@ export default function ContactForm() {
                     </svg>
                 </div>
                 <h3 className="text-3xl font-bold tracking-tighter">Transmission Reçue</h3>
-                <p className="text-gray-500 font-mono text-xs uppercase tracking-widest">Le signal a été envoyé avec succès vers Bruxelles.</p>
+                <p className="text-gray-500 font-mono text-xs uppercase tracking-widest">Le signal a été envoyé avec succès vers {portfolioData.personal.location.split(',')[0]}.</p>
                 <button
                     onClick={() => setStatus('idle')}
                     className="text-[10px] uppercase tracking-widest text-blue-500 hover:text-white transition-colors"
@@ -49,6 +50,7 @@ export default function ContactForm() {
                     </label>
                     <input
                         required
+                        name="name"
                         type="text"
                         placeholder="VOTRE NOM"
                         className="w-full bg-white/5 border border-white/10 rounded-sm px-6 py-4 outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all font-sans text-sm tracking-wide"
@@ -62,6 +64,7 @@ export default function ContactForm() {
                     </label>
                     <input
                         required
+                        name="email"
                         type="email"
                         placeholder="VOTRE@EMAIL.COM"
                         className="w-full bg-white/5 border border-white/10 rounded-sm px-6 py-4 outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all font-sans text-sm tracking-wide"
@@ -76,6 +79,7 @@ export default function ContactForm() {
                 </label>
                 <textarea
                     required
+                    name="message"
                     rows={5}
                     placeholder="PARLONS DE VOTRE PROJET..."
                     className="w-full bg-white/5 border border-white/10 rounded-sm px-6 py-4 outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all font-sans text-sm tracking-wide resize-none"

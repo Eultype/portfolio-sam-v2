@@ -5,6 +5,12 @@ export const portfolioData = {
         tagline: "Je crée des expériences web rapides, modernes et scalables.",
         description: "Passionné par l'intersection entre le design et la technologie, je conçois des applications web performantes avec une attention obsessionnelle aux détails.",
         email: "Sdarryy59@gmail.com",
+        location: "Bruxelles, BE",
+        age: "30 Ans",
+        coordinates: {
+            lat: "50° 50' 55.5\" N",
+            lon: "4° 24' 13.2\" E"
+        },
         socials: [
             { name: "GitHub", url: "https://github.com/Eultype", icon: "Github" },
             { name: "LinkedIn", url: "https://www.linkedin.com/in/samu%C3%ABl-darry-648504253/", icon: "Linkedin" },

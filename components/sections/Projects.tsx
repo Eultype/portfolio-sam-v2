@@ -39,7 +39,7 @@ export default function ProjectsSection() {
                     <div key={project.id} className="project-item group flex flex-col md:flex-row gap-8 md:gap-20 items-center">
                         <div className={`w-full md:w-2/3 aspect-video relative overflow-hidden rounded-sm ${index % 2 === 1 ? 'md:order-2' : ''}`}>
                             <LiquidImage
-                                src={`https://placehold.co/1200x800/050505/white?text=${project.title.replace(" ", "+")}`}
+                                src={project.image}
                                 alt={project.title}
                                 className="w-full h-full grayscale group-hover:grayscale-0 transition-all duration-700"
                             />
