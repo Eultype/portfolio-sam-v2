@@ -10,7 +10,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-    title: "Alexandre | Développeur Créatif Full-Stack",
+    title: "Samuël | Développeur Créatif Full-Stack",
     description: "Portfolio immersif d'un développeur web passionné par l'espace et les interfaces modernes.",
 };
 
