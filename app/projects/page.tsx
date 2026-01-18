@@ -7,7 +7,7 @@ import { portfolioData } from '@/data/portfolio';
 import { useRef, useState } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import LiquidImage from '@/components/ui/LiquidImage';
+import ProjectCardImage from "@/components/ui/ProjectCardImage";
 
 export default function ProjectsPage() {
     const container = useRef(null);
@@ -58,8 +58,8 @@ export default function ProjectsPage() {
                 <div className="grid md:grid-cols-2 gap-x-20 gap-y-40">
                     {filteredProjects.map((project) => (
                         <div key={project.id} className="animate-full-project group flex flex-col space-y-8">
-                            <div className="aspect-[16/10] relative overflow-hidden rounded-sm">
-                                <LiquidImage
+                            <div className="aspect-[16/9] relative overflow-hidden rounded-sm">
+                                <ProjectCardImage
                                     src={project.image}
                                     alt={project.title}
                                     className="w-full h-full grayscale group-hover:grayscale-0 transition-all duration-700"

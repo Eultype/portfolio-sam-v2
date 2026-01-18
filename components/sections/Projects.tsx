@@ -1,11 +1,11 @@
 'use client';
 
 import { portfolioData } from '@/data/portfolio';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import Link from 'next/link';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import LiquidImage from '@/components/ui/LiquidImage';
+import ProjectCardImage from "@/components/ui/ProjectCardImage";
 
 export default function ProjectsSection() {
     const container = useRef(null);
@@ -38,7 +38,7 @@ export default function ProjectsSection() {
                 {featuredProjects.map((project, index) => (
                     <div key={project.id} className="project-item group flex flex-col md:flex-row gap-8 md:gap-20 items-center">
                         <div className={`w-full md:w-2/3 aspect-video relative overflow-hidden rounded-sm ${index % 2 === 1 ? 'md:order-2' : ''}`}>
-                            <LiquidImage
+                            <ProjectCardImage
                                 src={project.image}
                                 alt={project.title}
                                 className="w-full h-full grayscale group-hover:grayscale-0 transition-all duration-700 rounded-sm"

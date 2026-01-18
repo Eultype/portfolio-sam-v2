@@ -32,8 +32,8 @@ export const portfolioData = {
     ],
     skills: {
         frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS", "GSAP", "Three.js"],
-        backend: ["Node.js", "NestJS", "PostgreSQL", "Prisma", "Redis", "GraphQL"],
-        tools: ["Docker", "AWS", "Git", "Figma", "Vercel", "CI/CD"],
+        backend: ["Node.js", "Express", "PostgreSQL", "Prisma", "PHP", "REST API"],
+        tools: ["Git", "GitHub", "Linux", "JetBrains", "Figma", "Vercel",],
     },
     projects: [
         {
