@@ -1,7 +1,5 @@
 'use client';
 
-import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
 import Scene from '@/components/3d/Scene';
 import { portfolioData } from '@/data/portfolio';
 import { useRef, useState } from 'react';
@@ -28,7 +26,6 @@ export default function ProjectsPage() {
 
     return (
         <main ref={container} className="relative min-h-screen text-white font-sans">
-            <Navbar />
             <Scene status="arrived" />
 
             <section className="pt-40 pb-20 container mx-auto px-6">
@@ -95,8 +92,6 @@ export default function ProjectsPage() {
                 </div>
 
             </section>
-
-            <Footer />
         </main>
     );
 }

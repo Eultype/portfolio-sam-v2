@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import CustomCursor from "@/components/ui/CustomCursor";
+import Footer from "@/components/layout/Footer";
+import Navbar from "@/components/layout/Navbar";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -26,7 +28,9 @@ export default function RootLayout({
         >
         <SmoothScroll>
             <CustomCursor />
+            <Navbar />
             {children}
+            <Footer />
         </SmoothScroll>
         </body>
         </html>

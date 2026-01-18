@@ -1,7 +1,5 @@
 'use client';
 
-import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
 import Scene from '@/components/3d/Scene';
 import { portfolioData } from '@/data/portfolio';
 import { useRef } from 'react';
@@ -23,7 +21,6 @@ export default function ExperiencePage() {
 
     return (
         <main ref={container} className="relative min-h-screen text-white font-sans selection:bg-blue-500/30">
-            <Navbar />
             <Scene status="arrived" />
 
             <section className="pt-40 pb-20 container mx-auto px-6">
@@ -71,8 +68,6 @@ export default function ExperiencePage() {
                     </div>
                 </div>
             </section>
-
-            <Footer />
         </main>
     );
 }

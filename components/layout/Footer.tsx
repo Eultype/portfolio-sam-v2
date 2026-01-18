@@ -20,9 +20,6 @@ export default function Footer() {
                             className="-mt-100 -mb-50"
                         />
                         <h2 className="text-[10px] uppercase tracking-[1em] text-blue-500 mb-8 font-mono">End of Transmission</h2>
-                        <h1 className="text-7xl md:text-[15rem] font-bold tracking-tighter text-white/5 selection:bg-transparent leading-none select-none">
-                            GOODBYE
-                        </h1>
                     </div>
 
                     <div className="grid md:grid-cols-3 w-full gap-20 items-end border-t border-white/5 pt-20">

@@ -2,8 +2,6 @@
 
 import { useRef, useState, useEffect, useCallback } from 'react';
 import gsap from 'gsap';
-import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
 import Scene from '@/components/3d/Scene';
 import Preloader from '@/components/ui/Preloader';
 import MagneticButton from '@/components/ui/MagneticButton';
@@ -56,7 +54,6 @@ export default function Home() {
   return (
       <main className="relative w-full text-white font-sans selection:bg-blue-500/30">
         <Preloader onComplete={handlePreloaderComplete} />
-        <Navbar />
 
         {/* Pilotage de la 3D via le status */}
         <Scene status={status} />
@@ -109,9 +106,7 @@ export default function Home() {
           <ProjectsSection />
           <ExperienceSection />
           <ContactSection />
-
-          <Footer />
         </div>
-      </main>
-  );
+        </main>
+    );
 }
