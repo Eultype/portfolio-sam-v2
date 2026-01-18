@@ -16,11 +16,11 @@ export default function LiquidImage({ src, alt, className = "", showHUDData = tr
   const containerRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const scanLineRef = useRef<HTMLDivElement>(null);
-  const dataRef = useRef<HTMLDivElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
-
-  const xTo = useRef<any>(null);
-  const yTo = useRef<any>(null);
+      const dataRef = useRef<HTMLDivElement>(null);
+      const tlRef = useRef<gsap.core.Timeline | null>(null);
+      const [isHovered, setIsHovered] = useState(false);
+  
+      const xTo = useRef<any>(null);  const yTo = useRef<any>(null);
   const rotateXTo = useRef<any>(null);
   const rotateYTo = useRef<any>(null);
 
@@ -52,10 +52,11 @@ export default function LiquidImage({ src, alt, className = "", showHUDData = tr
     gsap.to(imageRef.current, { scale: 1.1, duration: 0.4 });
 
     // SÉQUENCE DE SCAN
-    const tl = gsap.timeline();
+    if (tlRef.current) tlRef.current.kill();
+    tlRef.current = gsap.timeline();
     
     // 1. Reset et départ de la ligne
-    tl.fromTo(scanLineRef.current, 
+    tlRef.current.fromTo(scanLineRef.current, 
       { top: "-10%", opacity: 1 }, 
       { top: "110%", duration: 0.8, ease: "power2.inOut" }
     )
@@ -76,18 +77,24 @@ export default function LiquidImage({ src, alt, className = "", showHUDData = tr
     .to(scanLineRef.current, { opacity: 0, duration: 0.3 }, "-=0.4");
   };
 
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-    if (rotateXTo.current) rotateXTo.current(0);
-    if (rotateYTo.current) rotateYTo.current(0);
-    if (xTo.current) xTo.current(0);
-    if (yTo.current) yTo.current(0);
-    gsap.to(imageRef.current, { scale: 1, duration: 0.4 });
-    
-    // Cacher les données immédiatement si on sort
-    gsap.to(dataRef.current, { opacity: 0, duration: 0.2 });
-    gsap.to(scanLineRef.current, { opacity: 0, duration: 0.2 });
-  };
+      const handleMouseLeave = () => {
+
+        setIsHovered(false);
+        // Arrêt immédiat de l'animation de scan
+        if (tlRef.current) {
+            tlRef.current.kill();
+            tlRef.current = null;
+        }
+
+        if (rotateXTo.current) rotateXTo.current(0);
+        if (rotateYTo.current) rotateYTo.current(0);
+        if (xTo.current) xTo.current(0);
+        if (yTo.current) yTo.current(0);
+        gsap.to(imageRef.current, { scale: 1, duration: 0.4 });
+
+        // Réinitialisation forcée des éléments du scan
+        gsap.to([dataRef.current, scanLineRef.current], { opacity: 0, duration: 0.2 });
+      };
 
   return (
     <div 

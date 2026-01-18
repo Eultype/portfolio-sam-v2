@@ -42,7 +42,7 @@ export const portfolioData = {
             category: "Full-Stack",
             description: "Exemple description 1",
             stack: ["Stacks du projet à définir"],
-            image: "/projects/nebula.jpg",
+            image: "/projet_scarlett.webp",
             demo: "#",
             code: "#",
             featured: true
