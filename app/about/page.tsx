@@ -7,7 +7,10 @@ import { portfolioData } from '@/data/portfolio';
 import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import LiquidImage from '@/components/ui/LiquidImage';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function AboutPage() {
     const container = useRef(null);
@@ -22,7 +25,7 @@ export default function AboutPage() {
         });
 
         // PARALLAXE IMAGE
-        gsap.to('.parallax-full-image', {
+        gsap.to('.parallax-img', {
             scrollTrigger: {
                 trigger: container.current,
                 start: 'top bottom',
@@ -52,11 +55,13 @@ export default function AboutPage() {
 
                     {/* CONTENU DÉTAILLÉ */}
                     <div className="grid md:grid-cols-2 gap-20 items-center">
-                        <div className="aspect-[3/4] relative animate-full-about parallax-full-image">
+                        <div className="aspect-[3/4] w-full relative animate-about-image parallax-img will-change-transform">
                             <LiquidImage
-                                src="/solitude.webp"
-                                alt="Portrait Alexandre"
-                                className="w-full h-full rounded-sm grayscale"
+                                src="/IMG_5360.webp"
+                                alt="Portrait Samuël"
+                                className="w-full h-full rounded-sm grayscale hover:grayscale-0 transition-all duration-700"
+                                location={portfolioData.personal.location2}
+                                coordinates={portfolioData.personal.coordinates2}
                             />
                         </div>
                         <div className="space-y-12 animate-full-about text-lg text-gray-300 font-light leading-relaxed">
@@ -64,10 +69,14 @@ export default function AboutPage() {
                                 {portfolioData.personal.description}
                             </p>
                             <p>
-                                Basé en France, j'interviens sur des projets d'envergure internationale. Ma double compétence en design et en ingénierie me permet de comprendre les enjeux métier tout en garantissant une exécution technique irréprochable.
+                                Basé à Bruxelles, je viens de terminer un cycle intensif de 12 mois au CF2M. Cette
+                                formation m'a permis de maîtriser l'ensemble de la chaîne de production, de la structure
+                                des bases de données au déploiement final.
                             </p>
                             <p>
-                                Je consacre une grande partie de mon temps à la veille technologique, explorant les nouvelles frontières offertes par le WebGL, l'IA et les architectures cloud modernes.
+                                Passionné par l'évolution du web, je maintiens une veille technologique quotidienne. De
+                                l'intégration de la 3D avec Three.js à l'usage de l'IA comme levier de productivité, je
+                                cherche sans cesse à enrichir mon arsenal technique pour bâtir des solutions innovantes.
                             </p>
 
                             {/* Stats en ligne */}
@@ -87,9 +96,9 @@ export default function AboutPage() {
                         <h2 className="text-xs font-mono text-blue-500 uppercase tracking-[0.5em] mb-12">Ma Philosophie</h2>
                         <div className="grid md:grid-cols-3 gap-12">
                             {[
-                                { t: "Performance first", d: "Chaque milliseconde compte. Un site rapide est un site qui respecte ses utilisateurs." },
-                                { t: "Design Empathique", d: "L'interface doit s'effacer devant l'expérience. Le design n'est pas ce que l'on voit, mais ce que l'on ressent." },
-                                { t: "Clean Engineering", d: "La beauté d'un projet réside aussi dans son architecture interne. Un code propre est un code durable." },
+                                { t: "Performance first", d: "Chaque milliseconde compte. De l'optimisation des requêtes SQL à la réactivité de l'interface, je veille à ce que l'architecture technique garantisse une navigation rapide et fluide pour l'utilisateur." },
+                                { t: "Design Empathique", d: "L'interface doit s'effacer devant l'expérience. Je conçois des systèmes intuitifs où le design n'est pas seulement esthétique, mais une réponse logique aux besoins de l'utilisateur." },
+                                { t: "Clean Engineering", d: "Un code durable est un code bien structuré. En m'appuyant sur des logiques MVC et des standards de programmation rigoureux, je construis des bases solides et faciles à maintenir." },
                             ].map((v, i) => (
                                 <div key={i} className="space-y-4">
                                     <h3 className="text-xl font-bold">{v.t}</h3>

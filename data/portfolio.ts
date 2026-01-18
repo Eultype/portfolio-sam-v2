@@ -3,13 +3,18 @@ export const portfolioData = {
         name: "Samuël",
         role: "Développeur Full-Stack Junior",
         tagline: "Je crée des expériences web rapides, modernes et scalables.",
-        description: "Passionné par l'intersection entre le design et la technologie, je conçois des applications web performantes avec une attention obsessionnelle aux détails.",
+        description: "Passionné par le lien entre design et technique, je développe des applications web performantes. Mon objectif est simple : allier un code propre à une expérience utilisateur fluide et soignée.",
         email: "Sdarryy59@gmail.com",
         location: "Bruxelles, BE",
+        location2: "Dolomites, IT",
         age: "30 Ans",
         coordinates: {
             lat: "50° 50' 55.5\" N",
             lon: "4° 24' 13.2\" E"
+        },
+        coordinates2: {
+            lat: "46° 37′ 07\" N",
+            lon: "12° 18′ 20\" E"
         },
         socials: [
             { name: "GitHub", url: "https://github.com/Eultype", icon: "Github" },
@@ -26,9 +31,10 @@ export const portfolioData = {
         { label: "Contact", path: "/contact" },
     ],
     stats: [
-        { label: "Années d'expérience", value: "0 à définir" },
-        { label: "Projets livrés", value: "0 à définir" },
-        { label: "Contributions Open Source", value: "0 à définir"},
+        { label: "mois de formation intensive", value: "14" },
+        { label: "Projets architecturés", value: "10+" },
+        { label: "Technologies et outils utilisés", value: "15+"},
+        { label: "Heures de code & veille", value: "1800+"}
     ],
     skills: {
         frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS", "GSAP", "Three.js"],

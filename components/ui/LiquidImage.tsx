@@ -10,17 +10,29 @@ interface LiquidImageProps {
   alt: string;
   className?: string;
   showHUDData?: boolean;
+  location?: string;
+  coordinates?: { lat: string; lon: string };
 }
 
-export default function LiquidImage({ src, alt, className = "", showHUDData = true }: LiquidImageProps) {
+export default function LiquidImage({ 
+    src, 
+    alt, 
+    className = "", 
+    showHUDData = true,
+    location,
+    coordinates
+}: LiquidImageProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const scanLineRef = useRef<HTMLDivElement>(null);
-      const dataRef = useRef<HTMLDivElement>(null);
-      const tlRef = useRef<gsap.core.Timeline | null>(null);
-      const [isHovered, setIsHovered] = useState(false);
+  const dataRef = useRef<HTMLDivElement>(null);
+  const tlRef = useRef<gsap.core.Timeline | null>(null);
+  const [isHovered, setIsHovered] = useState(false);
   
-      const xTo = useRef<any>(null);  const yTo = useRef<any>(null);
+  const displayLocation = location || portfolioData.personal.location;
+  const displayCoordinates = coordinates || portfolioData.personal.coordinates;
+
+  const xTo = useRef<any>(null);  const yTo = useRef<any>(null);
   const rotateXTo = useRef<any>(null);
   const rotateYTo = useRef<any>(null);
 
@@ -118,27 +130,27 @@ export default function LiquidImage({ src, alt, className = "", showHUDData = tr
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className={`absolute inset-0 w-full h-full object-cover will-change-transform ${isHovered ? 'brightness-110 contrast-110 grayscale-0' : 'brightness-75 grayscale-[0.5]'}`}
           />
-          
+
           <div className={`absolute inset-0 pointer-events-none mix-blend-screen transition-opacity duration-300 ${isHovered ? 'opacity-40' : 'opacity-0'}`}>
-            <Image 
-                src={src} 
-                alt="" 
+            <Image
+                src={src}
+                alt=""
                 fill
                 priority
                 draggable={false}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="absolute inset-0 w-full h-full object-cover translate-x-[2px] scale-[1.05]" 
-                style={{ filter: 'hue-rotate(90deg) brightness(1.5)' }} 
+                className="absolute inset-0 w-full h-full object-cover translate-x-[2px] scale-[1.05]"
+                style={{ filter: 'hue-rotate(90deg) brightness(1.5)' }}
             />
-            <Image 
-                src={src} 
-                alt="" 
+            <Image
+                src={src}
+                alt=""
                 fill
                 priority
                 draggable={false}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="absolute inset-0 w-full h-full object-cover -translate-x-[2px] scale-[1.05]" 
-                style={{ filter: 'hue-rotate(-90deg) brightness(1.5)' }} 
+                className="absolute inset-0 w-full h-full object-cover -translate-x-[2px] scale-[1.05]"
+                style={{ filter: 'hue-rotate(-90deg) brightness(1.5)' }}
             />
           </div>
       </div>
@@ -169,13 +181,13 @@ export default function LiquidImage({ src, alt, className = "", showHUDData = tr
                   </div>
                   <div className="flex justify-between gap-8 text-[9px] font-mono">
                       <span className="text-gray-500 uppercase">Localisation</span>
-                      <span className="text-white font-bold text-right">{portfolioData.personal.location}</span>
+                      <span className="text-white font-bold text-right">{displayLocation}</span>
                   </div>
                   <div className="pt-1 border-t border-blue-500/10 mt-1">
                       <div className="text-[7px] font-mono text-blue-400/60 uppercase tracking-widest mb-1 text-left">Geographic_Data:</div>
                       <div className="text-[8px] font-mono text-white/80 text-left leading-tight">
-                          LAT: {portfolioData.personal.coordinates.lat}<br/>
-                          LON: {portfolioData.personal.coordinates.lon}
+                          LAT: {displayCoordinates.lat}<br/>
+                          LON: {displayCoordinates.lon}
                       </div>
                   </div>
               </div>

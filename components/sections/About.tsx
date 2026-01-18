@@ -66,7 +66,9 @@ export default function AboutSection() {
                     <div className="h-1 w-20 bg-white mb-8 animate-about-text" />
 
                     <p className="text-xl md:text-2xl leading-relaxed text-gray-300 animate-about-text max-w-lg font-light">
-                        Je suis un architecte numérique. Je ne construis pas des murs, mais des ponts entre l'homme et la machine.
+                        Je suis un bâtisseur de systèmes numériques. Je ne conçois pas seulement des interfaces,
+                        je structure des architectures robustes et logiques pour connecter les besoins humains à la
+                        puissance technologique.
                     </p>
                 </div>
 
@@ -77,14 +79,22 @@ export default function AboutSection() {
                     <div className="aspect-[3/4] w-full relative animate-about-image parallax-img will-change-transform">
                         <LiquidImage
                             src="/solitude.webp"
-                            alt="Portrait"
+                            alt="Portrait Samuël"
                             className="w-full h-full rounded-sm grayscale hover:grayscale-0 transition-all duration-700"
                         />
                     </div>
 
                     <div className="space-y-12 animate-about-text">
                         <p className="text-gray-400 text-lg leading-relaxed font-light">
-                            Mon voyage a commencé il y a {portfolioData.stats[0].value} ans. Depuis, j'ai exploré chaque recoin du développement web, du pixel parfait en CSS aux bases de données distribuées.
+                            Mon voyage a commencé avec une immersion intensive de {portfolioData.stats[0].value} mois.
+                            Depuis, j'explore chaque recoin du développement web, de l'interface utilisateur immersive
+                            aux architectures de données scalables.
+                        </p>
+                        <p className="text-gray-400 text-lg leading-relaxed font-light">
+                            Fort d'un cursus intensif axé sur la maîtrise du cycle complet de développement, j'ai appris
+                            à naviguer du front-end créatif à la gestion de bases de données relationnelles. De la
+                            logique MVC à l'intégration d'API modernes, je forge des outils performants, scalables et
+                            centrés sur l'innovation.
                         </p>
                     </div>
 
