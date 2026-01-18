@@ -44,10 +44,10 @@ export const portfolioData = {
     projects: [
         {
             id: 1,
-            title: "Exemple Project 1",
-            category: "Full-Stack",
-            description: "Exemple description 1",
-            stack: ["Stacks du projet à définir"],
+            title: "Scarlett Gallery",
+            category: "Frontend",
+            description: "Conception et développement d’un site vitrine destiné à la présentation d’une galerie artistique.",
+            stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
             image: "/projet_scarlett.webp",
             demo: "#",
             code: "#",
@@ -55,7 +55,7 @@ export const portfolioData = {
         },
         {
             id: 2,
-            title: "Exemple Project 2",
+            title: "2D3D Gravure - Dashboard",
             category: "Frontend",
             description: "Exemple description 2",
             stack: ["Stacks du projet à définir"],
@@ -90,16 +90,16 @@ export const portfolioData = {
     experience: [
         {
             id: 1,
-            role: "Exemple role 1",
-            company: "Company name à définir.",
-            date: "Date 1",
+            role: "Stagiaire Développeur Full-Stack",
+            company: "Rebel Company",
+            date: "5 janvier 2025 - Now",
             description: "Description exemple 1"
         },
         {
             id: 2,
-            role: "Exemple role 2",
-            company: "Company name à définir.",
-            date: "Date 2",
+            role: "Formation Développeur Web Full-Stack",
+            company: "Centre de formation 2 Mille",
+            date: "11 novembre 2024 - 14 février 2026",
             description: "Description exemple 2"
         },
         {

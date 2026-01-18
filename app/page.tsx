@@ -84,7 +84,7 @@ export default function Home() {
 
               <div className="max-w-xl mx-auto flex justify-center">
                 <p className="hero-animate text-lg md:text-xl text-gray-500 leading-relaxed text-center font-light">
-                  {portfolioData.personal.description}
+                  Conception d'architectures robustes et d'interfaces fluides. Je bâtis des solutions numériques performantes de bout en bout, alliant innovation et pérennité.
                 </p>
               </div>
 

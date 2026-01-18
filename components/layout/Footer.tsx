@@ -59,7 +59,7 @@ export default function Footer() {
                                 Loc: 50.8487° N, 4.4036° E
                             </div>
                             <div className="text-[8px] text-blue-500/50 pt-10">
-                                © {new Date().getFullYear()} DESIGNED & BUILT BY ALEX.DEV
+                                © {new Date().getFullYear()} DESIGNED & BUILT BY SAMUEL.DEV
                             </div>
                         </div>
                     </div>

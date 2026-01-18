@@ -62,7 +62,7 @@ export default function ProjectsPage() {
                                 <ProjectCardImage
                                     src={project.image}
                                     alt={project.title}
-                                    className="w-full h-full grayscale group-hover:grayscale-0 transition-all duration-700"
+                                    className="w-full h-full rounded-sm grayscale group-hover:grayscale-0 transition-all duration-700"
                                 />
                             </div>
 
