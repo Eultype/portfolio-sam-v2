@@ -2,6 +2,7 @@
 
 import { portfolioData } from '@/data/portfolio';
 import MagneticButton from '../ui/MagneticButton';
+import Spline from "@splinetool/react-spline";
 
 export default function Footer() {
     return (
@@ -13,6 +14,11 @@ export default function Footer() {
                 <div className="flex flex-col items-center text-center">
 
                     <div className="mb-20">
+                        <Spline
+                            scene="https://prod.spline.design/fhn2DJvLeJq9GDKK/scene.splinecode"
+                            style={{ width: '100%', height: '100%' }}
+                            className="-mt-100 -mb-50"
+                        />
                         <h2 className="text-[10px] uppercase tracking-[1em] text-blue-500 mb-8 font-mono">End of Transmission</h2>
                         <h1 className="text-7xl md:text-[15rem] font-bold tracking-tighter text-white/5 selection:bg-transparent leading-none select-none">
                             GOODBYE

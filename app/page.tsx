@@ -98,7 +98,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="absolute mb-8 bottom-24 md:bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-20 hero-animate">
+            <div className="absolute mb-26 bottom-24 md:bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-20 hero-animate">
               <span className="text-[10px] tracking-[0.3em] uppercase font-mono">Scroll to dive</span>
               <div className="w-px h-12 bg-gradient-to-b from-white to-transparent" />
             </div>

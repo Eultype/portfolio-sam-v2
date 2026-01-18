@@ -54,8 +54,8 @@ export default function AboutPage() {
                     </div>
 
                     {/* CONTENU DÉTAILLÉ */}
-                    <div className="grid md:grid-cols-2 gap-20 items-center">
-                        <div className="aspect-[3/4] w-full relative animate-about-image parallax-img will-change-transform">
+                    <div className="grid md:grid-cols-2 gap-20 animate-full-about parallax-img">
+                        <div className="aspect-[3/4] w-full relative animate-about-image will-change-transform">
                             <LiquidImage
                                 src="/IMG_5360.webp"
                                 alt="Portrait Samuël"
