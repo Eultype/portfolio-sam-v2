@@ -6,6 +6,7 @@ import { Points, PointMaterial } from '@react-three/drei';
 import * as random from 'maath/random/dist/maath-random.esm';
 import SparseShootingStars from './SparseShootingStar';
 import * as THREE from 'three';
+import { useScene } from '@/context/SceneContext';
 
 function StarField({ status }: { status: string }) {
     const ref = useRef<THREE.Points>(null!);
@@ -43,7 +44,8 @@ function StarField({ status }: { status: string }) {
     );
 }
 
-export default function Scene({ status = 'loading' }: { status?: string }) {
+export default function Scene() {
+    const { status } = useScene();
     return (
         <div className="fixed inset-0 z-[-1] bg-black overflow-hidden">
             {/* NOISE OVERLAY (Coincé en arrière-plan) */}

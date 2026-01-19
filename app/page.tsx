@@ -1,11 +1,11 @@
 'use client';
 
-import { useRef, useState, useEffect, useCallback } from 'react';
+import { useRef, useEffect, useCallback } from 'react';
 import gsap from 'gsap';
-import Scene from '@/components/3d/Scene';
 import Preloader from '@/components/ui/Preloader';
 import MagneticButton from '@/components/ui/MagneticButton';
 import { portfolioData } from '@/data/portfolio';
+import { useScene } from '@/context/SceneContext';
 
 import AboutSection from '@/components/sections/About';
 import SkillsSection from '@/components/sections/Skills';
@@ -14,9 +14,17 @@ import ExperienceSection from '@/components/sections/Experience';
 import ContactSection from '@/components/sections/Contact';
 
 export default function Home() {
-  const [status, setStatus] = useState<'loading' | 'warping' | 'arrived'>('loading');
+  const { status, setStatus } = useScene();
   const contentRef = useRef<HTMLDivElement>(null);
   const lock = useRef(false);
+
+  // Reset status to loading on mount to trigger preloader (optional, depends on desired UX)
+  // For now, we assume we want the full intro on Home mount.
+  useEffect(() => {
+      // If we want to replay intro:
+      // setStatus('loading');
+      // But Preloader logic drives it.
+  }, []);
 
   // Initialisation cachée
   useEffect(() => {
@@ -55,8 +63,7 @@ export default function Home() {
       <main className="relative w-full text-white font-sans selection:bg-blue-500/30">
         <Preloader onComplete={handlePreloaderComplete} />
 
-        {/* Pilotage de la 3D via le status */}
-        <Scene status={status} />
+        {/* Pilotage de la 3D via le context (Scene est dans le layout) */}
 
         <div
             ref={contentRef}

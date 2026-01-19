@@ -4,6 +4,8 @@ import SmoothScroll from "@/components/layout/SmoothScroll";
 import CustomCursor from "@/components/ui/CustomCursor";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
+import { SceneProvider } from "@/context/SceneContext";
+import SceneWrapper from "@/components/3d/SceneWrapper";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -26,12 +28,15 @@ export default function RootLayout({
         <body
             className={`${spaceGrotesk.variable} font-sans antialiased`}
         >
-        <SmoothScroll>
-            <CustomCursor />
-            <Navbar />
-            {children}
-            <Footer />
-        </SmoothScroll>
+        <SceneProvider>
+            <SceneWrapper />
+            <SmoothScroll>
+                <CustomCursor />
+                <Navbar />
+                {children}
+                <Footer />
+            </SmoothScroll>
+        </SceneProvider>
         </body>
         </html>
     );

@@ -1,13 +1,19 @@
 'use client';
 
-import Scene from '@/components/3d/Scene';
 import ContactForm from '@/components/ui/ContactForm';
 import { portfolioData } from '@/data/portfolio';
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { useScene } from '@/context/SceneContext';
 
 export default function ContactPage() {
+    const { setStatus } = useScene();
+    
+    useEffect(() => {
+        setStatus('arrived');
+    }, [setStatus]);
+
     const container = useRef(null);
 
     useGSAP(() => {
@@ -22,8 +28,7 @@ export default function ContactPage() {
 
     return (
         <main ref={container} className="relative min-h-screen text-white font-sans selection:bg-blue-500/30 overflow-x-hidden">
-            <Scene status="arrived" />
-
+            
             <section className="pt-40 pb-20 container mx-auto px-6">
                 <div className="max-w-6xl mx-auto">
 

@@ -1,13 +1,19 @@
 'use client';
 
-import Scene from '@/components/3d/Scene';
 import { portfolioData } from '@/data/portfolio';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import ProjectCardImage from "@/components/ui/ProjectCardImage";
+import { useScene } from '@/context/SceneContext';
 
 export default function ProjectsPage() {
+    const { setStatus } = useScene();
+
+    useEffect(() => {
+        setStatus('arrived');
+    }, [setStatus]);
+
     const container = useRef(null);
     const [filter, setFilter] = useState('All');
 
@@ -26,8 +32,7 @@ export default function ProjectsPage() {
 
     return (
         <main ref={container} className="relative min-h-screen text-white font-sans">
-            <Scene status="arrived" />
-
+            
             <section className="pt-40 pb-20 container mx-auto px-6">
                 <div className="max-w-6xl mx-auto mb-32 space-y-8 animate-full-project">
                     <h1 className="text-7xl md:text-[12rem] font-bold tracking-tighter leading-none">WORKS.</h1>
