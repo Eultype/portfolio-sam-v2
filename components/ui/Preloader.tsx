@@ -12,7 +12,6 @@ export default function Preloader({ onComplete }: { onComplete?: () => void }) {
 
     const logs = [
         "Initializing Neural Link...",
-        "Loading Star Map v4.2.0...",
         "Calibrating Gravitational Lensing...",
         "Establishing Secure Connection...",
         "Syncing with Brussels Station...",
@@ -29,7 +28,7 @@ export default function Preloader({ onComplete }: { onComplete?: () => void }) {
 
             tl.to(percent, {
                 value: 100,
-                duration: 3,
+                duration: 2,
                 ease: "power2.inOut",
                 onUpdate: () => {
                     if (percentRef.current) {
@@ -49,14 +48,14 @@ export default function Preloader({ onComplete }: { onComplete?: () => void }) {
                     opacity: 0,
                     scale: 1.1,
                     filter: "blur(10px)",
-                    duration: 0.8,
+                    duration: 0.5,
                     stagger: 0.1,
                     ease: "power2.in"
                 })
                 .to(containerRef.current, {
                     scale: 1.5,
                     opacity: 0,
-                    duration: 1.5,
+                    duration: 0.5,
                     ease: "expo.inOut",
                     onStart: () => {
                         if (onComplete) onComplete();

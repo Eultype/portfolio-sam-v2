@@ -125,7 +125,6 @@ export default function SparseShootingStars() {
     return (
         <>
             <HyperMeteor />
-            <HyperMeteor />
         </>
     );
 }
