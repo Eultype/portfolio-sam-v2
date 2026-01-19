@@ -14,22 +14,23 @@ import ExperienceSection from '@/components/sections/Experience';
 import ContactSection from '@/components/sections/Contact';
 
 export default function Home() {
-  const { status, setStatus } = useScene();
+  const { status, setStatus, introPlayed, setIntroPlayed } = useScene();
   const contentRef = useRef<HTMLDivElement>(null);
   const lock = useRef(false);
 
-  // Reset status to loading on mount to trigger preloader (optional, depends on desired UX)
-  // For now, we assume we want the full intro on Home mount.
+  // Gestion de l'état initial (Intro vs Navigation interne)
   useEffect(() => {
-      // If we want to replay intro:
-      // setStatus('loading');
-      // But Preloader logic drives it.
-  }, []);
-
-  // Initialisation cachée
-  useEffect(() => {
-    gsap.set(contentRef.current, { opacity: 0, scale: 0.9, filter: "blur(20px)" });
-  }, []);
+    if (introPlayed) {
+        // Si l'intro a déjà été jouée, on affiche tout directement
+        setStatus('arrived');
+        gsap.set(contentRef.current, { opacity: 1, scale: 1, filter: "blur(0px)" });
+        // S'assurer que les éléments animés sont visibles
+        gsap.set('.hero-animate', { y: 0, opacity: 1, rotateX: 0 });
+    } else {
+        // Sinon, on cache le contenu pour l'animation d'entrée
+        gsap.set(contentRef.current, { opacity: 0, scale: 0.9, filter: "blur(20px)" });
+    }
+  }, [introPlayed, setStatus]);
 
   const handlePreloaderComplete = useCallback(() => {
     if (lock.current) return;
@@ -42,7 +43,10 @@ export default function Home() {
     setTimeout(() => {
       setStatus('arrived');
 
-      const tl = gsap.timeline();
+      const tl = gsap.timeline({
+          onComplete: () => setIntroPlayed(true)
+      });
+      
       tl.to(contentRef.current, {
         opacity: 1,
         scale: 1,
@@ -57,11 +61,11 @@ export default function Home() {
           "-=2"
       );
     }, 1500);
-  }, []);
+  }, [setStatus, setIntroPlayed]);
 
   return (
       <main className="relative w-full text-white font-sans selection:bg-blue-500/30">
-        <Preloader onComplete={handlePreloaderComplete} />
+        {!introPlayed && <Preloader onComplete={handlePreloaderComplete} />}
 
         {/* Pilotage de la 3D via le context (Scene est dans le layout) */}
 

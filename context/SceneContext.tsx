@@ -7,15 +7,18 @@ type SceneStatus = 'loading' | 'warping' | 'arrived';
 interface SceneContextType {
   status: SceneStatus;
   setStatus: (status: SceneStatus) => void;
+  introPlayed: boolean;
+  setIntroPlayed: (played: boolean) => void;
 }
 
 const SceneContext = createContext<SceneContextType | undefined>(undefined);
 
 export function SceneProvider({ children }: { children: ReactNode }) {
   const [status, setStatus] = useState<SceneStatus>('loading');
+  const [introPlayed, setIntroPlayed] = useState(false);
 
   return (
-    <SceneContext.Provider value={{ status, setStatus }}>
+    <SceneContext.Provider value={{ status, setStatus, introPlayed, setIntroPlayed }}>
       {children}
     </SceneContext.Provider>
   );
