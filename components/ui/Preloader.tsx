@@ -12,6 +12,7 @@ export default function Preloader({ onComplete }: { onComplete?: () => void }) {
 
     const logs = [
         "Initializing Neural Link...",
+        "Loading Portfolio Map v2.0...",
         "Calibrating Gravitational Lensing...",
         "Establishing Secure Connection...",
         "Syncing with Brussels Station...",
@@ -28,7 +29,7 @@ export default function Preloader({ onComplete }: { onComplete?: () => void }) {
 
             tl.to(percent, {
                 value: 100,
-                duration: 2,
+                duration: 3,
                 ease: "power2.inOut",
                 onUpdate: () => {
                     if (percentRef.current) {

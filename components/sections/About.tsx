@@ -98,15 +98,12 @@ export default function AboutSection() {
                         </p>
                     </div>
 
-                    <div className="pt-8">
+                    <div>
                         <Link href="/about" className="group inline-flex items-center gap-3 text-xs uppercase tracking-widest text-blue-500 hover:text-white transition-colors">
                             <span>Lire ma bio complète</span>
                             <span className="w-8 h-px bg-blue-500 group-hover:w-12 group-hover:bg-white transition-all"></span>
                         </Link>
                     </div>
-
-
-                    <div className="h-20" />
                 </div>
             </div>
         </section>
