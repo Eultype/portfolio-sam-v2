@@ -19,9 +19,10 @@ export default function AboutPage() {
     }, [setStatus]);
 
     useGSAP(() => {
-        gsap.from('.animate-full-about', {
-            y: 50,
-            opacity: 0,
+        gsap.to('.animate-full-about', {
+            y: 0,
+            opacity: 1,
+            startAt: { y: 50 },
             duration: 1,
             stagger: 0.1,
             ease: 'power3.out'
@@ -47,7 +48,7 @@ export default function AboutPage() {
                 <div className="max-w-5xl mx-auto space-y-32">
 
                     {/* HEADER PAGE */}
-                    <div className="text-center space-y-8 animate-full-about">
+                    <div className="text-center space-y-8 animate-full-about opacity-0">
                         <h1 className="text-7xl md:text-[12rem] font-bold tracking-tighter leading-none">BIO.</h1>
                         <p className="text-xl md:text-3xl text-gray-400 font-light max-w-3xl mx-auto">
                             Plus qu'un développeur, un créateur d'univers numériques.
@@ -55,8 +56,8 @@ export default function AboutPage() {
                     </div>
 
                     {/* CONTENU DÉTAILLÉ */}
-                    <div className="grid md:grid-cols-2 gap-20 animate-full-about parallax-img">
-                        <div className="aspect-[3/4] w-full relative animate-about-image will-change-transform">
+                    <div className="grid md:grid-cols-2 gap-20">
+                        <div className="aspect-[3/4] w-full relative animate-about-image will-change-transform animate-full-about opacity-0">
                             <LiquidImage
                                 src="/IMG_5360.webp"
                                 alt="Portrait Samuël"
@@ -65,7 +66,7 @@ export default function AboutPage() {
                                 coordinates={portfolioData.personal.coordinates2}
                             />
                         </div>
-                        <div className="space-y-12 animate-full-about text-lg text-gray-300 font-light leading-relaxed">
+                        <div className="space-y-12 animate-full-about opacity-0 text-lg text-gray-300 font-light leading-relaxed">
                             <p>
                                 {portfolioData.personal.description}
                             </p>
@@ -93,7 +94,7 @@ export default function AboutPage() {
                     </div>
 
                     {/* PHILOSOPHIE / VALEURS (Enrichissement) */}
-                    <div className="py-20 border-t border-white/5 animate-full-about">
+                    <div className="py-20 border-t border-white/5 animate-full-about opacity-0">
                         <h2 className="text-xs font-mono text-blue-500 uppercase tracking-[0.5em] mb-12">Ma Philosophie</h2>
                         <div className="grid md:grid-cols-3 gap-12">
                             {[

@@ -10,11 +10,10 @@ export default function NotFound() {
   const container = useRef(null);
   const { setStatus, setIntroPlayed } = useScene();
 
-  // On s'assure que la scène est en mode "arrived" (calme) et on marque l'intro comme vue
+  // On s'assure que la scène est en mode "arrived" (calme)
   useEffect(() => {
     setStatus('arrived');
-    setIntroPlayed(true);
-  }, [setStatus, setIntroPlayed]);
+  }, [setStatus]);
 
   useEffect(() => {
     gsap.fromTo('.animate-404', 

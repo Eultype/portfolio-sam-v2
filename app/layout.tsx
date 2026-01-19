@@ -6,6 +6,8 @@ import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import { SceneProvider } from "@/context/SceneContext";
 import SceneWrapper from "@/components/3d/SceneWrapper";
+import GlobalPreloader from "@/components/layout/GlobalPreloader";
+import dynamic from "next/dynamic";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -29,6 +31,7 @@ export default function RootLayout({
             className={`${spaceGrotesk.variable} font-sans antialiased`}
         >
         <SceneProvider>
+            <GlobalPreloader />
             <SceneWrapper />
             <SmoothScroll>
                 <CustomCursor />

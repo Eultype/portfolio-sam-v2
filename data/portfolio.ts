@@ -92,7 +92,7 @@ export const portfolioData = {
             id: 1,
             role: "Stagiaire Développeur Full-Stack",
             company: "Rebel Company",
-            date: "5 janvier 2025 - Now",
+            date: "5 janvier 2026 - Now",
             description: "Description exemple 1"
         },
         {
