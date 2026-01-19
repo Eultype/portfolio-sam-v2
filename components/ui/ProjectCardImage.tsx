@@ -17,7 +17,7 @@ export default function ProjectCardImage({ src, alt, className = "" }: ProjectCa
 
     useEffect(() => {
         // Initialisation stricte
-        gsap.set(cleanImageRef.current, { clipPath: "inset(0 100% 0 0)" });
+        gsap.set(cleanImageRef.current, { clipPath: "inset(0 100% 0 0)" } as any);
         gsap.set(scanLineRef.current, { left: "0%", opacity: 0 });
     }, []);
 
@@ -34,7 +34,7 @@ export default function ProjectCardImage({ src, alt, className = "" }: ProjectCa
         );
 
         // 2. L'image nette se révèle en suivant la barre
-        gsap.fromTo(cleanImageRef.current,
+        (gsap as any).fromTo(cleanImageRef.current,
             { clipPath: "inset(0 100% 0 0)" },
             { clipPath: "inset(0 0% 0 0)", duration: 0.6, ease: "power2.inOut" },
             "<" // Synchro parfaite
@@ -52,7 +52,7 @@ export default function ProjectCardImage({ src, alt, className = "" }: ProjectCa
             clipPath: "inset(0 100% 0 0)",
             duration: 0.4,
             ease: "power2.out"
-        });
+        } as any);
 
         gsap.to(scanLineRef.current, { opacity: 0, duration: 0.2 });
     };
