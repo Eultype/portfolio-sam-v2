@@ -1,14 +1,16 @@
 'use client';
 
 import { portfolioData } from '@/data/portfolio';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import Link from 'next/link';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import ProjectCardImage from "@/components/ui/ProjectCardImage";
+import ProjectModal from '@/components/ui/ProjectModal';
 
 export default function ProjectsSection() {
     const container = useRef(null);
+    const [selectedProject, setSelectedProject] = useState<typeof portfolioData.projects[0] | null>(null);
     const featuredProjects = portfolioData.projects.filter(p => p.featured).slice(0, 2);
 
     useGSAP(() => {
@@ -36,7 +38,11 @@ export default function ProjectsSection() {
 
             <div className="space-y-40 mb-20">
                 {featuredProjects.map((project, index) => (
-                    <div key={project.id} className="project-item group flex flex-col md:flex-row gap-8 md:gap-20 items-center">
+                    <div 
+                        key={project.id} 
+                        className="project-item group flex flex-col md:flex-row gap-8 md:gap-20 items-center cursor-pointer"
+                        onClick={() => setSelectedProject(project)}
+                    >
                         <div className={`w-full md:w-2/3 aspect-video relative overflow-hidden rounded-sm ${index % 2 === 1 ? 'md:order-2' : ''}`}>
                             <ProjectCardImage
                                 src={project.image}
@@ -56,15 +62,29 @@ export default function ProjectsSection() {
                                 {project.description}
                             </p>
                             <div className="pt-8">
-                                <Link href="/projects" className="group inline-flex items-center gap-3 text-xs uppercase tracking-widest text-blue-500 hover:text-white transition-colors">
-                                    <span>Voir tous les projets</span>
+                                <button className="group inline-flex items-center gap-3 text-xs uppercase tracking-widest text-blue-500 hover:text-white transition-colors">
+                                    <span>Voir le projet</span>
                                     <span className="w-8 h-px bg-blue-500 group-hover:w-12 group-hover:bg-white transition-all"></span>
-                                </Link>
+                                </button>
                             </div>
                         </div>
                     </div>
                 ))}
             </div>
+
+            <div className="text-center pt-10">
+                 <Link href="/projects" className="group inline-flex items-center gap-3 text-xs uppercase tracking-widest text-blue-500 hover:text-white transition-colors">
+                    <span>Voir tous les projets</span>
+                    <span className="w-8 h-px bg-blue-500 group-hover:w-12 group-hover:bg-white transition-all"></span>
+                 </Link>
+            </div>
+
+            {selectedProject && (
+                <ProjectModal 
+                    project={selectedProject} 
+                    onClose={() => setSelectedProject(null)} 
+                />
+            )}
         </section>
     );
 }

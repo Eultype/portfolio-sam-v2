@@ -1,4 +1,6 @@
-export const portfolioData = {
+import { PortfolioData } from '@/types/portfolio';
+
+export const portfolioData: PortfolioData = {
     personal: {
         name: "Samuël",
         role: "Développeur Full-Stack Junior",
@@ -47,8 +49,10 @@ export const portfolioData = {
             title: "Scarlett Gallery",
             category: "Frontend",
             description: "Conception et développement d’un site vitrine destiné à la présentation d’une galerie artistique.",
+            longDescription: "Scarlett Gallery est un projet de portfolio artistique mettant en avant des œuvres contemporaines. L'objectif était de créer une interface épurée et immersive qui laisse toute la place aux visuels. Le site comprend une galerie interactive, une page de présentation de l'artiste et un formulaire de contact optimisé.",
             stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
-            image: "/projet_scarlett.webp",
+            image: "/project/projet_scarlett.webp",
+            gallery: ["/project/projet_scarlett.webp", "/project/projet_scarlett.webp", "/project/projet_scarlett.webp"],
             demo: "#",
             code: "#",
             featured: true
@@ -58,8 +62,10 @@ export const portfolioData = {
             title: "2D3D Gravure - Dashboard",
             category: "Frontend",
             description: "Exemple description 2",
+            longDescription: "Développement d'un tableau de bord administratif pour une entreprise de gravure. Ce dashboard permet de visualiser les commandes en cours, les stocks de matériaux et les statistiques de production en temps réel. L'interface a été pensée pour être efficace et responsive sur tablette.",
             stack: ["Stacks du projet à définir"],
             image: "/project-2d3d.png",
+            gallery: ["/project-2d3d.png", "/project-2d3d.png"],
             demo: "#",
             code: "#",
             featured: true
@@ -69,8 +75,10 @@ export const portfolioData = {
             title: "Exemple Project 3",
             category: "App",
             description: "Exemple description 3",
+            longDescription: "Une application mobile cross-platform conçue pour simplifier la gestion des tâches quotidiennes. Elle intègre des fonctionnalités de synchronisation cloud, des notifications push et un mode sombre natif.",
             stack: ["Stacks du projet à définir"],
             image: "/projects/task.jpg",
+            gallery: ["/projects/task.jpg"],
             demo: "#",
             code: "#",
             featured: true
@@ -80,8 +88,10 @@ export const portfolioData = {
             title: "Exemple Project 4",
             category: "Frontend",
             description: "Exemple description 4",
+            longDescription: "Refonte complète de l'identité visuelle et du site web d'une start-up locale. Le projet incluait la création d'un système de design complet et l'intégration de maquettes haute fidélité.",
             stack: ["Stacks du projet à définir"],
             image: "/projects/old.jpg",
+            gallery: ["/projects/old.jpg"],
             demo: "#",
             code: "#",
             featured: false

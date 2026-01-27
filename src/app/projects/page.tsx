@@ -6,6 +6,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import ProjectCardImage from "@/components/ui/ProjectCardImage";
 import { useScene } from '@/context/SceneContext';
+import ProjectModal from '@/components/ui/ProjectModal';
 
 export default function ProjectsPage() {
     const { setStatus } = useScene();
@@ -16,6 +17,7 @@ export default function ProjectsPage() {
 
     const container = useRef(null);
     const [filter, setFilter] = useState('All');
+    const [selectedProject, setSelectedProject] = useState<typeof portfolioData.projects[0] | null>(null);
 
     const categories = ['All', ...Array.from(new Set(portfolioData.projects.map(p => p.category)))];
     const filteredProjects = filter === 'All' ? portfolioData.projects : portfolioData.projects.filter(p => p.category === filter);
@@ -59,7 +61,11 @@ export default function ProjectsPage() {
                 {/* GRILLE COMPLÈTE */}
                 <div className="grid md:grid-cols-2 gap-x-20 gap-y-40">
                     {filteredProjects.map((project) => (
-                        <div key={project.id} className="animate-full-project group flex flex-col space-y-8">
+                        <div 
+                            key={project.id} 
+                            className="animate-full-project group flex flex-col space-y-8 cursor-pointer"
+                            onClick={() => setSelectedProject(project)}
+                        >
                             <div className="aspect-[16/9] relative overflow-hidden rounded-sm">
                                 <ProjectCardImage
                                     src={project.image}
@@ -87,9 +93,11 @@ export default function ProjectsPage() {
                                 </span>
                                     ))}
                                 </div>
-                                <div className="pt-8 flex gap-8">
-                                    <a href={project.demo} className="text-[10px] uppercase tracking-widest text-white border-b border-white/20 pb-1 hover:border-white transition-colors">Demo</a>
-                                    <a href={project.code} className="text-[10px] uppercase tracking-widest text-gray-500 hover:text-white transition-colors">Code source</a>
+                                <div className="pt-8">
+                                    <button className="group inline-flex items-center gap-3 text-xs uppercase tracking-widest text-blue-500 hover:text-white transition-colors">
+                                        <span>Voir le projet</span>
+                                        <span className="w-8 h-px bg-blue-500 group-hover:w-12 group-hover:bg-white transition-all"></span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -97,6 +105,13 @@ export default function ProjectsPage() {
                 </div>
 
             </section>
+
+            {selectedProject && (
+                <ProjectModal 
+                    project={selectedProject} 
+                    onClose={() => setSelectedProject(null)} 
+                />
+            )}
         </main>
     );
 }
