@@ -61,9 +61,9 @@ export const portfolioData: PortfolioData = {
                 "Performance & Temps réel : Utilisation de Server Actions et WebSockets.",
                 "Automatisation : Génération de factures PDF et gestion intelligente des stocks."
             ],
-            stack: ["Next.js 16", "TypeScript", "PostgreSQL", "Prisma", "Tailwind CSS", "Shadcn UI", "Cloudinary"],
+            stack: ["Next.js 16", "TypeScript", "PostgreSQL", "Prisma", "Tailwind CSS", "Shadcn UI", "Cloudinary", "Zod"],
             image: "/project-2d3d.png",
-            gallery: ["/project/project-2d3d-iMac.png", "/project/project-2d3d-macbook.png", "/project/project-2d3d-ipad-1.png", "/project/project-2d3d-iphone-1.png"],
+            gallery: ["/project/2d3d/project-2d3d-iMac.png", "/project/2d3d/project-2d3d-macbook.png", "/project/2d3d/project-2d3d-ipads.png", "/project/2d3d/project-2d3d-iphones.png"],
             demo: "#",
             code: "#",
             featured: true
@@ -94,8 +94,8 @@ export const portfolioData: PortfolioData = {
                 "Architecture Modulaire : Code organisé pour une maintenabilité maximale."
             ],
             stack: ["Next.js 16", "Tailwind CSS", "TypeScript", "Framer Motion", "Zod", "Lenis"],
-            image: "/project/ladolcevita2.png",
-            gallery: ["/project/ladolcevita2.png", "/ladolcevita2.png"],
+            image: "/project/la-dolce-vita/la-dolce-vita.png",
+            gallery: ["/project/la-dolce-vita/la-dolce-vita-iMac.png", "/project/la-dolce-vita/la-dolce-vita-macbook-1.png", "/project/la-dolce-vita/la-dolce-vita-ipads-1.png", "/project/la-dolce-vita/la-dolce-vita-iphones-2.png"],
             demo: "#",
             code: "#",
             featured: true

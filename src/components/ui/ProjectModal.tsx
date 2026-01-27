@@ -1,17 +1,11 @@
-'use client';
-
-// Import Next
+import { Project } from '@/types/portfolio';
 import Image from 'next/image';
-// Import React
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-// Import GSAP
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-// Import types
-import { Project } from '@/types/portfolio';
+import ModalStars from './ModalStars';
 
-// Interface
 interface ProjectModalProps {
     project: Project;
     onClose: () => void;
@@ -83,31 +77,30 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
     };
 
-    if (typeof document === 'undefined') return null;
-
-    return createPortal(
-        <div 
-            ref={modalRef}
-            className="fixed inset-0 z-[999] flex items-center justify-center bg-black/60 backdrop-blur-md opacity-0 p-4 md:p-8"
-            onClick={handleClose}
-        >
-            <div 
-                ref={contentRef}
-                className="bg-[#111] w-full max-w-6xl max-h-[90vh] rounded-xl overflow-hidden shadow-2xl flex flex-col md:flex-row border border-white/10"
-                onClick={(e) => e.stopPropagation()}
+        if (typeof document === 'undefined') return null;
+    
+        return createPortal(            <div 
+                ref={modalRef}
+                className="fixed inset-0 z-[999] flex items-center justify-center bg-black/60 backdrop-blur-md opacity-0 p-4 md:p-8"
+                onClick={handleClose}
             >
-                {/* Galerie (Partie Gauche/Haut) */}
-                <div className="w-full md:w-2/3 h-[40vh] md:h-auto relative bg-black/50 group p-6 flex items-center justify-center">
-                    <div className="relative w-full h-full">
-                        <Image 
-                            src={images[currentImageIndex]} 
-                            alt={`${project.title} - Image ${currentImageIndex + 1}`}
-                            fill
-                            className="object-contain"
-                            priority
-                        />
-                    </div>
-                    
+                <div 
+                    ref={contentRef}
+                    className="bg-[#111] w-full max-w-6xl max-h-[90vh] rounded-xl overflow-hidden shadow-2xl flex flex-col md:flex-row border border-white/10"
+                    onClick={(e) => e.stopPropagation()}
+                >
+                    {/* Galerie (Partie Gauche/Haut) */}
+                    <div className="w-full md:w-2/3 h-[40vh] md:h-auto relative bg-black group p-6 flex items-center justify-center border-r border-white/5 overflow-hidden">
+                        <ModalStars />
+                        <div className="relative w-full h-full z-10">
+                            <Image 
+                                src={images[currentImageIndex]} 
+                                alt={`${project.title} - Image ${currentImageIndex + 1}`}
+                                fill
+                                className="object-contain drop-shadow-2xl"
+                                priority
+                            />
+                        </div>                    
                     {/* Contrôles Galerie */}
                     {images.length > 1 && (
                         <>
