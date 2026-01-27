@@ -63,7 +63,7 @@ export const portfolioData: PortfolioData = {
             ],
             stack: ["Next.js 16", "TypeScript", "PostgreSQL", "Prisma", "Tailwind CSS", "Shadcn UI", "Cloudinary"],
             image: "/project-2d3d.png",
-            gallery: ["/project-2d3d.png", "/project-2d3d.png"],
+            gallery: ["/project/project-2d3d-iMac.png", "/project/project-2d3d-macbook.png", "/project/project-2d3d-ipad-1.png", "/project/project-2d3d-iphone-1.png"],
             demo: "#",
             code: "#",
             featured: true
