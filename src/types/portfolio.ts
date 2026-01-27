@@ -4,6 +4,7 @@ export type Project = {
     category: string;
     description: string;
     longDescription?: string;
+    challenges?: string[];
     stack: string[];
     image: string;
     gallery?: string[];

@@ -1,6 +1,7 @@
 import { PortfolioData } from '@/types/portfolio';
 
 export const portfolioData: PortfolioData = {
+    // Coordonnées personnelles
     personal: {
         name: "Samuël",
         role: "Développeur Full-Stack Junior",
@@ -24,6 +25,7 @@ export const portfolioData: PortfolioData = {
             { name: "Twitter", url: "https://twitter.com", icon: "Twitter" },
         ]
     },
+    // Menu de navigation
     nav: [
         { label: "Accueil", path: "/" },
         { label: "À Propos", path: "/about" },
@@ -32,24 +34,33 @@ export const portfolioData: PortfolioData = {
         { label: "Expérience", path: "/experience" },
         { label: "Contact", path: "/contact" },
     ],
+    // Statistiques
     stats: [
         { label: "mois de formation intensive", value: "14" },
         { label: "Projets architecturés", value: "10+" },
         { label: "Technologies et outils utilisés", value: "15+"},
         { label: "Heures de code & veille", value: "1800+"}
     ],
+    // Skills
     skills: {
         frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS", "GSAP", "Three.js"],
         backend: ["Node.js", "Express", "PostgreSQL", "Prisma", "PHP", "REST API"],
         tools: ["Git", "GitHub", "Linux", "JetBrains", "Figma", "Vercel",],
     },
+    // Projets
     projects: [
         {
             id: 1,
-            title: "2D3D Gravure - ERP",
-            category: "Full-Stack / SaaS",
+            title: "2D3D Gravure - Dashboard",
+            category: "Full-Stack",
             description: "Un ERP moderne et sur-mesure pour gérer l'intégralité du flux de production d'une entreprise de gravure. De la commande client à l'expédition.",
-            longDescription: "Conception et développement d'une plateforme ERP (Enterprise Resource Planning) complète pour digitaliser l'atelier de gravure 2D3D Crystal. Ce projet ambitieux répond à un besoin critique : centraliser la gestion des commandes, du stock et des partenaires B2B sur une interface unique et ultra-performante. \n\nChallenges relevés :\n- Flux de production complexe : Création d'un Wizard intuitif pour les commandes sur-mesure et suivi visuel des statuts.\n- Architecture B2B/B2C : Système de rôles (RBAC) sécurisé isolant les données des revendeurs.\n- Performance & Temps réel : Utilisation de Server Actions et WebSockets pour la collaboration en direct.\n- Automatisation : Génération de factures PDF et gestion intelligente des stocks.",
+            longDescription: "Conception et développement d'une plateforme ERP (Enterprise Resource Planning) complète pour digitaliser l'atelier de gravure 2D3D Crystal. Ce projet ambitieux répond à un besoin critique : centraliser la gestion des commandes, du stock et des partenaires B2B sur une interface unique et ultra-performante.",
+            challenges: [
+                "Flux de production complexe : Création d'un Wizard intuitif et suivi visuel des statuts.",
+                "Architecture B2B/B2C : Système de rôles (RBAC) sécurisé isolant les données.",
+                "Performance & Temps réel : Utilisation de Server Actions et WebSockets.",
+                "Automatisation : Génération de factures PDF et gestion intelligente des stocks."
+            ],
             stack: ["Next.js 16", "TypeScript", "PostgreSQL", "Prisma", "Tailwind CSS", "Shadcn UI", "Cloudinary"],
             image: "/project-2d3d.png",
             gallery: ["/project-2d3d.png", "/project-2d3d.png"],
@@ -62,7 +73,7 @@ export const portfolioData: PortfolioData = {
             title: "Scarlett Gallery",
             category: "Frontend",
             description: "Conception et développement d’un site vitrine destiné à la présentation d’une galerie artistique.",
-            longDescription: "Scarlett Gallery est un projet de portfolio artistique mettant en avant des œuvres contemporaines. L'objectif était de créer une interface épurée et immersive qui laisse toute la place aux visuels. Le site comprend une galerie interactive, une page de présentation de l'artiste et un formulaire de contact optimisé.",
+            longDescription: "Scarlett Gallery est un projet de portfolio artistique mettant en avant des œuvres contemporaines. L'objectif était de créer une interface épurée et immersive qui laisse toute la place aux visuels. Le site comprend une page de présentation de l'artiste, une galerie interactive, ses services, ses avis et un formulaire de contact optimisé.",
             stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
             image: "/project/projet_scarlett.webp",
             gallery: ["/project/projet_scarlett.webp", "/project/projet_scarlett.webp", "/project/projet_scarlett.webp"],
@@ -73,12 +84,18 @@ export const portfolioData: PortfolioData = {
         {
             id: 3,
             title: "La Dolce Vita",
-            category: "Frontend / UX",
+            category: "Frontend",
             description: "Une vitrine digitale immersive pour un restaurant italien de prestige. Alliant design luxueux, animations fluides et architecture Next.js optimisée.",
-            longDescription: "La Dolce Vita n'est pas un simple site vitrine, c'est une application web immersive conçue pour refléter l'excellence gastronomique de l'établissement. L'objectif était de créer une expérience utilisateur fluide et raffinée, évoquant l'atmosphère chaleureuse de l'Italie.\n\nPoints forts :\n- UX/UI Premium : Direction artistique soignée, micro-interactions subtiles et smooth scroll pour une navigation sans accroc.\n- Réservation Intuitive : Un tunnel de réservation 'Wizard' étape par étape avec validation en temps réel.\n- Performance & SEO : Utilisation intensive des Server Components de Next.js 16 pour un chargement instantané.\n- Architecture Modulaire : Code organisé pour une maintenabilité maximale.",
+            longDescription: "La Dolce Vita n'est pas un simple site vitrine, c'est une application web immersive conçue pour refléter l'excellence gastronomique de l'établissement. L'objectif était de créer une expérience utilisateur fluide et raffinée, évoquant l'atmosphère chaleureuse de l'Italie.",
+            challenges: [
+                "UX/UI Premium : Direction artistique soignée et micro-interactions subtiles.",
+                "Réservation Intuitive : Tunnel de réservation étape par étape avec validation en temps réel.",
+                "Performance & SEO : Utilisation des Server Components et données structurées.",
+                "Architecture Modulaire : Code organisé pour une maintenabilité maximale."
+            ],
             stack: ["Next.js 16", "Tailwind CSS", "TypeScript", "Framer Motion", "Zod", "Lenis"],
             image: "/project/ladolcevita2.png",
-            gallery: ["/project/ladolcevita.png", "/project/ladolcevita2.png"],
+            gallery: ["/project/ladolcevita2.png", "/ladolcevita2.png"],
             demo: "#",
             code: "#",
             featured: true
@@ -97,6 +114,7 @@ export const portfolioData: PortfolioData = {
             featured: false
         }
     ],
+    // Expériences
     experience: [
         {
             id: 1,

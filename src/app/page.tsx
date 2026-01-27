@@ -1,17 +1,22 @@
 'use client';
 
+// Import React
 import { useRef, useEffect } from 'react';
+// Import GSAP
 import gsap from 'gsap';
+// Import des composants
 import MagneticButton from '@/components/ui/MagneticButton';
-import { portfolioData } from '@/data/portfolio';
-import { useScene } from '@/context/SceneContext';
-
 import AboutSection from '@/components/sections/About';
 import SkillsSection from '@/components/sections/Skills';
 import ProjectsSection from '@/components/sections/Projects';
 import ExperienceSection from '@/components/sections/Experience';
 import ContactSection from '@/components/sections/Contact';
+// Import data
+import { portfolioData } from '@/data/portfolio';
+// Import context
+import { useScene } from '@/context/SceneContext';
 
+// Page d'accueil
 export default function Home() {
   const { status, introPlayed } = useScene();
   const contentRef = useRef<HTMLDivElement>(null);
@@ -49,7 +54,7 @@ export default function Home() {
                     style={{ pointerEvents: status === 'arrived' ? 'all' : 'none' }}
                 >
 
-                  {/* SECTION 00: HERO */}
+                  {/* Hero */}
                   <section id="home" className="relative min-h-[100svh] flex flex-col items-center justify-center px-6 overflow-hidden">
                     <div className="text-center max-w-6xl mx-auto space-y-6 z-10 mt-20">
                       <div className="overflow-hidden flex justify-center">
