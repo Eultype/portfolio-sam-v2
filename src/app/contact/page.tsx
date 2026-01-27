@@ -1,10 +1,14 @@
 'use client';
 
-import ContactForm from '@/components/ui/ContactForm';
-import { portfolioData } from '@/data/portfolio';
+// Import react
 import { useRef, useEffect } from 'react';
+// Import GSAP
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+// Import des composants
+import ContactForm from '@/components/ui/ContactForm';
+import { portfolioData } from '@/data/portfolio';
+// Import context
 import { useScene } from '@/context/SceneContext';
 
 export default function ContactPage() {
@@ -40,7 +44,7 @@ export default function ContactPage() {
                     </div>
 
                     <div className="flex flex-col lg:flex-row gap-20 items-start">
-                        {/* INFOS DIRECTES */}
+                        {/* Infos / Coordonnées */}
                         <div className="lg:w-1/3 space-y-16 animate-full-contact">
                             <div className="space-y-4">
                                 <h3 className="text-[10px] font-mono text-blue-500 uppercase tracking-[0.5em]">Command_Center</h3>
@@ -65,7 +69,7 @@ export default function ContactPage() {
                             </div>
                         </div>
 
-                        {/* FORMULAIRE HUD - VERSION EXACTE SECTION HOME */}
+                        {/* Formulaire de contact */}
                         <div className="lg:w-2/3 w-full bg-white/[0.02] backdrop-blur-3xl border border-white/5 p-8 md:p-12 rounded-sm animate-full-contact relative">
                             <ContactForm />
                         </div>

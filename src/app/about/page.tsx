@@ -1,11 +1,16 @@
 'use client';
 
-import { portfolioData } from '@/data/portfolio';
+// Import React
 import { useRef, useEffect } from 'react';
+// Import GSAP
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+// Import des composants
 import LiquidImage from '@/components/ui/LiquidImage';
+// Import datas
+import { portfolioData } from '@/data/portfolio';
+// Import context
 import { useScene } from '@/context/SceneContext';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -47,7 +52,7 @@ export default function AboutPage() {
             <section className="pt-40 pb-20 container mx-auto px-6">
                 <div className="max-w-5xl mx-auto space-y-32">
 
-                    {/* HEADER PAGE */}
+                    {/* Header */}
                     <div className="text-center space-y-8 animate-full-about opacity-0">
                         <h1 className="text-7xl md:text-[12rem] font-bold tracking-tighter leading-none">BIO.</h1>
                         <p className="text-xl md:text-3xl text-gray-400 font-light max-w-3xl mx-auto">
@@ -55,7 +60,7 @@ export default function AboutPage() {
                         </p>
                     </div>
 
-                    {/* CONTENU DÉTAILLÉ */}
+                    {/* Contenu */}
                     <div className="grid md:grid-cols-2 gap-20">
                         <div className="aspect-[3/4] w-full relative animate-about-image will-change-transform animate-full-about opacity-0">
                             <LiquidImage
@@ -93,7 +98,7 @@ export default function AboutPage() {
                         </div>
                     </div>
 
-                    {/* PHILOSOPHIE / VALEURS (Enrichissement) */}
+                    {/* Philosophie / Valeurs */}
                     <div className="py-20 border-t border-white/5 animate-full-about opacity-0">
                         <h2 className="text-xs font-mono text-blue-500 uppercase tracking-[0.5em] mb-12">Ma Philosophie</h2>
                         <div className="grid md:grid-cols-3 gap-12">

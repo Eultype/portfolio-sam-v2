@@ -46,6 +46,19 @@ export const portfolioData: PortfolioData = {
     projects: [
         {
             id: 1,
+            title: "2D3D Gravure - ERP",
+            category: "Full-Stack / SaaS",
+            description: "Un ERP moderne et sur-mesure pour gérer l'intégralité du flux de production d'une entreprise de gravure. De la commande client à l'expédition.",
+            longDescription: "Conception et développement d'une plateforme ERP (Enterprise Resource Planning) complète pour digitaliser l'atelier de gravure 2D3D Crystal. Ce projet ambitieux répond à un besoin critique : centraliser la gestion des commandes, du stock et des partenaires B2B sur une interface unique et ultra-performante. \n\nChallenges relevés :\n- Flux de production complexe : Création d'un Wizard intuitif pour les commandes sur-mesure et suivi visuel des statuts.\n- Architecture B2B/B2C : Système de rôles (RBAC) sécurisé isolant les données des revendeurs.\n- Performance & Temps réel : Utilisation de Server Actions et WebSockets pour la collaboration en direct.\n- Automatisation : Génération de factures PDF et gestion intelligente des stocks.",
+            stack: ["Next.js 16", "TypeScript", "PostgreSQL", "Prisma", "Tailwind CSS", "Shadcn UI", "Cloudinary"],
+            image: "/project-2d3d.png",
+            gallery: ["/project-2d3d.png", "/project-2d3d.png"],
+            demo: "#",
+            code: "#",
+            featured: true
+        },
+        {
+            id: 2,
             title: "Scarlett Gallery",
             category: "Frontend",
             description: "Conception et développement d’un site vitrine destiné à la présentation d’une galerie artistique.",
@@ -58,27 +71,14 @@ export const portfolioData: PortfolioData = {
             featured: true
         },
         {
-            id: 2,
-            title: "2D3D Gravure - Dashboard",
-            category: "Frontend",
-            description: "Exemple description 2",
-            longDescription: "Développement d'un tableau de bord administratif pour une entreprise de gravure. Ce dashboard permet de visualiser les commandes en cours, les stocks de matériaux et les statistiques de production en temps réel. L'interface a été pensée pour être efficace et responsive sur tablette.",
-            stack: ["Stacks du projet à définir"],
-            image: "/project-2d3d.png",
-            gallery: ["/project-2d3d.png", "/project-2d3d.png"],
-            demo: "#",
-            code: "#",
-            featured: true
-        },
-        {
             id: 3,
-            title: "Exemple Project 3",
-            category: "App",
-            description: "Exemple description 3",
-            longDescription: "Une application mobile cross-platform conçue pour simplifier la gestion des tâches quotidiennes. Elle intègre des fonctionnalités de synchronisation cloud, des notifications push et un mode sombre natif.",
-            stack: ["Stacks du projet à définir"],
-            image: "/projects/task.jpg",
-            gallery: ["/projects/task.jpg"],
+            title: "La Dolce Vita",
+            category: "Frontend / UX",
+            description: "Une vitrine digitale immersive pour un restaurant italien de prestige. Alliant design luxueux, animations fluides et architecture Next.js optimisée.",
+            longDescription: "La Dolce Vita n'est pas un simple site vitrine, c'est une application web immersive conçue pour refléter l'excellence gastronomique de l'établissement. L'objectif était de créer une expérience utilisateur fluide et raffinée, évoquant l'atmosphère chaleureuse de l'Italie.\n\nPoints forts :\n- UX/UI Premium : Direction artistique soignée, micro-interactions subtiles et smooth scroll pour une navigation sans accroc.\n- Réservation Intuitive : Un tunnel de réservation 'Wizard' étape par étape avec validation en temps réel.\n- Performance & SEO : Utilisation intensive des Server Components de Next.js 16 pour un chargement instantané.\n- Architecture Modulaire : Code organisé pour une maintenabilité maximale.",
+            stack: ["Next.js 16", "Tailwind CSS", "TypeScript", "Framer Motion", "Zod", "Lenis"],
+            image: "/project/ladolcevita2.png",
+            gallery: ["/project/ladolcevita.png", "/project/ladolcevita2.png"],
             demo: "#",
             code: "#",
             featured: true

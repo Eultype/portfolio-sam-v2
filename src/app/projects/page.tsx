@@ -1,12 +1,17 @@
 'use client';
 
-import { portfolioData } from '@/data/portfolio';
+// Import React
 import { useRef, useState, useEffect } from 'react';
+// Import GSAP
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+// Import datas
+import { portfolioData } from '@/data/portfolio';
+// Import des composants
 import ProjectCardImage from "@/components/ui/ProjectCardImage";
-import { useScene } from '@/context/SceneContext';
 import ProjectModal from '@/components/ui/ProjectModal';
+// Import context
+import { useScene } from '@/context/SceneContext';
 
 export default function ProjectsPage() {
     const { setStatus } = useScene();

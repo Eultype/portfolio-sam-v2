@@ -1,9 +1,13 @@
 'use client';
 
-import { portfolioData } from '@/data/portfolio';
+// Import React
 import { useRef, useEffect } from 'react';
+// Import GSAP
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+// Import data
+import { portfolioData } from '@/data/portfolio';
+// Import context
 import { useScene } from '@/context/SceneContext';
 
 export default function ExperiencePage() {
