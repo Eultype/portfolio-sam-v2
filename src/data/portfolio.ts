@@ -121,21 +121,51 @@ export const portfolioData: PortfolioData = {
             role: "Stagiaire Développeur Full-Stack",
             company: "Rebel Company",
             date: "5 janvier 2026 - Now",
-            description: "Description exemple 1"
+            description: "Développement de l'application métier 2D3D (Next.js, Prisma) et gestion de projets WordPress. Une expérience terrain où j'ai pu confronter mon code à la réalité des besoins clients et livrer des produits finis.",
+            responsibilities: [
+                "Conception de l'architecture (Next.js)",
+                "Développement Full-Stack (API & UI)",
+                "Gestion et maintenance WordPress"
+            ],
+            results: [
+                "Lancement du Dashboard Production",
+                "Optimisation des performances",
+                "Autonomie sur la stack technique"
+            ]
         },
         {
             id: 2,
             role: "Formation Développeur Web Full-Stack",
             company: "Centre de formation 2 Mille",
             date: "11 novembre 2024 - 14 février 2026",
-            description: "Description exemple 2"
+            description: "14 mois de pratique intensive pour tout apprendre. De l'algorithmique aux bases de données, j'ai enchaîné les projets pour acquérir des bases solides et une vraie rigueur de développement.",
+            responsibilities: [
+                "Maîtrise du cycle de développement",
+                "Architecture de bases de données",
+                "Résolution de problèmes complexes"
+            ],
+            results: [
+                "Polyvalence Front & Back",
+                "Rigueur et bonnes pratiques",
+                "Prêt pour la production"
+            ]
         },
         {
             id: 3,
-            role: "Exemple role 3",
-            company: "Company name à définir.",
-            date: "Date 3",
-            description: "Description exemple 3"
+            role: "Explorateur Technologique",
+            company: "Autodidacte & Veille",
+            date: "Mission Permanente",
+            description: "Exploration active des nouvelles frontières du web (Next.js, 3D, IA). Je consacre mon temps libre à bâtir des projets expérimentaux, à décortiquer des documentations et à affiner mes pratiques de Clean Code. Une quête perpétuelle d'excellence technique.",
+            responsibilities: [
+                "Auto-formation quotidienne",
+                "Challenge technique personnel",
+                "Développement d'outils sur-mesure"
+            ],
+            results: [
+                "Portfolio 3D interactif",
+                "Montée en compétence rapide",
+                "Adaptabilité immédiate"
+            ]
         }
     ]
 };

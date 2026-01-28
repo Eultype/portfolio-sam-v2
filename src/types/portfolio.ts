@@ -19,6 +19,8 @@ export type Experience = {
     company: string;
     date: string;
     description: string;
+    responsibilities?: string[];
+    results?: string[];
 };
 
 export type Social = {

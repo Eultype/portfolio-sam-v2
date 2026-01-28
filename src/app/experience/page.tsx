@@ -66,19 +66,23 @@ export default function ExperiencePage() {
                                 {/* Points clés : Responsabilités / Résultats */}
                                 <div className="grid md:grid-cols-2 gap-8 mt-12 pt-12 border-t border-white/5">
                                     {/* Responsabilités */}
-                                    <div className="text-sm text-gray-600 font-mono">
-                                        <span className="text-white block mb-2 uppercase tracking-widest">Responsabilités :</span>
-                                        • Architecture logicielle<br/>
-                                        • Mentorat technique<br/>
-                                        • Optimisation performance
-                                    </div>
+                                    {exp.responsibilities && (
+                                        <div className="text-sm text-gray-600 font-mono">
+                                            <span className="text-white block mb-2 uppercase tracking-widest">Responsabilités :</span>
+                                            {exp.responsibilities.map((resp, i) => (
+                                                <div key={i}>• {resp}</div>
+                                            ))}
+                                        </div>
+                                    )}
                                     {/* Résultats */}
-                                    <div className="text-sm text-gray-600 font-mono">
-                                        <span className="text-white block mb-2 uppercase tracking-widest">Résultats :</span>
-                                        • Réduction latence -40%<br/>
-                                        • Scalabilité x10<br/>
-                                        • Taux de bugs -25%
-                                    </div>
+                                    {exp.results && (
+                                        <div className="text-sm text-gray-600 font-mono">
+                                            <span className="text-white block mb-2 uppercase tracking-widest">Résultats :</span>
+                                            {exp.results.map((res, i) => (
+                                                <div key={i}>• {res}</div>
+                                            ))}
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         ))}
