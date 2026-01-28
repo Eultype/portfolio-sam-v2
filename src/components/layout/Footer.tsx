@@ -1,9 +1,13 @@
 'use client';
 
-import { portfolioData } from '@/data/portfolio';
-import MagneticButton from '../ui/MagneticButton';
+// Import Spline
 import Spline from "@splinetool/react-spline";
+// Import des composants
+import MagneticButton from '../ui/MagneticButton';
+// Import des data
+import { portfolioData } from '@/data/portfolio';
 
+// Layout du Footer
 export default function Footer() {
     return (
         <footer className="relative pt-60 pb-20 z-10 overflow-hidden">

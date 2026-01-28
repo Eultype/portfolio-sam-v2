@@ -1,7 +1,9 @@
 'use client';
 
+// Import React
 import { useRef, useState, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
+// Import Three.js
 import * as THREE from 'three';
 
 const HyperMeteorMaterial = {

@@ -1,10 +1,14 @@
 'use client';
 
+// Import Next
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+// Import react
 import { useState, useEffect } from 'react';
+// Import des composants
 import MagneticButton from '../ui/MagneticButton';
 
+// Layout de la Navbar
 export default function Navbar() {
     const pathname = usePathname();
     const [scrolled, setScrolled] = useState(false);
@@ -38,29 +42,29 @@ export default function Navbar() {
                 }`}
             >
                 <div className="flex items-center justify-between">
-                    {/* HUD LOGO: POLARIS PRIME */}
+                    {/* Logo */}
                     <Link href="/" className="flex items-center gap-6 group select-none">
                         <div className="relative w-14 h-14 flex items-center justify-center">
                             
-                            {/* 1. ANAMORPHIC LENS FLARE (L'effet cinéma) */}
+                            {/* Effet cinema */}
                             <div className="absolute w-[180%] h-[1px] bg-gradient-to-r from-transparent via-blue-500/40 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-out" />
                             
-                            {/* 2. NAVIGATION RING (L'anneau technique) */}
+                            {/* Anneau */}
                             <svg className="absolute w-full h-full opacity-20 group-hover:opacity-40 transition-opacity duration-500 rotate-[-45deg]" viewBox="0 0 100 100">
                                 <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="0.5" strokeDasharray="2 6" className="text-white" />
                             </svg>
 
-                            {/* 3. THE STAR (RAZOR SHARP) */}
+                            {/* Étoile polaire */}
                             <div className="relative w-8 h-8 flex items-center justify-center group-hover:rotate-90 transition-transform duration-1000">
                                 {/* Branches principales */}
                                 <div className="absolute w-[1px] h-full bg-gradient-to-b from-transparent via-white to-transparent" />
                                 <div className="absolute w-full h-[1px] bg-gradient-to-r from-transparent via-white to-transparent" />
                                 
-                                {/* Branches secondaires (Diagonales) */}
+                                {/* Branches secondaires  */}
                                 <div className="absolute w-[1px] h-1/2 bg-gradient-to-b from-transparent via-white/40 to-transparent rotate-45" />
                                 <div className="absolute w-[1px] h-1/2 bg-gradient-to-b from-transparent via-white/40 to-transparent -rotate-45" />
                                 
-                                {/* Le Cœur (Singularité) */}
+                                {/* Le Cœur  */}
                                 <div className="absolute w-1 h-1 bg-white rounded-full shadow-[0_0_15px_#fff] group-hover:shadow-[0_0_20px_#3b82f6] transition-all" />
                             </div>
 
@@ -68,7 +72,7 @@ export default function Navbar() {
                             <div className="absolute inset-0 bg-blue-500/5 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                         </div>
 
-                        {/* 4. SIGNATURE: S . D // NAV_SYSTEM */}
+                        {/* Signature */}
                         <div className="flex flex-col">
                             <div className="flex items-center gap-3">
                                 <span className="tracking-[0.2em] text-white/90 group-hover:text-white transition-colors">[ S </span>
@@ -81,8 +85,8 @@ export default function Navbar() {
                         </div>
                     </Link>
 
-                    {/* DESKTOP HUD NAV */}
-                    <nav className="hidden md:flex items-center gap-1">
+                    {/* Navigation : Desktop */}
+                    <nav className="hidden xl:flex items-center gap-1">
                         {navItems.map((item) => (
                             <Link
                                 key={item.id}
@@ -99,9 +103,9 @@ export default function Navbar() {
                         ))}
                     </nav>
 
-                    {/* STATUS INDICATOR */}
+                    {/* Indicateur de status */}
                     <div className="flex items-center gap-6">
-                        <div className="hidden lg:flex flex-col items-end text-[8px] font-mono text-gray-600 uppercase tracking-widest">
+                        <div className="hidden md:flex flex-col items-end text-[8px] font-mono text-gray-600 uppercase tracking-widest">
                             <span>Status: Online</span>
                             <span className="text-blue-500">Lat: 0.02ms</span>
                         </div>
@@ -115,9 +119,9 @@ export default function Navbar() {
                         </MagneticButton>
                     </div>
 
-                    {/* MOBILE TOGGLE */}
+                    {/* Menu burger */}
                     <button
-                        className="md:hidden text-white p-2"
+                        className="xl:hidden text-white p-2"
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                     >
                         <div className="w-6 h-4 flex flex-col justify-between items-end">
@@ -129,9 +133,9 @@ export default function Navbar() {
                 </div>
             </header>
 
-            {/* MOBILE HUD MENU */}
+            {/* Menu de navigation mobile */}
             <div
-                className={`fixed inset-0 z-40 bg-black/95 backdrop-blur-3xl flex flex-col items-center justify-center transition-all duration-700 md:hidden ${
+                className={`fixed inset-0 z-40 bg-black/95 backdrop-blur-3xl flex flex-col items-center justify-center transition-all duration-700 xl:hidden ${
                     mobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none translate-y-10'
                 }`}
             >

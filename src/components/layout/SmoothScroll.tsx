@@ -1,9 +1,13 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+// Import Next
 import { usePathname } from 'next/navigation';
+// Import React
+import { useEffect, useRef } from 'react';
+// Import Lenis
 import Lenis from 'lenis';
 
+// Layout du SmoothScroll
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
     const lenisRef = useRef<Lenis | null>(null);
     const pathname = usePathname();
@@ -32,7 +36,7 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
         };
     }, []);
 
-    // Reset scroll on route change
+    // Reset du scroll lorsqu'on change de page
     useEffect(() => {
         lenisRef.current?.scrollTo(0, { immediate: true });
     }, [pathname]);

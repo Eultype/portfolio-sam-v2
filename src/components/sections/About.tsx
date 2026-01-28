@@ -72,9 +72,9 @@ export default function AboutSection() {
                     <div className="h-1 w-20 bg-white mb-8 animate-about-text" />
 
                     <p className="text-xl md:text-2xl leading-relaxed text-gray-300 animate-about-text max-w-lg font-light">
-                        Je suis un bâtisseur de systèmes numériques. Je ne conçois pas seulement des interfaces,
-                        je structure des architectures robustes et logiques pour connecter les besoins humains à la
-                        puissance technologique.
+                        Je m'appelle Samuël. Développeur par choix, geek par nature. J'aime quand les choses sont carrées
+                        : un code propre, une architecture logique et une expérience utilisateur sans friction.
+                        Bref, je ne fais pas que coder, je donne vie à des idées.
                     </p>
                 </div>
 

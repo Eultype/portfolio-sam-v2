@@ -1,10 +1,15 @@
 'use client';
 
-import { useCallback, useRef } from 'react';
+// Import Next
 import { usePathname } from 'next/navigation';
+// Import React
+import { useCallback, useRef } from 'react';
+// Import des composants
 import Preloader from '@/components/ui/Preloader';
+// Import Context
 import { useScene } from '@/context/SceneContext';
 
+// Layout du Preloader
 export default function GlobalPreloader() {
   const { introPlayed, setIntroPlayed, setStatus } = useScene();
   const pathname = usePathname();

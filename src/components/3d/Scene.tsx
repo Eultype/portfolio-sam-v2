@@ -1,13 +1,19 @@
 'use client';
 
+// Import React
 import { useState, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
-import * as random from 'maath/random/dist/maath-random.esm';
-import SparseShootingStars from './SparseShootingStar';
+// Import Three.js
 import * as THREE from 'three';
+// Import maath
+import * as random from 'maath/random/dist/maath-random.esm';
+//Import Context
 import { useScene } from '@/context/SceneContext';
+// Import composants
+import SparseShootingStars from './SparseShootingStar';
 
+// Layout de la scène 3D
 function StarField({ status }: { status: string }) {
     const ref = useRef<THREE.Points>(null!);
     const [sphere] = useState(() => random.inSphere(new Float32Array(5000 * 3), { radius: 1.5 }));
