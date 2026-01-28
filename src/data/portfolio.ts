@@ -4,7 +4,7 @@ export const portfolioData: PortfolioData = {
     // Coordonnées personnelles
     personal: {
         name: "Samuël",
-        role: "Développeur Full-Stack Junior",
+        role: "Disponible immédiatement",
         tagline: "Je crée des expériences web rapides, modernes et scalables.",
         description: "Passionné par le lien entre design et technique, je développe des applications web performantes. Mon objectif est simple : allier un code propre à une expérience utilisateur fluide et soignée.",
         email: "Sdarryy59@gmail.com",
@@ -138,7 +138,7 @@ export const portfolioData: PortfolioData = {
             role: "Formation Développeur Web Full-Stack",
             company: "Centre de formation 2 Mille",
             date: "11 novembre 2024 - 14 février 2026",
-            description: "14 mois de pratique intensive pour tout apprendre. De l'algorithmique aux bases de données, j'ai enchaîné les projets pour acquérir des bases solides et une vraie rigueur de développement.",
+            description: "14 mois de formation alliant théorie fondamentale et pratique intensive. De l'algorithmique aux bases de données, j'ai consolidé chaque concept théorique par la réalisation de projets concrets.",
             responsibilities: [
                 "Maîtrise du cycle de développement",
                 "Architecture de bases de données",

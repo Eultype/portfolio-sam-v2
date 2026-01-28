@@ -55,28 +55,28 @@ export default function Home() {
             >
 
                 {/* Hero */}
-                <section id="home" className="relative min-h-[100svh] flex flex-col items-center justify-center px-6 overflow-hidden">
-                    <div className="text-center max-w-6xl mx-auto space-y-6 z-10 mt-20">
-                        <div className="overflow-hidden flex justify-center">
+                <section id="home" className="relative min-h-[100svh] flex flex-col items-center px-6 overflow-hidden pt-28">
+                    <div className="flex-1 flex flex-col justify-center text-center max-w-6xl mx-auto z-10 w-full">
+                        <div className="overflow-hidden flex justify-center pb-6">
                             <p className="hero-animate text-blue-500 tracking-[0.5em] text-[10px] md:text-xs uppercase font-medium border border-white/5 px-6 py-2 rounded-full backdrop-blur-md bg-white/5 opacity-0">
                                 {portfolioData.personal.role}
                             </p>
                         </div>
                         {/* Titres */}
-                        <div className="space-y-4">
-                            <h1 className="text-5xl md:text-[12rem] font-bold tracking-tighter leading-[0.9] md:leading-[0.8] flex flex-col items-center text-white">
-                                <span className="hero-animate block opacity-0">DIGITAL</span>
-                                <span className="hero-animate block opacity-50 opacity-0">BUILDER</span>
+                        <div className="pb-6">
+                            <h1 className="text-7xl md:text-[10rem] lg:text-[11rem] font-bold tracking-tighter leading-[0.9] md:leading-[0.8] flex flex-col items-center text-white">
+                                <span className="hero-animate block opacity-0">FULLSTACK</span>
+                                <span className="hero-animate block opacity-50 opacity-0">DEVELOPER</span>
                             </h1>
                         </div>
                         {/* Description */}
-                        <div className="max-w-xl mx-auto flex justify-center">
+                        <div className="mx-auto flex justify-center pb-6">
                             <p className="hero-animate text-lg md:text-xl text-gray-500 leading-relaxed text-center font-light opacity-0">
-                                Conception d'architectures robustes et d'interfaces fluides. Je bâtis des solutions numériques performantes de bout en bout, alliant innovation et pérennité.
+                                Je conçois des applications web fluides et performantes. Alliant rigueur technique et créativité, je transforme vos besoins en solutions numériques concrètes, du backend à l'interface utilisateur.
                             </p>
                         </div>
                         {/* Bouton voir projet */}
-                        <div className="flex flex-wrap justify-center gap-8 pt-12 hero-animate opacity-0">
+                        <div className="flex flex-wrap justify-center gap-8 hero-animate opacity-0">
                             <MagneticButton>
                                 <a href="/projects" className="group relative inline-flex items-center gap-4 px-10 py-5 bg-white text-black font-bold rounded-full hover:scale-105 transition-all duration-500">
                                     <span>VIEW WORK</span>
@@ -84,11 +84,12 @@ export default function Home() {
                                 </a>
                             </MagneticButton>
                         </div>
-                    </div>
-                    {/* Indicateur de scroll */}
-                    <div className="absolute mb-26 bottom-24 md:bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-20 hero-animate opacity-0">
-                        <span className="text-[10px] tracking-[0.3em] uppercase font-mono">Scroll to dive</span>
-                        <div className="w-px h-12 bg-gradient-to-b from-white to-transparent" />
+
+                        {/* Indicateur de scroll */}
+                        <div className="flex flex-col items-center hero-animate opacity-0 -mt-2">
+                            <div className="w-px h-10 bg-gradient-to-b from-white to-transparent" />
+                            <span className="text-[10px] tracking-[0.3em] uppercase font-mono text-white opacity-60">Scroll to dive</span>
+                        </div>
                     </div>
                 </section>
                 {/* À Propos */}
