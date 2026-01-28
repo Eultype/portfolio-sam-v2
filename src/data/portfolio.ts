@@ -118,7 +118,7 @@ export const portfolioData: PortfolioData = {
     experience: [
         {
             id: 1,
-            role: "Stagiaire Développeur Full-Stack",
+            role: "Stagiaire Développeur Web Full-Stack",
             company: "Rebel Company",
             date: "5 janvier 2026 - Now",
             description: "Développement de l'application métier 2D3D (Next.js, Prisma) et gestion de projets WordPress. Une expérience terrain où j'ai pu confronter mon code à la réalité des besoins clients et livrer des produits finis.",

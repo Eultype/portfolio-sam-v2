@@ -5,6 +5,9 @@ import { useRef, useEffect } from 'react';
 // Import GSAP
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 // Import data
 import { portfolioData } from '@/data/portfolio';
 // Import context
@@ -21,12 +24,32 @@ export default function ExperiencePage() {
     const container = useRef(null);
 
     useGSAP(() => {
+        // Animation d'entrée
         gsap.from('.animate-full-exp', {
             x: -50,
             opacity: 0,
             stagger: 0.2,
             duration: 1,
             ease: 'power3.out'
+        });
+
+        // Animation des cercles au scroll
+        // On cible tous les éléments avec la classe .timeline-circle à l'intérieur du container
+        const circles = container.current.querySelectorAll('.timeline-circle');
+
+        circles.forEach((circle: any) => {
+            gsap.to(circle, {
+                backgroundColor: 'white',
+                boxShadow: '0 0 30px rgba(255,255,255,0.5)',
+                duration: 0.1, // Réactivité quasi-instantanée
+                scrollTrigger: {
+                    trigger: circle.parentElement,
+                    start: "top 60%", 
+                    end: "bottom 60%",
+                    toggleActions: "play reverse play reverse",
+                    fastScrollEnd: true
+                }
+            });
         });
     }, { scope: container });
 
@@ -42,10 +65,10 @@ export default function ExperiencePage() {
                     </div>
 
                     {/* Expérience : Date / Entreprise / Role / Description */}
-                    <div className="border-l border-white/5 ml-4 md:ml-10 space-y-40 pl-8 md:pl-16 relative">
+                    <div className="border-l border-white/5 ml-4 md:ml-10 pl-8 md:pl-16 relative">
                         {portfolioData.experience.map((exp) => (
-                            <div key={exp.id} className="animate-full-exp relative group">
-                                <div className="absolute -left-[41px] md:-left-[73px] top-2 w-5 h-5 rounded-full border border-white/10 bg-black group-hover:bg-white group-hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] transition-all duration-500" />
+                            <div key={exp.id} className="animate-full-exp relative group pb-40 last:pb-0">
+                                <div className="timeline-circle absolute -left-[41px] md:-left-[73px] top-2 w-5 h-5 rounded-full border border-white/10 bg-black transition-all duration-500" />
 
                                 {/* Date / Entreprise */}
                                 <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
