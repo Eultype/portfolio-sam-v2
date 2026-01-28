@@ -1,11 +1,16 @@
 'use client';
 
-import { portfolioData } from '@/data/portfolio';
+// Import React
 import { useRef } from 'react';
+// Import GSAP
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+// Import des composants
 import ContactForm from '../ui/ContactForm';
+// Import data
+import { portfolioData } from '@/data/portfolio';
 
+// Composant de la section Contact de la Homepage
 export default function ContactSection() {
     const container = useRef(null);
 
@@ -25,12 +30,13 @@ export default function ContactSection() {
 
     return (
         <section id="contact" ref={container} className="py-32 container mx-auto px-6">
+            {/* Titre de la section */}
             <h2 className="text-sm font-mono text-blue-500 mb-12 uppercase tracking-[0.5em] animate-contact">
                 05. Contact
             </h2>
 
             <div className="flex flex-col lg:flex-row gap-20">
-                {/* Colonne gauche : Titres */}
+                {/* Colonne gauche : Titre / Description / Réseaux sociaux */}
                 <div className="lg:w-1/2 space-y-12">
                     <h1 className="text-7xl md:text-[10rem] font-bold tracking-tighter leading-[0.8] animate-contact">
                         LET'S <br />
@@ -43,6 +49,7 @@ export default function ContactSection() {
                         </p>
                     </div>
 
+                    {/* Réseaux sociaux */}
                     <div className="pt-12 grid grid-cols-2 gap-12 border-t border-white/5 animate-contact">
                         {portfolioData.personal.socials.map((social) => (
                             <a

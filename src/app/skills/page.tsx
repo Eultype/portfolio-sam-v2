@@ -10,6 +10,7 @@ import { portfolioData } from '@/data/portfolio';
 // Import context
 import { useScene } from '@/context/SceneContext';
 
+// Page compétences
 export default function SkillsPage() {
     const { setStatus } = useScene();
 
@@ -33,6 +34,7 @@ export default function SkillsPage() {
         <main ref={container} className="relative min-h-screen text-white font-sans selection:bg-blue-500/30">
             
             <section className="pt-40 pb-20 container mx-auto px-6">
+                {/* Titres */}
                 <div className="max-w-6xl mx-auto">
                     <div className="mb-32 space-y-8 animate-full-skill">
                         <h1 className="text-7xl md:text-[12rem] font-bold tracking-tighter leading-none">ARSENAL.</h1>
@@ -40,7 +42,7 @@ export default function SkillsPage() {
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-32">
-                        {/* FRONTEND */}
+                        {/* Compétences Frondend*/}
                         <div className="space-y-12 animate-full-skill">
                             <h2 className="text-xs font-mono text-blue-500 uppercase tracking-[0.5em] border-b border-white/10 pb-4">Frontend</h2>
                             <div className="space-y-6">
@@ -50,7 +52,7 @@ export default function SkillsPage() {
                             </div>
                         </div>
 
-                        {/* BACKEND */}
+                        {/* Compétences Backend */}
                         <div className="space-y-12 animate-full-skill">
                             <h2 className="text-xs font-mono text-purple-500 uppercase tracking-[0.5em] border-b border-white/10 pb-4">Backend</h2>
                             <div className="space-y-6">
@@ -60,7 +62,7 @@ export default function SkillsPage() {
                             </div>
                         </div>
 
-                        {/* TOOLS */}
+                        {/* Outils */}
                         <div className="space-y-12 animate-full-skill">
                             <h2 className="text-xs font-mono text-green-500 uppercase tracking-[0.5em] border-b border-white/10 pb-4">Tools</h2>
                             <div className="space-y-6">

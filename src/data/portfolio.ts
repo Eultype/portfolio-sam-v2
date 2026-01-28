@@ -62,7 +62,7 @@ export const portfolioData: PortfolioData = {
                 "Automatisation : Génération de factures PDF et gestion intelligente des stocks."
             ],
             stack: ["Next.js 16", "TypeScript", "PostgreSQL", "Prisma", "Tailwind CSS", "Shadcn UI", "Cloudinary", "Zod"],
-            image: "/project-2d3d.png",
+            image: "/project/2d3d/project-2d3d.png",
             gallery: ["/project/2d3d/project-2d3d-iMac.png", "/project/2d3d/project-2d3d-macbook.png", "/project/2d3d/project-2d3d-ipads.png", "/project/2d3d/project-2d3d-iphones.png"],
             demo: "#",
             code: "#",

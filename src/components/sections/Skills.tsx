@@ -1,11 +1,16 @@
 'use client';
 
-import { portfolioData } from '@/data/portfolio';
-import { useRef } from 'react';
+// Import Next
 import Link from 'next/link';
+// Import React
+import { useRef } from 'react';
+// Import GSAP
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+// Import data
+import { portfolioData } from '@/data/portfolio';
 
+// Composant de la section Compétences de la Homepage
 export default function SkillsSection() {
     const container = useRef(null);
 
@@ -30,11 +35,13 @@ export default function SkillsSection() {
     ];
 
     return (
+        // Titre de la section
         <section id="skills" ref={container} className="pt-20 pb-32 container mx-auto px-6 flex flex-col justify-center">
             <h2 className="text-sm font-mono text-blue-500 mb-12 uppercase tracking-[0.5em] border-b border-white/5 pb-4">
                 02. Core Stack
             </h2>
 
+            {/* Compétences */}
             <div className="flex flex-wrap gap-x-8 gap-y-4 justify-center md:justify-start mb-12">
                 {coreSkills.map((skill, i) => (
                     <div key={i} className="skill-line group relative cursor-default">
@@ -45,6 +52,7 @@ export default function SkillsSection() {
                 ))}
             </div>
 
+            {/* Bouton voir l'arsenal */}
             <div className="flex justify-center md:justify-start">
                 <Link href="/skills" className="group inline-flex items-center gap-3 text-xs uppercase tracking-widest text-blue-500 hover:text-white transition-colors">
                     <span>Voir tout l'arsenal</span>

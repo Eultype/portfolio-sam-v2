@@ -1,15 +1,21 @@
 'use client';
 
-import { portfolioData } from '@/data/portfolio';
-import { useRef } from 'react';
+// Import Next
 import Link from 'next/link';
+// Import React
+import { useRef } from 'react';
+// Import GSAP
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+// Import des composants
 import LiquidImage from '@/components/ui/LiquidImage';
+// Import data
+import { portfolioData } from '@/data/portfolio';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Composant de la section About de la Homepage
 export default function AboutSection() {
     const container = useRef(null);
 
@@ -54,7 +60,7 @@ export default function AboutSection() {
         <section id="about" ref={container} className="py-32 container mx-auto px-6 relative">
             <div className="flex flex-col lg:flex-row gap-20 items-start">
 
-                {/* Colonne de gauche : Idendité fixe */}
+                {/* Colonne de gauche : Idendité */}
                 <div className="lg:w-1/2 lg:sticky lg:top-32 h-fit">
                     <h2 className="text-sm font-mono text-blue-500 mb-4 uppercase tracking-[0.5em] animate-about-text">
                         01. L'Explorateur
@@ -72,18 +78,19 @@ export default function AboutSection() {
                     </p>
                 </div>
 
-                {/* Colonne de droite : (scroll) */}
+                {/* Colonne de droite : image / descriptio,*/}
                 <div className="lg:w-1/2 space-y-24 pt-20">
 
-                    {/* Image avec classe parallax */}
+                    {/* Image */}
                     <div className="aspect-[3/4] w-full relative animate-about-image parallax-img will-change-transform">
                         <LiquidImage
-                            src="/solitude.webp"
+                            src="/personnal/solitude.webp"
                             alt="Portrait Samuël"
                             className="w-full h-full rounded-sm grayscale hover:grayscale-0 transition-all duration-700"
                         />
                     </div>
 
+                    {/* Description */}
                     <div className="space-y-12 animate-about-text">
                         <p className="text-gray-400 text-lg leading-relaxed font-light">
                             Mon voyage a commencé avec une immersion intensive de {portfolioData.stats[0].value} mois.
@@ -99,6 +106,7 @@ export default function AboutSection() {
                     </div>
 
                     <div>
+                        {/* Bouton lire ma bio complète */}
                         <Link href="/about" className="group inline-flex items-center gap-3 text-xs uppercase tracking-widest text-blue-500 hover:text-white transition-colors">
                             <span>Lire ma bio complète</span>
                             <span className="w-8 h-px bg-blue-500 group-hover:w-12 group-hover:bg-white transition-all"></span>

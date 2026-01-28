@@ -60,17 +60,19 @@ export default function AboutPage() {
                         </p>
                     </div>
 
-                    {/* Contenu */}
+                    {/* Contenu : Image / Description / Stats */}
                     <div className="grid md:grid-cols-2 gap-20">
+                        {/* Image */}
                         <div className="aspect-[3/4] w-full relative animate-about-image will-change-transform animate-full-about opacity-0">
                             <LiquidImage
-                                src="/IMG_5360.webp"
+                                src="/personnal/me_dolomites.webp"
                                 alt="Portrait Samuël"
                                 className="w-full h-full rounded-sm grayscale hover:grayscale-0 transition-all duration-700"
                                 location={portfolioData.personal.location2}
                                 coordinates={portfolioData.personal.coordinates2}
                             />
                         </div>
+                        {/* Description */}
                         <div className="space-y-12 animate-full-about opacity-0 text-lg text-gray-300 font-light leading-relaxed">
                             <p>
                                 {portfolioData.personal.description}
@@ -86,7 +88,7 @@ export default function AboutPage() {
                                 cherche sans cesse à enrichir mon arsenal technique pour bâtir des solutions innovantes.
                             </p>
 
-                            {/* Stats en ligne */}
+                            {/* Stats */}
                             <div className="grid grid-cols-2 gap-10 border-t border-white/10 pt-12">
                                 {portfolioData.stats.map((stat, i) => (
                                     <div key={i}>
