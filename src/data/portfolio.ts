@@ -59,30 +59,17 @@ export const portfolioData: PortfolioData = {
                 "Flux de production complexe : Création d'un Wizard intuitif et suivi visuel des statuts.",
                 "Architecture B2B/B2C : Système de rôles (RBAC) sécurisé isolant les données.",
                 "Performance & Temps réel : Utilisation de Server Actions et WebSockets.",
-                "Automatisation : Génération de factures PDF et gestion intelligente des stocks."
+                "Dashboard complet : Gestion des commandes, clients, produits et revendeurs."
             ],
             stack: ["Next.js 16", "TypeScript", "PostgreSQL", "Prisma", "Tailwind CSS", "Shadcn UI", "Cloudinary", "Zod"],
             image: "/project/2d3d/project-2d3d.png",
             gallery: ["/project/2d3d/project-2d3d-iMac.png", "/project/2d3d/project-2d3d-macbook.png", "/project/2d3d/project-2d3d-ipads.png", "/project/2d3d/project-2d3d-iphones.png"],
-            demo: "#",
+            demo: "https://admin.2d3d.be/",
             code: "#",
             featured: true
         },
         {
             id: 2,
-            title: "Scarlett Gallery",
-            category: "Frontend",
-            description: "Conception et développement d’un site vitrine destiné à la présentation d’une galerie artistique.",
-            longDescription: "Scarlett Gallery est un projet de portfolio artistique mettant en avant des œuvres contemporaines. L'objectif était de créer une interface épurée et immersive qui laisse toute la place aux visuels. Le site comprend une page de présentation de l'artiste, une galerie interactive, ses services, ses avis et un formulaire de contact optimisé.",
-            stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
-            image: "/project/projet_scarlett.webp",
-            gallery: ["/project/projet_scarlett.webp", "/project/projet_scarlett.webp", "/project/projet_scarlett.webp"],
-            demo: "#",
-            code: "#",
-            featured: true
-        },
-        {
-            id: 3,
             title: "La Dolce Vita",
             category: "Frontend",
             description: "Une vitrine digitale immersive pour un restaurant italien de prestige. Alliant design luxueux, animations fluides et architecture Next.js optimisée.",
@@ -98,6 +85,19 @@ export const portfolioData: PortfolioData = {
             gallery: ["/project/la-dolce-vita/la-dolce-vita-iMac.png", "/project/la-dolce-vita/la-dolce-vita-macbook-1.png", "/project/la-dolce-vita/la-dolce-vita-ipads-1.png", "/project/la-dolce-vita/la-dolce-vita-iphones-2.png"],
             demo: "#",
             code: "#",
+            featured: true
+        },
+        {
+            id: 3,
+            title: "Scarlett Gallery",
+            category: "Frontend",
+            description: "Conception et développement d’un site vitrine destiné à la présentation d’une galerie artistique.",
+            longDescription: "Scarlett Gallery est un projet de portfolio artistique mettant en avant des œuvres contemporaines. L'objectif était de créer une interface épurée et immersive qui laisse toute la place aux visuels. Le site comprend une page de présentation de l'artiste, une galerie interactive, ses services, ses avis et un formulaire de contact optimisé.",
+            stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+            image: "/project/projet_scarlett.webp",
+            gallery: ["/project/scarlett-gallery/scarlettgallery-iMac.png", "/project/scarlett-gallery/scarlettgallery-macbook.png", "/project/scarlett-gallery/scarlettgallery-ipads.png", "/project/scarlett-gallery/scarlettgallery-iphones.png"],
+            demo: "https://www.scarlettgallery.com/",
+            code: "https://github.com/Eultype/Scarlett_Portfolio",
             featured: true
         },
         {
