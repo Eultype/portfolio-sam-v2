@@ -22,11 +22,7 @@ export default function ProjectsPage() {
     }, [setStatus]);
 
     const container = useRef(null);
-    const [filter, setFilter] = useState('All');
     const [selectedProject, setSelectedProject] = useState<typeof portfolioData.projects[0] | null>(null);
-
-    const categories = ['All', ...Array.from(new Set(portfolioData.projects.map(p => p.category)))];
-    const filteredProjects = filter === 'All' ? portfolioData.projects : portfolioData.projects.filter(p => p.category === filter);
 
     useGSAP(() => {
         gsap.from('.animate-full-project', {
@@ -36,7 +32,7 @@ export default function ProjectsPage() {
             stagger: 0.1,
             ease: 'power2.out'
         });
-    }, { scope: container, dependencies: [filter] });
+    }, { scope: container });
 
     return (
         <main ref={container} className="relative min-h-screen text-white font-sans">
@@ -47,26 +43,9 @@ export default function ProjectsPage() {
                     <p className="text-xl md:text-3xl text-gray-400 font-light">Une collection de solutions concrètes aux problèmes complexes.</p>
                 </div>
 
-                {/* Filtres */}
-                <div className="flex flex-wrap gap-6 mb-32 animate-full-project">
-                    {categories.map(cat => (
-                        <button
-                            key={cat}
-                            onClick={() => setFilter(cat)}
-                            className={`text-sm uppercase tracking-widest transition-all ${
-                                filter === cat
-                                    ? 'text-white border-b border-white pb-1'
-                                    : 'text-gray-500 hover:text-white'
-                            }`}
-                        >
-                            {cat}
-                        </button>
-                    ))}
-                </div>
-
                 {/* Grille de projet */}
                 <div className="grid md:grid-cols-2 gap-x-20 gap-y-40">
-                    {filteredProjects.map((project) => (
+                    {portfolioData.projects.map((project) => (
                         <div 
                             key={project.id} 
                             className="animate-full-project group flex flex-col space-y-8 cursor-pointer"
@@ -77,7 +56,7 @@ export default function ProjectsPage() {
                                 <ProjectCardImage
                                     src={project.image}
                                     alt={project.title}
-                                    className="w-full h-full rounded-sm grayscale group-hover:grayscale-0 transition-all duration-700"
+                                    className="w-full h-full rounded-sm transition-all duration-700"
                                 />
                             </div>
 

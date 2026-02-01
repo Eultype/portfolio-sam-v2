@@ -61,13 +61,13 @@ export default function AboutPage() {
                     </div>
 
                     {/* Contenu : Image / Description / Stats */}
-                    <div className="grid md:grid-cols-2 gap-20">
+                    <div className="grid lg:grid-cols-2 gap-20">
                         {/* Image */}
                         <div className="aspect-[3/4] w-full relative animate-about-image will-change-transform animate-full-about opacity-0">
                             <LiquidImage
                                 src="/personnal/me_dolomites.webp"
                                 alt="Portrait Samuël"
-                                className="w-full h-full rounded-sm grayscale hover:grayscale-0 transition-all duration-700"
+                                className="w-full h-full rounded-sm transition-all duration-700"
                                 location={portfolioData.personal.location2}
                                 coordinates={portfolioData.personal.coordinates2}
                             />
@@ -89,7 +89,7 @@ export default function AboutPage() {
                             </p>
 
                             {/* Stats */}
-                            <div className="grid grid-cols-2 gap-10 border-t border-white/10 pt-12">
+                            <div className="grid grid-cols-2 gap-10 border-t border-white/10 pt-12 text-center lg:text-left">
                                 {portfolioData.stats.map((stat, i) => (
                                     <div key={i}>
                                         <div className="text-5xl font-bold text-white mb-2">{stat.value}</div>
@@ -100,10 +100,9 @@ export default function AboutPage() {
                         </div>
                     </div>
 
-                    {/* Philosophie / Valeurs */}
                     <div className="py-20 border-t border-white/5 animate-full-about opacity-0">
                         <h2 className="text-xs font-mono text-blue-500 uppercase tracking-[0.5em] mb-12">Ma Philosophie</h2>
-                        <div className="grid md:grid-cols-3 gap-12">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                             {[
                                 { t: "Performance first", d: "Chaque milliseconde compte. De l'optimisation des requêtes SQL à la réactivité de l'interface, je veille à ce que l'architecture technique garantisse une navigation rapide et fluide pour l'utilisateur." },
                                 { t: "Design Empathique", d: "L'interface doit s'effacer devant l'expérience. Je conçois des systèmes intuitifs où le design n'est pas seulement esthétique, mais une réponse logique aux besoins de l'utilisateur." },

@@ -37,17 +37,17 @@ export default function SkillsPage() {
                 {/* Titres */}
                 <div className="max-w-6xl mx-auto">
                     <div className="mb-32 space-y-8 animate-full-skill">
-                        <h1 className="text-7xl md:text-[12rem] font-bold tracking-tighter leading-none">ARSENAL.</h1>
+                        <h1 className="text-7xl md:text-[10rem] lg:text-[12rem] font-bold tracking-tighter leading-none">ARSENAL.</h1>
                         <p className="text-xl md:text-3xl text-gray-400 font-light">Technologies et outils que je maîtrise au quotidien.</p>
                     </div>
 
-                    <div className="grid md:grid-cols-3 gap-32">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 lg:gap-32">
                         {/* Compétences Frondend*/}
                         <div className="space-y-12 animate-full-skill">
                             <h2 className="text-xs font-mono text-blue-500 uppercase tracking-[0.5em] border-b border-white/10 pb-4">Frontend</h2>
                             <div className="space-y-6">
                                 {portfolioData.skills.frontend.map(s => (
-                                    <div key={s} className="text-4xl md:text-5xl font-bold text-gray-500 hover:text-white transition-colors cursor-default">{s}</div>
+                                    <div key={s} className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-500 hover:text-white transition-colors cursor-default">{s}</div>
                                 ))}
                             </div>
                         </div>
@@ -57,7 +57,7 @@ export default function SkillsPage() {
                             <h2 className="text-xs font-mono text-purple-500 uppercase tracking-[0.5em] border-b border-white/10 pb-4">Backend</h2>
                             <div className="space-y-6">
                                 {portfolioData.skills.backend.map(s => (
-                                    <div key={s} className="text-4xl md:text-5xl font-bold text-gray-500 hover:text-white transition-colors cursor-default">{s}</div>
+                                    <div key={s} className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-500 hover:text-white transition-colors cursor-default">{s}</div>
                                 ))}
                             </div>
                         </div>
@@ -67,7 +67,7 @@ export default function SkillsPage() {
                             <h2 className="text-xs font-mono text-green-500 uppercase tracking-[0.5em] border-b border-white/10 pb-4">Tools</h2>
                             <div className="space-y-6">
                                 {portfolioData.skills.tools.map(s => (
-                                    <div key={s} className="text-4xl md:text-5xl font-bold text-gray-500 hover:text-white transition-colors cursor-default">{s}</div>
+                                    <div key={s} className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-500 hover:text-white transition-colors cursor-default">{s}</div>
                                 ))}
                             </div>
                         </div>

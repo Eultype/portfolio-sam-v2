@@ -27,6 +27,7 @@ export default function LiquidImage({
   const scanLineRef = useRef<HTMLDivElement>(null);
   const dataRef = useRef<HTMLDivElement>(null);
   const tlRef = useRef<gsap.core.Timeline | null>(null);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
   const [isHovered, setIsHovered] = useState(false);
   
   const displayLocation = location || portfolioData.personal.location;
@@ -43,6 +44,10 @@ export default function LiquidImage({
     yTo.current = gsap.quickTo(imageRef.current, "y", { duration: 0.1, ease: "power2.out" });
     rotateXTo.current = gsap.quickTo(containerRef.current, "rotateX", { duration: 0.1, ease: "power2.out" });
     rotateYTo.current = gsap.quickTo(containerRef.current, "rotateY", { duration: 0.1, ease: "power2.out" });
+
+    return () => {
+        if (timerRef.current) clearTimeout(timerRef.current);
+    };
   }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -90,8 +95,12 @@ export default function LiquidImage({
   };
 
       const handleMouseLeave = () => {
-
         setIsHovered(false);
+        // Nettoyage du timer mobile
+        if (timerRef.current) {
+            clearTimeout(timerRef.current);
+            timerRef.current = null;
+        }
         // Arrêt immédiat de l'animation de scan
         if (tlRef.current) {
             tlRef.current.kill();
@@ -102,10 +111,12 @@ export default function LiquidImage({
         if (rotateYTo.current) rotateYTo.current(0);
         if (xTo.current) xTo.current(0);
         if (yTo.current) yTo.current(0);
-        gsap.to(imageRef.current, { scale: 1, duration: 0.4 });
+        if (imageRef.current) gsap.to(imageRef.current, { scale: 1, duration: 0.4 });
 
-        // Réinitialisation forcée des éléments du scan
-        gsap.to([dataRef.current, scanLineRef.current], { opacity: 0, duration: 0.2 });
+        // Réinitialisation sécurisée des éléments du scan
+        if (dataRef.current && scanLineRef.current) {
+            gsap.to([dataRef.current, scanLineRef.current], { opacity: 0, duration: 0.2 });
+        }
       };
 
   return (
@@ -128,7 +139,7 @@ export default function LiquidImage({
               priority
               draggable={false}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className={`absolute inset-0 w-full h-full object-cover will-change-transform ${isHovered ? 'brightness-110 contrast-110 grayscale-0' : 'brightness-75 grayscale-[0.5]'}`}
+              className={`absolute inset-0 w-full h-full object-cover will-change-transform ${isHovered ? 'brightness-110 contrast-110 grayscale-0' : 'brightness-75 grayscale'}`}
           />
 
           <div className={`absolute inset-0 pointer-events-none mix-blend-screen transition-opacity duration-300 ${isHovered ? 'opacity-40' : 'opacity-0'}`}>
@@ -161,6 +172,21 @@ export default function LiquidImage({
         onMouseMove={handleMouseMove}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        onClick={() => {
+            // Sur mobile/tablette, on déclenche l'effet et on l'arrête après un délai
+            if (window.innerWidth < 1280) {
+                // On nettoie d'abord tout timer existant
+                if (timerRef.current) clearTimeout(timerRef.current);
+                
+                handleMouseEnter();
+                
+                // On lance le nouveau délai
+                timerRef.current = setTimeout(() => {
+                    handleMouseLeave();
+                    timerRef.current = null;
+                }, 3000);
+            }
+        }}
       />
 
       {/* DONNÉES CENTRALES (Apparaissent après le scan) */}

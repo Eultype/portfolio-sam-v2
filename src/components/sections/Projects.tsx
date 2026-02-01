@@ -58,7 +58,7 @@ export default function ProjectsSection() {
                             <ProjectCardImage
                                 src={project.image}
                                 alt={project.title}
-                                className="w-full h-full grayscale group-hover:grayscale-0 transition-all duration-700 rounded-sm"
+                                className="w-full h-full transition-all duration-700 rounded-sm"
                             />
                         </div>
 

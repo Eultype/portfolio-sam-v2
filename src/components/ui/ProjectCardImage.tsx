@@ -72,7 +72,7 @@ export default function ProjectCardImage({ src, alt, className = "" }: ProjectCa
                     fill
                     priority
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover brightness-50 grayscale blur-[2px]"
+                    className="object-cover brightness-100 xl:brightness-50 grayscale-0 xl:grayscale blur-0 xl:blur-[2px]"
                 />
             </div>
 

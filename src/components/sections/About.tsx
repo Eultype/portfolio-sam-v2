@@ -88,7 +88,7 @@ export default function AboutSection() {
                         <LiquidImage
                             src="/personnal/solitude.webp"
                             alt="Portrait Samuël"
-                            className="w-full h-full rounded-sm grayscale hover:grayscale-0 transition-all duration-700"
+                            className="w-full h-full rounded-sm transition-all duration-700"
                         />
                     </div>
 
