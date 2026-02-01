@@ -54,12 +54,12 @@ export default function ExperienceSection() {
     return (
         <section id="experience" ref={container} className="py-32 container mx-auto px-6">
             {/* Titres */}
-            <h2 className="text-sm font-mono text-blue-500 mb-12 uppercase tracking-[0.5em]">
+            <span className="block text-sm font-mono text-blue-500 mb-12 uppercase tracking-[0.5em]">
                 04. Parcours
-            </h2>
-            <h1 className="text-6xl md:text-9xl font-bold mb-20 text-white/90 tracking-tighter">
+            </span>
+            <h2 className="text-6xl md:text-9xl font-bold mb-20 text-white/90 tracking-tighter">
                 TIMELINE
-            </h1>
+            </h2>
 
             {/* Expériences : Date / Role / Entreprise */}
             <div className="border-l border-white/5 ml-4 md:ml-10 pl-8 md:pl-16 relative mb-20">

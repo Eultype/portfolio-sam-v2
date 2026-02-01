@@ -38,12 +38,12 @@ export default function ProjectsSection() {
     return (
         <section id="projects" ref={container} className="py-32 container mx-auto px-6">
             {/* Titres de la section */}
-            <h2 className="text-sm font-mono text-blue-500 mb-12 uppercase tracking-[0.5em]">
+            <span className="block text-sm font-mono text-blue-500 mb-12 uppercase tracking-[0.5em]">
                 03. Réalisations
-            </h2>
-            <h1 className="text-6xl md:text-9xl font-bold tracking-tighter mb-20 text-white/90 leading-none">
+            </span>
+            <h2 className="text-6xl md:text-9xl font-bold tracking-tighter mb-20 text-white/90 leading-none">
                 SELECTED <br /> <span className="text-gray-600">WORKS</span>
-            </h1>
+            </h2>
 
             {/* Projets */}
             <div className="space-y-40 mb-20">

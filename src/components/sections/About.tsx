@@ -64,13 +64,13 @@ export default function AboutSection() {
 
                 {/* Colonne de gauche : Idendité */}
                 <div className="lg:w-1/2 lg:sticky lg:top-32 h-fit">
-                    <h2 className="text-sm font-mono text-blue-500 mb-4 uppercase tracking-[0.5em] animate-about-text">
+                    <span className="block text-sm font-mono text-blue-500 mb-4 uppercase tracking-[0.5em] animate-about-text">
                         01. L'Explorateur
-                    </h2>
-                    <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-8 animate-about-text leading-[0.9]">
+                    </span>
+                    <h2 className="text-6xl md:text-8xl font-bold tracking-tighter mb-8 animate-about-text leading-[0.9] text-white">
                         WHO <br />
                         <span className="text-gray-500">AM I?</span>
-                    </h1>
+                    </h2>
                     <div className="h-1 w-20 bg-white mb-8 animate-about-text" />
 
                     <p className="text-xl md:text-2xl leading-relaxed text-gray-300 animate-about-text max-w-lg font-light">

@@ -39,9 +39,9 @@ export default function SkillsSection() {
     return (
         // Titre de la section
         <section id="skills" ref={container} className="pt-20 pb-32 container mx-auto px-6 flex flex-col justify-center">
-            <h2 className="text-sm font-mono text-blue-500 mb-12 uppercase tracking-[0.5em] border-b border-white/5 pb-4">
+            <span className="block text-sm font-mono text-blue-500 mb-12 uppercase tracking-[0.5em] border-b border-white/5 pb-4">
                 02. Core Stack
-            </h2>
+            </span>
 
             {/* Compétences */}
             <div className="flex flex-wrap gap-x-8 gap-y-4 justify-center md:justify-start mb-12">

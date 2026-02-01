@@ -33,17 +33,17 @@ export default function ContactSection() {
     return (
         <section id="contact" ref={container} className="py-32 container mx-auto px-6">
             {/* Titre de la section */}
-            <h2 className="text-sm font-mono text-blue-500 mb-12 uppercase tracking-[0.5em] animate-contact">
+            <span className="block text-sm font-mono text-blue-500 mb-12 uppercase tracking-[0.5em] animate-contact">
                 05. Contact
-            </h2>
+            </span>
 
             <div className="flex flex-col lg:flex-row gap-20">
                 {/* Colonne gauche : Titre / Description / Réseaux sociaux */}
                 <div className="lg:w-1/2 space-y-12">
-                    <h1 className="text-7xl md:text-[10rem] font-bold tracking-tighter leading-[0.8] animate-contact">
+                    <h2 className="text-7xl md:text-[10rem] font-bold tracking-tighter leading-[0.8] animate-contact text-white">
                         LET'S <br />
                         <span className="text-gray-700">START</span>
-                    </h1>
+                    </h2>
 
                     <div className="animate-contact max-w-md">
                         <p className="text-xl text-gray-400 font-light leading-relaxed">

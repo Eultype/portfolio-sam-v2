@@ -123,6 +123,7 @@ export default function Navbar() {
                     <button
                         className="xl:hidden text-white p-2"
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        aria-label={mobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
                     >
                         <div className="w-6 h-4 flex flex-col justify-between items-end">
                             <div className={`h-px bg-white transition-all duration-500 ${mobileMenuOpen ? 'w-6 rotate-45 translate-y-2' : 'w-6'}`} />
