@@ -21,9 +21,11 @@ export default function ExperiencePage() {
         setStatus('arrived');
     }, [setStatus]);
 
-    const container = useRef(null);
+    const container = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
+        if (!container.current) return;
+
         // Animation d'entrée
         gsap.from('.animate-full-exp', {
             x: -50,

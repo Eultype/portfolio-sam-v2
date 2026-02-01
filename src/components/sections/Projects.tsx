@@ -15,11 +15,13 @@ import { portfolioData } from '@/data/portfolio';
 
 // Composant de la section Projets de la Homepage
 export default function ProjectsSection() {
-    const container = useRef(null);
+    const container = useRef<HTMLDivElement>(null);
     const [selectedProject, setSelectedProject] = useState<typeof portfolioData.projects[0] | null>(null);
     const featuredProjects = portfolioData.projects.filter(p => p.featured).slice(0, 2);
 
     useGSAP(() => {
+        if (!container.current) return;
+
         gsap.from('.project-item', {
             scrollTrigger: {
                 trigger: container.current,

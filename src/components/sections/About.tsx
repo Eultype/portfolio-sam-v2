@@ -17,9 +17,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Composant de la section About de la Homepage
 export default function AboutSection() {
-    const container = useRef(null);
+    const container = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
+        if (!container.current) return;
+
         gsap.from('.animate-about-text', {
             scrollTrigger: {
                 trigger: container.current,

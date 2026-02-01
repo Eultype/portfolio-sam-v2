@@ -43,7 +43,7 @@ export const portfolioData: PortfolioData = {
     ],
     // Skills
     skills: {
-        frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS", "GSAP", "Three.js"],
+        frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
         backend: ["Node.js", "Express", "PostgreSQL", "Prisma", "PHP", "REST API"],
         tools: ["Git", "GitHub", "Linux", "JetBrains", "Figma", "Vercel",],
     },
@@ -62,14 +62,66 @@ export const portfolioData: PortfolioData = {
                 "Dashboard complet : Gestion des commandes, clients, produits et revendeurs."
             ],
             stack: ["Next.js 16", "TypeScript", "PostgreSQL", "Prisma", "Tailwind CSS", "Shadcn UI", "Cloudinary", "Zod"],
-            image: "/project/2d3d/project-2d3d.png",
-            gallery: ["/project/2d3d/project-2d3d-iMac.png", "/project/2d3d/project-2d3d-macbook.png", "/project/2d3d/project-2d3d-ipads.png", "/project/2d3d/project-2d3d-iphones.png"],
+            image: "/project/2d3d/project-2d3d.webp",
+            gallery: ["/project/2d3d/project-2d3d-iMac.webp", "/project/2d3d/project-2d3d-macbook.webp", "/project/2d3d/project-2d3d-ipads.webp", "/project/2d3d/project-2d3d-iphones.webp"],
             demo: "https://admin.2d3d.be/",
             code: "#",
             featured: true
         },
         {
             id: 2,
+            title: "Scarlett Gallery",
+            category: "Frontend",
+            description: "Une vitrine digitale d'exception fusionnant direction artistique minimaliste et architecture logicielle de pointe.",
+            longDescription: "Scarlett Gallery est une expérience immersive haute fidélité conçue pour l'artiste peintre Emma De Noni. Le projet allie une esthétique 'Terra & Crème' à des performances techniques de premier plan.",
+            stack: ["Next.js 16", "TypeScript", "Tailwind CSS v4", "Framer Motion", "Lenis"],
+            image: "/project/projet_scarlett.webp",
+            gallery: [
+                "/project/scarlett-gallery/scarlett-v2_iMac.webp",
+                "/project/scarlett-gallery/scarlett-v2-macbook.webp",
+                "/project/scarlett-gallery/scarlett-v2-ipads.webp",
+                "/project/scarlett-gallery/scarlett-v2-iphones.webp",
+            ],
+            demo: "https://www.scarlettgallery.com/",
+            code: "https://github.com/Eultype/scarlett-gallery-v2",
+            versions: {
+                v1: {
+                    title: "Version 1.0 - Fondations",
+                    description: "Première itération statique du portfolio. Un site vitrine classique axé sur la présentation des œuvres avec une architecture Bootstrap traditionnelle.",
+                    stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+                    gallery: [
+                        "/project/scarlett-gallery/scarlettgallery-iMac.webp",
+                        "/project/scarlett-gallery/scarlettgallery-macbook.webp",
+                        "/project/scarlett-gallery/scarlettgallery-ipads.webp",
+                        "/project/scarlett-gallery/scarlettgallery-iphones.webp"
+                    ],
+                    demo: "https://www.scarlettgallery.com/",
+                    code: "https://github.com/Eultype/Scarlett_Portfolio"
+                },
+                v2: {
+                    title: "Version 2.0 - L'Excellence Technique",
+                    description: "Refonte intégrale sous Next.js 16. Migration vers Tailwind CSS v4 pour un rendu ultra-rapide et intégration de Framer Motion pour des interactions fluides. L'expérience est sublimée par un Smooth Scroll (Lenis) et une optimisation SEO/Performance de pointe (SSG, WebP, Speed Insights).",
+                    stack: ["Next.js 16", "Tailwind CSS v4", "TypeScript", "Framer Motion", "Lenis"],
+                    gallery: [
+                        "/project/scarlett-gallery/scarlett-v2_iMac.webp",
+                        "/project/scarlett-gallery/scarlett-v2-macbook.webp",
+                        "/project/scarlett-gallery/scarlett-v2-ipads.webp",
+                        "/project/scarlett-gallery/scarlett-v2-iphones.webp",
+                    ],
+                    demo: "https://www.scarlettgallery.com/",
+                    code: "https://github.com/Eultype/scarlett-gallery-v2"
+                }
+            },
+            challenges: [
+                "Performance : Score LCP exemplaire grâce au SSG et à l'optimisation WebP.",
+                "UX Premium : Navigation soyeuse via Lenis et animations chorégraphiées.",
+                "SEO : Indexation totale avec metadata avancées et OpenGraph dynamique.",
+                "Protection : Sécurisation du contenu visuel contre le clic droit."
+            ],
+            featured: true
+        },
+        {
+            id: 3,
             title: "La Dolce Vita",
             category: "Frontend",
             description: "Une vitrine digitale immersive pour un restaurant italien de prestige. Alliant design luxueux, animations fluides et architecture Next.js optimisée.",
@@ -81,37 +133,62 @@ export const portfolioData: PortfolioData = {
                 "Architecture Modulaire : Code organisé pour une maintenabilité maximale."
             ],
             stack: ["Next.js 16", "Tailwind CSS", "TypeScript", "Framer Motion", "Zod", "Lenis"],
-            image: "/project/la-dolce-vita/la-dolce-vita.png",
-            gallery: ["/project/la-dolce-vita/la-dolce-vita-iMac.png", "/project/la-dolce-vita/la-dolce-vita-macbook-1.png", "/project/la-dolce-vita/la-dolce-vita-ipads-1.png", "/project/la-dolce-vita/la-dolce-vita-iphones-2.png"],
+            image: "/project/la-dolce-vita/la-dolce-vita.webp",
+            gallery: ["/project/la-dolce-vita/la-dolce-vita-iMac.webp", "/project/la-dolce-vita/la-dolce-vita-macbook-1.webp", "/project/la-dolce-vita/la-dolce-vita-ipads-1.webp", "/project/la-dolce-vita/la-dolce-vita-iphones-2.webp"],
             demo: "#",
             code: "#",
-            featured: true
-        },
-        {
-            id: 3,
-            title: "Scarlett Gallery",
-            category: "Frontend",
-            description: "Conception et développement d’un site vitrine destiné à la présentation d’une galerie artistique.",
-            longDescription: "Scarlett Gallery est un projet de portfolio artistique mettant en avant des œuvres contemporaines. L'objectif était de créer une interface épurée et immersive qui laisse toute la place aux visuels. Le site comprend une page de présentation de l'artiste, une galerie interactive, ses services, ses avis et un formulaire de contact optimisé.",
-            stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
-            image: "/project/projet_scarlett.webp",
-            gallery: ["/project/scarlett-gallery/scarlettgallery-iMac.png", "/project/scarlett-gallery/scarlettgallery-macbook.png", "/project/scarlett-gallery/scarlettgallery-ipads.png", "/project/scarlett-gallery/scarlettgallery-iphones.png"],
-            demo: "https://www.scarlettgallery.com/",
-            code: "https://github.com/Eultype/Scarlett_Portfolio",
             featured: true
         },
         {
             id: 4,
-            title: "Exemple Project 4",
-            category: "Frontend",
-            description: "Exemple description 4",
-            longDescription: "Refonte complète de l'identité visuelle et du site web d'une start-up locale. Le projet incluait la création d'un système de design complet et l'intégration de maquettes haute fidélité.",
-            stack: ["Stacks du projet à définir"],
-            image: "/projects/old.jpg",
-            gallery: ["/projects/old.jpg"],
+            title: "Portfolio Interactif",
+            category: "Full-Stack / 3D",
+            description: "Une expérience immersive mêlant rendu 3D, animations haute performance et architecture Next.js moderne.",
+            longDescription: "Ce portfolio est le fruit d'une réflexion sur l'expérience utilisateur moderne. L'objectif était de créer un pont entre le développement web traditionnel et l'immersion 3D. Chaque interaction est pensée pour être fluide et signifiante, reflétant mon identité de développeur.",
+            stack: ["Next.js 16", "TypeScript", "Three.js", "GSAP", "Tailwind CSS"],
+            image: "/project/portfolio/portfolio-v2.webp",
+            gallery: [
+                "/project/portfolio/portfolio-v2-iMac.webp",
+                "/project/portfolio/portfolio-v2-macbook.webp",
+                "/project/portfolio/portfolio-v2-ipads.webp",
+                "/project/portfolio/portfolio-v2-iphones.webp"
+            ],
             demo: "#",
-            code: "#",
-            featured: false
+            code: "https://github.com/Eultype/portfolio-sam-v2",
+            versions: {
+                v1: {
+                    title: "Version 1.0 - Portfolio Statique",
+                    description: "Ma première vitrine personnelle. Un site plus conventionnel axé sur la présentation textuelle et des grilles de projets simples. C'était mes premiers pas dans l'affirmation de mon identité visuelle.",
+                    stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+                    gallery: [
+                        "/project/portfolio/portfolio-v1-iMac.webp",
+                        "/project/portfolio/portfolio-v1-macbook.webp",
+                        "/project/portfolio/portfolio-v1-ipads.webp",
+                        "/project/portfolio/portfolio-v1-iphones.webp"
+                    ],
+                    demo: "https://github.com/Eultype/Portfolio_V1"
+                },
+                v2: {
+                    title: "Version 2.0 - L'Immersion 3D",
+                    description: "La version actuelle. Une refonte totale axée sur l'interactivity. Intégration d'une scène 3D complexe, gestion de smooth scroll fluide avec Lenis, et une architecture Next.js 16 ultra-performante. Chaque transition est orchestrée pour créer une expérience mémorable.",
+                    stack: ["Next.js 16", "TypeScript", "Three.js", "GSAP", "Tailwind CSS"],
+                    gallery: [
+                        "/project/portfolio/portfolio-v2-iMac.webp",
+                        "/project/portfolio/portfolio-v2-macbook.webp",
+                        "/project/portfolio/portfolio-v2-ipads.webp",
+                        "/project/portfolio/portfolio-v2-iphones.webp"
+                    ],
+                    demo: "#",
+                    code: "https://github.com/Eultype/portfolio-sam-v2"
+                }
+            },
+            challenges: [
+                "Intégration 3D : Mise en place d'une scène Three.js performante avec gestion d'états dynamiques.",
+                "Animations synchronisées : Utilisation de GSAP pour orchestrer les transitions entre les sections.",
+                "Architecture Next.js : Utilisation des Server Components pour la performance et du Context API pour l'état de la scène.",
+                "Expérience sans couture : Implémentation d'un Smooth Scroll fluide et d'un préchargeur global."
+            ],
+            featured: true
         }
     ],
     // Expériences

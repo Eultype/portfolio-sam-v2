@@ -1,3 +1,12 @@
+export type ProjectVersion = {
+    title: string;
+    description?: string;
+    stack?: string[];
+    gallery?: string[];
+    demo?: string;
+    code?: string;
+};
+
 export type Project = {
     id: number;
     title: string;
@@ -10,6 +19,12 @@ export type Project = {
     gallery?: string[];
     demo: string;
     code: string;
+    v1?: string;
+    v2?: string;
+    versions?: {
+        v1: ProjectVersion;
+        v2: ProjectVersion;
+    };
     featured?: boolean;
 };
 

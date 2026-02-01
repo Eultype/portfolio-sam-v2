@@ -15,8 +15,24 @@ interface ProjectModalProps {
 export default function ProjectModal({ project, onClose }: ProjectModalProps) {
     const modalRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
+    const [activeVersion, setActiveVersion] = useState<'v1' | 'v2'>(project.versions ? 'v2' : 'v2');
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
-    const images = project.gallery && project.gallery.length > 0 ? project.gallery : [project.image];
+
+    // Déterminer le contenu à afficher
+    const currentData = project.versions ? project.versions[activeVersion] : null;
+    const displayTitle = currentData?.title || project.title;
+    const displayDescription = currentData?.description || project.longDescription || project.description;
+    const displayStack = currentData?.stack || project.stack;
+    const displayDemo = currentData?.demo || project.demo;
+    const displayCode = currentData?.code || project.code;
+    const images = (currentData?.gallery && currentData.gallery.length > 0) 
+        ? currentData.gallery 
+        : (project.gallery && project.gallery.length > 0 ? project.gallery : [project.image]);
+
+    // Reset l'index de l'image quand on change de version
+    useEffect(() => {
+        setCurrentImageIndex(0);
+    }, [activeVersion]);
 
     useGSAP(() => {
         const tl = gsap.timeline();
@@ -160,9 +176,27 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                                         )}
                                     </div>
                                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
-                                        {project.title}
+                                        {displayTitle}
                                     </h2>
                                 </div>
+
+                                {/* Onglets Version */}
+                                {project.versions && (
+                                    <div className="flex p-1 bg-white/5 rounded-lg w-fit border border-white/10">
+                                        <button 
+                                            onClick={() => setActiveVersion('v1')}
+                                            className={`px-6 py-2 rounded-md text-[10px] font-bold uppercase tracking-widest transition-all ${activeVersion === 'v1' ? 'bg-white text-black' : 'text-white/40 hover:text-white'}`}
+                                        >
+                                            Version 1
+                                        </button>
+                                        <button 
+                                            onClick={() => setActiveVersion('v2')}
+                                            className={`px-6 py-2 rounded-md text-[10px] font-bold uppercase tracking-widest transition-all ${activeVersion === 'v2' ? 'bg-blue-500 text-white' : 'text-white/40 hover:text-white'}`}
+                                        >
+                                            Version 2
+                                        </button>
+                                    </div>
+                                )}
 
                                 {/* Description */}
                                 <div>
@@ -171,12 +205,12 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                                         Context
                                     </h3>
                                     <p className="text-gray-300 leading-relaxed font-light text-sm md:text-base whitespace-pre-line text-justify">
-                                        {project.longDescription || project.description}
+                                        {displayDescription}
                                     </p>
                                 </div>
 
                                 {/* Challenges / Key Features */}
-                                {project.challenges && (
+                                {project.challenges && activeVersion === 'v2' && (
                                     <div>
                                         <h3 className="text-xs font-mono text-white/40 uppercase tracking-widest mb-4 flex items-center gap-2">
                                             <span className="w-2 h-px bg-white/40"></span>
@@ -200,7 +234,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                                         Stack
                                     </h3>
                                     <div className="flex flex-wrap gap-2">
-                                        {project.stack.map((tech) => (
+                                        {displayStack.map((tech) => (
                                             <span key={tech} className="px-3 py-1.5 border border-white/10 text-gray-400 text-[10px] md:text-xs rounded hover:border-white/40 hover:text-white transition-colors cursor-default bg-white/[0.02]">
                                                 {tech}
                                             </span>
@@ -212,7 +246,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                             {/* Footer Buttons */}
                             <div className="mt-12 pt-8 border-t border-white/10 flex flex-col gap-3">
                                 <a 
-                                    href={project.demo} 
+                                    href={displayDemo} 
                                     target="_blank" 
                                     rel="noopener noreferrer"
                                     className="group flex items-center justify-between w-full bg-white text-black px-6 py-4 rounded-sm hover:bg-blue-500 hover:text-white transition-all duration-300"
@@ -221,7 +255,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                                     <svg className="w-4 h-4 transform group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                                 </a>
                                 <a 
-                                    href={project.code} 
+                                    href={displayCode} 
                                     target="_blank" 
                                     rel="noopener noreferrer"
                                     className="group flex items-center justify-between w-full border border-white/20 text-white px-6 py-4 rounded-sm hover:border-white hover:bg-white/5 transition-all duration-300"

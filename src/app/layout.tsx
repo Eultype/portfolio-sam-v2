@@ -1,12 +1,16 @@
+// Import Next
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
+// Import des composants
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import CustomCursor from "@/components/ui/CustomCursor";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
-import { SceneProvider } from "@/context/SceneContext";
 import SceneWrapper from "@/components/3d/SceneWrapper";
 import GlobalPreloader from "@/components/layout/GlobalPreloader";
+// Import du contexte
+import { SceneProvider } from "@/context/SceneContext";
+// Import des styles
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({

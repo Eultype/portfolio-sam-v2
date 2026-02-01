@@ -12,9 +12,11 @@ import { portfolioData } from '@/data/portfolio';
 
 // Composant de la section Contact de la Homepage
 export default function ContactSection() {
-    const container = useRef(null);
+    const container = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
+        if (!container.current) return;
+
         gsap.from('.animate-contact', {
             scrollTrigger: {
                 trigger: container.current,

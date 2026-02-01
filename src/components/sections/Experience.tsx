@@ -15,9 +15,11 @@ import { portfolioData } from '@/data/portfolio';
 
 // Composant de la section Expériences de la Homepage
 export default function ExperienceSection() {
-    const container = useRef(null);
+    const container = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
+        if (!container.current) return;
+
         // Animation d'entrée
         gsap.from('.exp-item', {
             scrollTrigger: {
