@@ -64,9 +64,9 @@ export default function ProjectsPage() {
                             <div className="space-y-6">
                                 <div className="flex justify-between items-start">
                                     {/* Titre */}
-                                    <h3 className="text-4xl font-bold group-hover:text-blue-300 transition-colors">
+                                    <h2 className="text-4xl font-bold group-hover:text-blue-300 transition-colors text-white">
                                         {project.title}
-                                    </h3>
+                                    </h2>
                                     {/* Catégorie */}
                                     <span className="text-[10px] font-mono text-gray-600 border border-white/5 px-2 py-1 rounded">
                                         {project.category}

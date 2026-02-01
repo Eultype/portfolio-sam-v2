@@ -80,9 +80,9 @@ export default function ExperiencePage() {
                                     <div className="text-xs uppercase tracking-widest text-gray-600 px-3 py-1 border border-white/5 rounded-full">{exp.company}</div>
                                 </div>
                                 {/* Rôle */}
-                                <h3 className="text-5xl md:text-7xl font-bold mb-8 group-hover:text-white text-gray-400 transition-colors duration-500">
+                                <h2 className="text-5xl md:text-7xl font-bold mb-8 group-hover:text-white text-gray-400 transition-colors duration-500">
                                     {exp.role}
-                                </h3>
+                                </h2>
                                 {/* Description */}
                                 <p className="text-xl text-gray-500 max-w-3xl leading-relaxed font-light">
                                     {exp.description}

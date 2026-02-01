@@ -62,8 +62,8 @@ export default function AboutPage() {
 
                     {/* Contenu : Image / Description / Stats */}
                     <div className="grid lg:grid-cols-2 gap-20">
-                        {/* Image */}
-                        <div className="aspect-[3/4] w-full relative animate-about-image will-change-transform animate-full-about opacity-0">
+                        {/* Image - Pas d'opacité 0 ici pour le LCP */}
+                        <div className="aspect-[3/4] w-full relative animate-about-image will-change-transform">
                             <LiquidImage
                                 src="/personnal/me_dolomites.webp"
                                 alt="Portrait Samuël"

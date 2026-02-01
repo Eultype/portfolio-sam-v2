@@ -137,6 +137,7 @@ export default function LiquidImage({
               alt={alt}
               fill
               priority
+              fetchPriority="high"
               draggable={false}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className={`absolute inset-0 w-full h-full object-cover will-change-transform ${isHovered ? 'brightness-110 contrast-110 grayscale-0' : 'brightness-75 grayscale'}`}

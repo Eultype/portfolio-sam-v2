@@ -49,20 +49,20 @@ export default function ContactPage() {
                         <div className="lg:w-1/3 space-y-16 animate-full-contact">
                             {/* Coordonnées */}
                             <div className="space-y-4">
-                                <h3 className="text-[10px] font-mono text-blue-500 uppercase tracking-[0.5em]">Command_Center</h3>
+                                <span className="block text-[10px] font-mono text-blue-500 uppercase tracking-[0.5em]">Command_Center</span>
                                 <p className="text-2xl font-light">Bruxelles, Belgique</p>
                                 <p className="text-gray-500 text-sm font-mono uppercase">50.8487° N, 4.4036° E</p>
                             </div>
                             {/* Email */}
                             <div className="space-y-4">
-                                <h3 className="text-[10px] font-mono text-blue-500 uppercase tracking-[0.5em]">Direct_Link</h3>
+                                <span className="block text-[10px] font-mono text-blue-500 uppercase tracking-[0.5em]">Direct_Link</span>
                                 <a href={`mailto:${portfolioData.personal.email}`} className="text-2xl font-light hover:text-blue-400 transition-colors">
                                     {portfolioData.personal.email}
                                 </a>
                             </div>
                             {/* Réseaux sociaux */}
                             <div className="pt-8 border-t border-white/5 space-y-6">
-                                <h3 className="text-[10px] font-mono text-gray-600 uppercase tracking-[0.5em]">Transmissions</h3>
+                                <span className="block text-[10px] font-mono text-gray-600 uppercase tracking-[0.5em]">Transmissions</span>
                                 <div className="flex flex-wrap gap-6">
                                     {portfolioData.personal.socials.map(s => (
                                         <a key={s.name} href={s.url} className="text-xs uppercase tracking-widest text-gray-400 hover:text-white transition-colors">{s.name}</a>

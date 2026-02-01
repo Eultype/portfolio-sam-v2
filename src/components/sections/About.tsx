@@ -83,8 +83,8 @@ export default function AboutSection() {
                 {/* Colonne de droite : image / descriptio,*/}
                 <div className="lg:w-1/2 space-y-24 pt-20">
 
-                    {/* Image */}
-                    <div className="aspect-[3/4] w-full relative animate-about-image parallax-img will-change-transform">
+                    {/* Image - Priorité LCP */}
+                    <div className="aspect-[3/4] w-full relative parallax-img will-change-transform">
                         <LiquidImage
                             src="/personnal/solitude.webp"
                             alt="Portrait Samuël"
