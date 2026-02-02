@@ -2,10 +2,19 @@
 
 // Import Spline
 import Spline from "@splinetool/react-spline";
+// Import Lucide
+import { Github, Linkedin, Terminal } from "lucide-react";
 // Import des composants
 import MagneticButton from '../ui/MagneticButton';
 // Import des data
 import { portfolioData } from '@/data/portfolio';
+
+// Mappage des icônes
+const IconMap: Record<string, any> = {
+    Github: Github,
+    Linkedin: Linkedin,
+    Code: Terminal
+};
 
 // Layout du Footer
 export default function Footer() {
@@ -19,7 +28,7 @@ export default function Footer() {
                     {/* Robot / Titre */}
                     <div className="mb-20 md:mb-2 lg:mb-14 xl:mb-20 w-full flex flex-col items-center">
                         {/* Robot */}
-                        <div className="w-full h-[200px] md:h-[500px] xl:h-[600px] relative pb-10 md:p-0 -mt-20 md:-mt-32 xl:-mt-40">
+                        <div className="w-full h-[200px] md:h-[500px] xl:h-[350px] relative pb-10 md:p-0 -mt-20 md:-mt-32 xl:-mt-40">
                             <Spline
                                 scene="https://prod.spline.design/fhn2DJvLeJq9GDKK/scene.splinecode"
                                 style={{ width: '100%', height: '100%' }}
@@ -47,18 +56,22 @@ export default function Footer() {
                         {/* Colonne centrale : Réseaux sociaux */}
                         <div className="flex flex-col items-center gap-10">
                             <div className="flex gap-8">
-                                {portfolioData.personal.socials.map((social) => (
-                                    <MagneticButton key={social.name}>
-                                        <a
-                                            href={social.url}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-xs text-gray-400 hover:text-white hover:border-white transition-all duration-500"
-                                        >
-                                            {social.name.charAt(0)}
-                                        </a>
-                                    </MagneticButton>
-                                ))}
+                                {portfolioData.personal.socials.map((social) => {
+                                    const Icon = IconMap[social.icon] || Terminal;
+                                    return (
+                                        <MagneticButton key={social.name}>
+                                            <a
+                                                href={social.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-xs text-gray-400 hover:text-white hover:border-white transition-all duration-500"
+                                                aria-label={social.name}
+                                            >
+                                                <Icon size={18} strokeWidth={1.5} />
+                                            </a>
+                                        </MagneticButton>
+                                    );
+                                })}
                             </div>
                             <div className="w-px h-20 bg-gradient-to-b from-white/10 to-transparent" />
                         </div>
