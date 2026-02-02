@@ -24,17 +24,16 @@ export const viewport: Viewport = {
     themeColor: '#000000',
     width: 'device-width',
     initialScale: 1,
-    maximumScale: 1,
 };
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://portfolio-sam-v2.vercel.app'), // TODO: Remplacer par votre URL de production réelle
     title: {
-        default: "Samuël | Développeur Créatif Full-Stack",
+        default: "Samuël Darry | Développeur Full-Stack",
         template: "%s | Samuël"
     },
     description: portfolioData.personal.description,
-    keywords: ["Développeur Web", "Full-Stack", "React", "Next.js", "Three.js", "Portfolio", "Bruxelles", "Développeur Front-end", "Creative Developer"],
+    keywords: ["Développeur Web", "Full-Stack Developer", "React", "Next.js", "Samuël Darry", "Portfolio", "Bruxelles", "Développeur Front-end", "Développeur Full-Stack"],
     authors: [{ name: portfolioData.personal.name, url: portfolioData.personal.socials.find(s => s.name === 'GitHub')?.url }],
     creator: portfolioData.personal.name,
     publisher: portfolioData.personal.name,
@@ -55,19 +54,19 @@ export const metadata: Metadata = {
         url: 'https://portfolio-sam-v2.vercel.app',
         title: "Samuël | Développeur Créatif Full-Stack",
         description: portfolioData.personal.description,
-        siteName: "Portfolio Samuël",
+        siteName: "Portfolio Samuël Darry",
         images: [
             {
                 url: '/project/portfolio/portfolio-v2.webp',
                 width: 1200,
                 height: 630,
-                alt: 'Portfolio Samuël - Creative Developer',
+                alt: 'Portfolio Samuël - Developer Full-Stack',
             },
         ],
     },
     twitter: {
         card: 'summary_large_image',
-        title: "Samuël | Développeur Créatif Full-Stack",
+        title: "Samuël Darry | Développeur Full-Stack",
         description: portfolioData.personal.description,
         images: ['/project/portfolio/portfolio-v2.webp'],
         creator: '@Eultype', // Placeholder basé sur GitHub, à ajuster

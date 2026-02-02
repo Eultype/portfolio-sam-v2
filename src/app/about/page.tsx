@@ -5,7 +5,7 @@ import AboutContent from './_components/AboutContent';
 
 // Metadata de la page À propos
 export const metadata: Metadata = {
-    title: "À Propos | Samuël",
+    title: "À Propos | Samuël Darry | Développeur Full-Stack",
     description: "Découvrez mon parcours, ma philosophie et mon approche du développement web full-stack et créatif.",
 };
 

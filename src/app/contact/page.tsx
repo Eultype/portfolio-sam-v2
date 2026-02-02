@@ -5,7 +5,7 @@ import ContactContent from './_components/ContactContent';
 
 // Metadata de la page Contact
 export const metadata: Metadata = {
-    title: "Contact | Samuël",
+    title: "Contact | Samuël Darry | Développeur Full-Stack",
     description: "Contactez-moi pour discuter de vos projets web, collaborations ou opportunités professionnelles.",
 };
 
