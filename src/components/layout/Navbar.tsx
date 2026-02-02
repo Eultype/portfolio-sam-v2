@@ -65,7 +65,7 @@ export default function Navbar() {
             <header
                 className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-700 w-[95%] max-w-6xl rounded-full border border-white/5 overflow-hidden ${
                     scrolled
-                        ? 'bg-black/20 backdrop-blur-2xl py-3 px-8 shadow-[0_0_40px_rgba(0,0,0,0.8)] border-white/10'
+                        ? 'bg-black/20 backdrop-blur-2xl py-3 px-4 md:px-8 shadow-[0_0_40px_rgba(0,0,0,0.8)] border-white/10'
                         : 'bg-transparent py-6 px-4'
                 }`}
             >
