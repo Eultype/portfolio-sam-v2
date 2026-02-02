@@ -6,9 +6,11 @@ import { portfolioData } from '@/data/portfolio';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { contactSchema, ContactFormData } from '@/schemas/contact';
+import { sendEmail } from '@/app/actions';
 
 export default function ContactForm() {
-    const [status, setStatus] = useState<'idle' | 'sending' | 'success'>('idle');
+    const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+    const [errorMessage, setErrorMessage] = useState("");
 
     // Initialisation du hook useForm
     const {
@@ -23,15 +25,24 @@ export default function ContactForm() {
     // Gestion de la soumission
     const onSubmit = async (data: ContactFormData) => {
         setStatus('sending');
-        console.log("Données valides :", data); // Pour debug
+        setErrorMessage("");
 
-        // Simulation d'envoi (On pourra lier une vraie API plus tard)
-        setTimeout(() => {
-            setStatus('success');
-            reset(); // Reset du formulaire
-            // Animation de succès
-            gsap.fromTo('.success-msg', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 });
-        }, 2000);
+        try {
+            const result = await sendEmail(data);
+
+            if (result.success) {
+                setStatus('success');
+                reset(); // Reset du formulaire
+                // Animation de succès
+                gsap.fromTo('.success-msg', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 });
+            } else {
+                setStatus('error');
+                setErrorMessage(result.error || "Une erreur est survenue.");
+            }
+        } catch (error) {
+            setStatus('error');
+            setErrorMessage("Erreur lors de la connexion au serveur.");
+        }
     };
 
     if (status === 'success') {
@@ -114,6 +125,13 @@ export default function ContactForm() {
                     </span>
                 )}
             </div>
+
+            {/* MESSAGE D'ERREUR API */}
+            {status === 'error' && (
+                <div className="bg-red-500/10 border border-red-500/20 text-red-400 text-[10px] font-mono p-4 rounded-sm uppercase tracking-widest animate-shake">
+                    Signal_Error: {errorMessage}
+                </div>
+            )}
 
             {/* SUBMIT */}
             <button
