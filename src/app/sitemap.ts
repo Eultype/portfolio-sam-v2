@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { portfolioData } from '@/data/portfolio';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://portfolio-sam-v2.vercel.app'; // URL de production à remplacer si nécessaire
+  const baseUrl = 'https://www.samueldarry.com';
 
   const routes = portfolioData.nav.map((route) => ({
     url: `${baseUrl}${route.path}`,

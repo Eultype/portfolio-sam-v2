@@ -7,6 +7,9 @@ import ContactContent from './_components/ContactContent';
 export const metadata: Metadata = {
     title: "Contact | Samuël Darry | Développeur Full-Stack",
     description: "Contactez-moi pour discuter de vos projets web, collaborations ou opportunités professionnelles.",
+    alternates: {
+        canonical: '/contact',
+    }
 };
 
 // Page contact

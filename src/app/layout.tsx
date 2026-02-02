@@ -27,7 +27,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-    metadataBase: new URL('https://portfolio-sam-v2.vercel.app'), // TODO: Remplacer par votre URL de production réelle
+    metadataBase: new URL('https://www.samueldarry.com'),
     title: {
         default: "Samuël Darry | Développeur Full-Stack",
         template: "%s | Samuël"
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     openGraph: {
         type: 'website',
         locale: 'fr_BE',
-        url: 'https://portfolio-sam-v2.vercel.app',
+        url: 'https://www.samueldarry.com',
         title: "Samuël | Développeur Créatif Full-Stack",
         description: portfolioData.personal.description,
         siteName: "Portfolio Samuël Darry",

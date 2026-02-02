@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://portfolio-sam-v2.vercel.app'; // URL de production à remplacer si nécessaire
+  const baseUrl = 'https://www.samueldarry.com';
 
   return {
     rules: {
