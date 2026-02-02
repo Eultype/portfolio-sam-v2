@@ -22,7 +22,7 @@ export const portfolioData: PortfolioData = {
         socials: [
             { name: "GitHub", url: "https://github.com/Eultype", icon: "Github" },
             { name: "LinkedIn", url: "https://www.linkedin.com/in/samu%C3%ABl-darry-648504253/", icon: "Linkedin" },
-            { name: "Twitter", url: "https://twitter.com", icon: "Twitter" },
+            { name: "Codecademy", url: "https://www.codecademy.com/profiles/Sdarry", icon: "Code" },
         ]
     },
     // Menu de navigation
