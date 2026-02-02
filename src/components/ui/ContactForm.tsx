@@ -1,20 +1,34 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import gsap from 'gsap';
 import { portfolioData } from '@/data/portfolio';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { contactSchema, ContactFormData } from '@/schemas/contact';
 
 export default function ContactForm() {
     const [status, setStatus] = useState<'idle' | 'sending' | 'success'>('idle');
-    const formRef = useRef<HTMLFormElement>(null);
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
+    // Initialisation du hook useForm
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { errors }
+    } = useForm<ContactFormData>({
+        resolver: zodResolver(contactSchema),
+    });
+
+    // Gestion de la soumission
+    const onSubmit = async (data: ContactFormData) => {
         setStatus('sending');
+        console.log("Données valides :", data); // Pour debug
 
         // Simulation d'envoi (On pourra lier une vraie API plus tard)
         setTimeout(() => {
             setStatus('success');
+            reset(); // Reset du formulaire
             // Animation de succès
             gsap.fromTo('.success-msg', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 });
         }, 2000);
@@ -41,7 +55,7 @@ export default function ContactForm() {
     }
 
     return (
-        <form ref={formRef} onSubmit={handleSubmit} className="space-y-8 relative">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 relative">
             <div className="grid md:grid-cols-2 gap-8">
                 {/* NOM */}
                 <div className="space-y-2 group">
@@ -49,12 +63,17 @@ export default function ContactForm() {
                         Interlocuteur_ID
                     </label>
                     <input
-                        required
-                        name="name"
+                        {...register("name")}
                         type="text"
                         placeholder="VOTRE NOM"
-                        className="w-full bg-white/5 border border-white/10 rounded-sm px-6 py-4 outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all font-sans text-sm tracking-wide"
+                        className={`w-full bg-white/5 border rounded-sm px-6 py-4 outline-none transition-all font-sans text-sm tracking-wide 
+                            ${errors.name ? 'border-red-500/50 focus:border-red-500' : 'border-white/10 focus:border-blue-500/50 focus:bg-white/10'}`}
                     />
+                    {errors.name && (
+                        <span className="text-red-400 text-[10px] font-mono ml-2 uppercase tracking-widest animate-pulse">
+                            Error: {errors.name.message}
+                        </span>
+                    )}
                 </div>
 
                 {/* EMAIL */}
@@ -63,12 +82,17 @@ export default function ContactForm() {
                         Signal_Return_Path
                     </label>
                     <input
-                        required
-                        name="email"
+                        {...register("email")}
                         type="email"
                         placeholder="VOTRE@EMAIL.COM"
-                        className="w-full bg-white/5 border border-white/10 rounded-sm px-6 py-4 outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all font-sans text-sm tracking-wide"
+                        className={`w-full bg-white/5 border rounded-sm px-6 py-4 outline-none transition-all font-sans text-sm tracking-wide 
+                            ${errors.email ? 'border-red-500/50 focus:border-red-500' : 'border-white/10 focus:border-blue-500/50 focus:bg-white/10'}`}
                     />
+                    {errors.email && (
+                        <span className="text-red-400 text-[10px] font-mono ml-2 uppercase tracking-widest animate-pulse">
+                            Error: {errors.email.message}
+                        </span>
+                    )}
                 </div>
             </div>
 
@@ -78,12 +102,17 @@ export default function ContactForm() {
                     Message_Payload
                 </label>
                 <textarea
-                    required
-                    name="message"
+                    {...register("message")}
                     rows={5}
                     placeholder="PARLONS DE VOTRE PROJET..."
-                    className="w-full bg-white/5 border border-white/10 rounded-sm px-6 py-4 outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all font-sans text-sm tracking-wide resize-none"
+                    className={`w-full bg-white/5 border rounded-sm px-6 py-4 outline-none transition-all font-sans text-sm tracking-wide resize-none 
+                        ${errors.message ? 'border-red-500/50 focus:border-red-500' : 'border-white/10 focus:border-blue-500/50 focus:bg-white/10'}`}
                 />
+                {errors.message && (
+                    <span className="text-red-400 text-[10px] font-mono ml-2 uppercase tracking-widest animate-pulse">
+                        Error: {errors.message.message}
+                    </span>
+                )}
             </div>
 
             {/* SUBMIT */}
