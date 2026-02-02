@@ -29,7 +29,7 @@ function StarField({ status }: { status: string }) {
 
         ref.current.scale.z = THREE.MathUtils.lerp(ref.current.scale.z, targetScaleZ, 0.05);
 
-        if (isWarping) {
+        if (isWarping && window.innerWidth >= 768) {
             ref.current.rotation.z += 0.1;
         }
     });

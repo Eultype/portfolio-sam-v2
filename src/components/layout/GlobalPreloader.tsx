@@ -19,13 +19,21 @@ export default function GlobalPreloader() {
     if (lock.current) return;
     lock.current = true;
 
+    const isMobile = window.innerWidth < 768;
+
     if (pathname === '/') {
-        // HOME : Warp Effect
-        setStatus('warping');
-        setTimeout(() => {
+        if (isMobile) {
+            // MOBILE : Accès direct
             setStatus('arrived');
             setIntroPlayed(true);
-        }, 1200);
+        } else {
+            // DESKTOP/TABLET : Warp Effect
+            setStatus('warping');
+            setTimeout(() => {
+                setStatus('arrived');
+                setIntroPlayed(true);
+            }, 1200);
+        }
     } else {
         // AUTRES PAGES : Transition calme
         // On attend un peu que le loader s'efface pour calmer la scène
