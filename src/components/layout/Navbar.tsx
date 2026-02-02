@@ -13,6 +13,7 @@ export default function Navbar() {
     const pathname = usePathname();
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [downloadStatus, setDownloadStatus] = useState<'idle' | 'accessing' | 'downloading' | 'complete'>('idle');
 
     useEffect(() => {
         const handleScroll = () => {
@@ -22,6 +23,33 @@ export default function Navbar() {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    const handleInitiate = () => {
+        if (downloadStatus !== 'idle') return;
+
+        // Étape 1 : Accès
+        setDownloadStatus('accessing');
+
+        setTimeout(() => {
+            // Étape 2 : Téléchargement
+            setDownloadStatus('downloading');
+            
+            const link = document.createElement('a');
+            link.href = '/CV_Samuel_DARRY.pdf'; // Nom exact du fichier
+            link.download = 'Samuel_Darry_CV.pdf'; // Nom suggéré au téléchargement
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // Étape 3 : Succès
+            setTimeout(() => {
+                setDownloadStatus('complete');
+                
+                // Reset
+                setTimeout(() => setDownloadStatus('idle'), 3000);
+            }, 800);
+        }, 1000);
+    };
 
     const navItems = [
         { label: "Home", path: "/", id: "home" },
@@ -110,12 +138,20 @@ export default function Navbar() {
                             <span className="text-blue-500">Lat: 0.02ms</span>
                         </div>
                         <MagneticButton>
-                            <a
-                                href="#contact"
-                                className="px-6 py-2.5 text-[10px] font-bold bg-white text-black rounded-full hover:bg-blue-500 hover:text-white transition-all duration-500 tracking-widest"
+                            <button
+                                onClick={handleInitiate}
+                                disabled={downloadStatus !== 'idle'}
+                                className={`px-6 py-2.5 text-[10px] font-bold rounded-full transition-all duration-500 tracking-widest min-w-[120px] ${
+                                    downloadStatus === 'complete' ? 'bg-green-500 text-white shadow-[0_0_20px_rgba(34,197,94,0.4)]' :
+                                    downloadStatus !== 'idle' ? 'bg-white/10 text-white cursor-wait border border-white/20' :
+                                    'bg-white text-black hover:bg-blue-500 hover:text-white'
+                                }`}
                             >
-                                INITIATE
-                            </a>
+                                {downloadStatus === 'idle' && 'INITIATE'}
+                                {downloadStatus === 'accessing' && 'ACCESSING...'}
+                                {downloadStatus === 'downloading' && 'DOWNLOADING...'}
+                                {downloadStatus === 'complete' && 'ACQUIRED'}
+                            </button>
                         </MagneticButton>
                     </div>
 
