@@ -51,7 +51,7 @@ export default function Home() {
             <div
                 ref={contentRef}
                 className="relative z-10 opacity-0"
-                style={{ pointerEvents: status === 'arrived' ? 'all' : 'none' }}
+                style={{ pointerEvents: introPlayed ? 'all' : 'none' }}
             >
 
                 {/* Hero */}

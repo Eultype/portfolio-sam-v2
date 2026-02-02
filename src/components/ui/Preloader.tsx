@@ -59,11 +59,12 @@ export default function Preloader({ onComplete }: { onComplete?: () => void }) {
                     duration: 0.5,
                     ease: "expo.inOut",
                     onStart: () => {
+                        // On débloque le scroll dès le début de la disparition
+                        document.body.style.overflow = '';
                         if (onComplete) onComplete();
                     },
                     onComplete: () => {
                         setComplete(true);
-                        document.body.style.overflow = '';
                     }
                 });
         }, containerRef);
