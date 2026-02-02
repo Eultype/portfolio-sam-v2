@@ -65,7 +65,7 @@ export const portfolioData: PortfolioData = {
             image: "/project/2d3d/project-2d3d.webp",
             gallery: ["/project/2d3d/project-2d3d-iMac.webp", "/project/2d3d/project-2d3d-macbook.webp", "/project/2d3d/project-2d3d-ipads.webp", "/project/2d3d/project-2d3d-iphones.webp"],
             demo: "https://admin.2d3d.be/",
-            code: "#",
+            code: "https://github.com/Eultype/d3d-dashboard",
             featured: true
         },
         {
@@ -135,8 +135,8 @@ export const portfolioData: PortfolioData = {
             stack: ["Next.js 16", "Tailwind CSS", "TypeScript", "Framer Motion", "Zod", "Lenis"],
             image: "/project/la-dolce-vita/la-dolce-vita.webp",
             gallery: ["/project/la-dolce-vita/la-dolce-vita-iMac.webp", "/project/la-dolce-vita/la-dolce-vita-macbook-1.webp", "/project/la-dolce-vita/la-dolce-vita-ipads-1.webp", "/project/la-dolce-vita/la-dolce-vita-iphones-2.webp"],
-            demo: "#",
-            code: "#",
+            demo: "https://la-dolce-vita-green.vercel.app/",
+            code: "https://github.com/Eultype/la-dolce-vita",
             featured: true
         },
         {
@@ -153,7 +153,7 @@ export const portfolioData: PortfolioData = {
                 "/project/portfolio/portfolio-v2-ipads.webp",
                 "/project/portfolio/portfolio-v2-iphones.webp"
             ],
-            demo: "#",
+            demo: "https://www.samueldarry.com",
             code: "https://github.com/Eultype/portfolio-sam-v2",
             versions: {
                 v1: {
@@ -166,7 +166,8 @@ export const portfolioData: PortfolioData = {
                         "/project/portfolio/portfolio-v1-ipads.webp",
                         "/project/portfolio/portfolio-v1-iphones.webp"
                     ],
-                    demo: "https://github.com/Eultype/Portfolio_V1"
+                    demo: "https://portfolio-sam-beige.vercel.app/",
+                    code: "https://github.com/Eultype/portfolio_Sam"
                 },
                 v2: {
                     title: "Version 2.0 - L'Immersion 3D",
@@ -178,7 +179,7 @@ export const portfolioData: PortfolioData = {
                         "/project/portfolio/portfolio-v2-ipads.webp",
                         "/project/portfolio/portfolio-v2-iphones.webp"
                     ],
-                    demo: "#",
+                    demo: "https://www.samueldarry.com",
                     code: "https://github.com/Eultype/portfolio-sam-v2"
                 }
             },
