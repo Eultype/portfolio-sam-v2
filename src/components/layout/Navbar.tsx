@@ -136,18 +136,18 @@ export default function Navbar() {
 
             {/* Menu de navigation mobile */}
             <div
-                className={`fixed inset-0 z-40 bg-black/95 backdrop-blur-3xl flex flex-col items-center justify-center transition-all duration-700 xl:hidden ${
+                className={`fixed inset-0 z-49 bg-black/95 backdrop-blur-3xl flex flex-col items-center justify-center pt-20 transition-all duration-700 xl:hidden ${
                     mobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none translate-y-10'
                 }`}
             >
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.05),transparent_70%)]" />
-                <nav className="flex flex-col items-center gap-10 relative z-10">
+                <nav className="flex flex-col items-center gap-10 relative z-10 w-full px-6">
                     {navItems.map((item, i) => (
                         <Link
                             key={item.id}
                             href={item.path}
                             onClick={() => setMobileMenuOpen(false)}
-                            className="text-5xl font-bold text-white/20 hover:text-white transition-all duration-500 tracking-tighter"
+                            className="text-4xl md:text-5xl font-bold text-white/20 hover:text-white transition-all duration-500 tracking-tighter"
                             style={{ transitionDelay: `${i * 100}ms` }}
                         >
                             {item.label}

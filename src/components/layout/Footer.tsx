@@ -17,15 +17,16 @@ export default function Footer() {
             <div className="container mx-auto px-6">
                 <div className="flex flex-col items-center text-center">
                     {/* Robot / Titre */}
-                    <div className="mb-20 md:mb-2 lg:mb-14 xl:mb-20">
+                    <div className="mb-20 md:mb-2 lg:mb-14 xl:mb-20 w-full flex flex-col items-center">
                         {/* Robot */}
-                        <Spline
-                            scene="https://prod.spline.design/fhn2DJvLeJq9GDKK/scene.splinecode"
-                            style={{ width: '100%', height: '100%' }}
-                            className="-mt-40 md:-mt-70 lg:-mt-82 xl:-mt-100 md:-mb-24 lg:-mb-35 xl:-mb-50"
-                        />
+                        <div className="w-full h-[300px] md:h-[500px] xl:h-[600px] relative -mt-20 md:-mt-32 xl:-mt-40">
+                            <Spline
+                                scene="https://prod.spline.design/fhn2DJvLeJq9GDKK/scene.splinecode"
+                                style={{ width: '100%', height: '100%' }}
+                            />
+                        </div>
                         {/* Titre */}
-                        <h2 className="text-[10px] uppercase tracking-[1em] text-blue-500 xl:mb-8 font-mono">End of Transmission</h2>
+                        <h2 className="text-[10px] uppercase tracking-[1em] text-blue-500 xl:mb-8 font-mono -mt-10 md:-mt-20 z-10 relative">End of Transmission</h2>
                     </div>
 
                     <div className="grid md:grid-cols-3 w-full gap-20 items-end border-t border-white/5 pt-20">

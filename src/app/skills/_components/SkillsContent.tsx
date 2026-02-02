@@ -1,7 +1,7 @@
 'use client';
 
 // Import React
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 // Import GSAP
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -13,6 +13,7 @@ import { useScene } from '@/context/SceneContext';
 // Page compétences (Contenu Client)
 export default function SkillsContent() {
     const { setStatus } = useScene();
+    const [activeSkill, setActiveSkill] = useState<string | null>(null);
 
     // Mise à jour de l'état de la scène 3D au montage
     useEffect(() => {
@@ -32,6 +33,10 @@ export default function SkillsContent() {
         });
     }, { scope: container });
 
+    const handleSkillClick = (skill: string) => {
+        setActiveSkill(prev => prev === skill ? null : skill);
+    };
+
     return (
         <main ref={container} className="relative min-h-screen text-white font-sans selection:bg-blue-500/30">
             
@@ -49,7 +54,13 @@ export default function SkillsContent() {
                             <h2 className="text-xs font-mono text-blue-500 uppercase tracking-[0.5em] border-b border-white/10 pb-4">Frontend</h2>
                             <div className="space-y-6">
                                 {portfolioData.skills.frontend.map(s => (
-                                    <div key={s} className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-500 hover:text-white transition-colors cursor-default">{s}</div>
+                                    <div 
+                                        key={s} 
+                                        onClick={() => handleSkillClick(s)}
+                                        className={`text-3xl md:text-4xl lg:text-5xl font-bold transition-colors cursor-pointer select-none ${activeSkill === s ? 'text-white' : 'text-gray-500 hover:text-white'}`}
+                                    >
+                                        {s}
+                                    </div>
                                 ))}
                             </div>
                         </div>
@@ -59,7 +70,13 @@ export default function SkillsContent() {
                             <h2 className="text-xs font-mono text-purple-500 uppercase tracking-[0.5em] border-b border-white/10 pb-4">Backend</h2>
                             <div className="space-y-6">
                                 {portfolioData.skills.backend.map(s => (
-                                    <div key={s} className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-500 hover:text-white transition-colors cursor-default">{s}</div>
+                                    <div 
+                                        key={s} 
+                                        onClick={() => handleSkillClick(s)}
+                                        className={`text-3xl md:text-4xl lg:text-5xl font-bold transition-colors cursor-pointer select-none ${activeSkill === s ? 'text-white' : 'text-gray-500 hover:text-white'}`}
+                                    >
+                                        {s}
+                                    </div>
                                 ))}
                             </div>
                         </div>
@@ -69,7 +86,13 @@ export default function SkillsContent() {
                             <h2 className="text-xs font-mono text-green-500 uppercase tracking-[0.5em] border-b border-white/10 pb-4">Tools</h2>
                             <div className="space-y-6">
                                 {portfolioData.skills.tools.map(s => (
-                                    <div key={s} className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-500 hover:text-white transition-colors cursor-default">{s}</div>
+                                    <div 
+                                        key={s} 
+                                        onClick={() => handleSkillClick(s)}
+                                        className={`text-3xl md:text-4xl lg:text-5xl font-bold transition-colors cursor-pointer select-none ${activeSkill === s ? 'text-white' : 'text-gray-500 hover:text-white'}`}
+                                    >
+                                        {s}
+                                    </div>
                                 ))}
                             </div>
                         </div>

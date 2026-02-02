@@ -28,6 +28,8 @@ export default function LiquidImage({
   const dataRef = useRef<HTMLDivElement>(null);
   const tlRef = useRef<gsap.core.Timeline | null>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
+  // Verrou pour empêcher l'arrêt prématuré de l'animation sur mobile
+  const isLockedRef = useRef(false);
   const [isHovered, setIsHovered] = useState(false);
   
   const displayLocation = location || portfolioData.personal.location;
@@ -65,6 +67,9 @@ export default function LiquidImage({
   };
 
   const handleMouseEnter = () => {
+    // Si déjà hover ou locké, on ne relance pas tout pour éviter les saccades
+    if (isHovered) return;
+    
     setIsHovered(true);
     gsap.to(imageRef.current, { scale: 1.1, duration: 0.4 });
 
@@ -95,6 +100,9 @@ export default function LiquidImage({
   };
 
       const handleMouseLeave = () => {
+        // Si verrouillé (clic mobile en cours), on ignore la sortie de souris
+        if (isLockedRef.current) return;
+
         setIsHovered(false);
         // Nettoyage du timer mobile
         if (timerRef.current) {
@@ -173,20 +181,26 @@ export default function LiquidImage({
         onMouseMove={handleMouseMove}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        onClick={() => {
-            // Sur mobile/tablette, on déclenche l'effet et on l'arrête après un délai
-            if (window.innerWidth < 1280) {
-                // On nettoie d'abord tout timer existant
-                if (timerRef.current) clearTimeout(timerRef.current);
-                
-                handleMouseEnter();
-                
-                // On lance le nouveau délai
-                timerRef.current = setTimeout(() => {
-                    handleMouseLeave();
-                    timerRef.current = null;
-                }, 3000);
-            }
+        onClick={(e) => {
+            // Empêcher la propagation
+            e.stopPropagation();
+            
+            // ACTIVER LE VERROU
+            isLockedRef.current = true;
+            
+            // Nettoyer timer précédent
+            if (timerRef.current) clearTimeout(timerRef.current);
+            
+            // Lancer l'animation (si pas déjà lancée)
+            handleMouseEnter();
+            
+            // Programmer la fin
+            timerRef.current = setTimeout(() => {
+                // DÉSACTIVER LE VERROU
+                isLockedRef.current = false;
+                handleMouseLeave();
+                timerRef.current = null;
+            }, 3000);
         }}
       />
 

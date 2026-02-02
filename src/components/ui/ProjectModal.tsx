@@ -17,6 +17,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
     const contentRef = useRef<HTMLDivElement>(null);
     const [activeVersion, setActiveVersion] = useState<'v1' | 'v2'>(project.versions ? 'v2' : 'v2');
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [isLoading, setIsLoading] = useState(true); // État de chargement
 
     // Déterminer le contenu à afficher
     const currentData = project.versions ? project.versions[activeVersion] : null;
@@ -32,7 +33,13 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
     // Reset l'index de l'image quand on change de version
     useEffect(() => {
         setCurrentImageIndex(0);
+        setIsLoading(true); // Reset loading au changement de version
     }, [activeVersion]);
+
+    // Reset loading au changement d'image
+    useEffect(() => {
+        setIsLoading(true);
+    }, [currentImageIndex]);
 
     useGSAP(() => {
         const tl = gsap.timeline();
@@ -118,13 +125,23 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                     {/* Galerie (Partie Gauche/Haut) */}
                     <div className="w-full xl:w-2/3 h-[40vh] sm:h-[50vh] xl:h-full min-h-[300px] relative bg-black group flex items-center justify-center border-b xl:border-b-0 xl:border-r border-white/5 overflow-hidden">
                         <ModalStars />
-                        <div className="relative w-full h-full z-10 p-6 md:p-12">
+                        
+                        {/* Spinner de chargement */}
+                        {isLoading && (
+                            <div className="absolute inset-0 flex items-center justify-center z-20">
+                                <div className="w-10 h-10 border-2 border-blue-500/30 border-t-blue-500 rounded-full animate-spin"></div>
+                            </div>
+                        )}
+
+                        <div className={`relative w-full h-full z-10 p-6 md:p-12 transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
                             <Image 
                                 src={images[currentImageIndex]} 
                                 alt={`${project.title} - Image ${currentImageIndex + 1}`}
                                 fill
                                 className="object-contain drop-shadow-2xl"
                                 priority
+                                sizes="(max-width: 1280px) 100vw, 66vw"
+                                onLoad={() => setIsLoading(false)}
                             />
                         </div>                    
                         {/* Contrôles Galerie */}
