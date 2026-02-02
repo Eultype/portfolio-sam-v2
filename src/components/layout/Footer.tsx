@@ -17,9 +17,9 @@ export default function Footer() {
             <div className="container mx-auto px-6">
                 <div className="flex flex-col items-center text-center">
                     {/* Robot / Titre */}
-                    <div className="mb-10 md:mb-2 lg:mb-14 xl:mb-20 w-full flex flex-col items-center">
+                    <div className="mb-20 md:mb-2 lg:mb-14 xl:mb-20 w-full flex flex-col items-center">
                         {/* Robot */}
-                        <div className="w-full h-[200px] md:h-[500px] xl:h-[600px] relative pb-10 -mt-20 md:-mt-32 xl:-mt-40">
+                        <div className="w-full h-[200px] md:h-[500px] xl:h-[600px] relative pb-10 md:p-0 -mt-20 md:-mt-32 xl:-mt-40">
                             <Spline
                                 scene="https://prod.spline.design/fhn2DJvLeJq9GDKK/scene.splinecode"
                                 style={{ width: '100%', height: '100%' }}
