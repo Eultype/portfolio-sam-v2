@@ -142,7 +142,7 @@ export const portfolioData: PortfolioData = {
         {
             id: 4,
             title: "Portfolio Interactif",
-            category: "Full-Stack / 3D",
+            category: "Frontend",
             description: "Une expérience immersive mêlant rendu 3D, animations haute performance et architecture Next.js moderne.",
             longDescription: "Ce portfolio est le fruit d'une réflexion sur l'expérience utilisateur moderne. L'objectif était de créer un pont entre le développement web traditionnel et l'immersion 3D. Chaque interaction est pensée pour être fluide et signifiante, reflétant mon identité de développeur.",
             stack: ["Next.js 16", "TypeScript", "Three.js", "GSAP", "Tailwind CSS"],
