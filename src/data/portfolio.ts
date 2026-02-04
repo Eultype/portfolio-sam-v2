@@ -43,7 +43,7 @@ export const portfolioData: PortfolioData = {
     ],
     // Skills
     skills: {
-        frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+        frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Bootstrap", "Framer Motion"],
         backend: ["Node.js", "Express", "PostgreSQL", "Prisma", "PHP", "REST API"],
         tools: ["Git", "GitHub", "Linux", "JetBrains", "Figma", "Vercel",],
     },
