@@ -1,5 +1,7 @@
 'use client';
 
+// Import React
+import React from 'react';
 // Import Spline
 import Spline from "@splinetool/react-spline";
 // Import Lucide
@@ -18,6 +20,20 @@ const IconMap: Record<string, any> = {
 
 // Layout du Footer
 export default function Footer() {
+    // État pour gérer l'heure côté client uniquement pour éviter les erreurs d'hydratation
+    const [time, setTime] = React.useState<string>("");
+
+    React.useEffect(() => {
+        setTime(new Date().toLocaleTimeString('fr-FR', {hour: '2-digit', minute:'2-digit'}));
+        
+        // Optionnel : mettre à jour l'heure chaque minute si on veut
+        const interval = setInterval(() => {
+            setTime(new Date().toLocaleTimeString('fr-FR', {hour: '2-digit', minute:'2-digit'}));
+        }, 60000);
+        
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <footer className="relative pt-60 pb-20 z-10 overflow-hidden">
             {/* Ligne de séparation infinie */}
@@ -79,8 +95,8 @@ export default function Footer() {
                         {/* Colonne de droite : Heure / Localisation / Auteur */}
                         <div className="text-right space-y-6 font-mono uppercase">
                             {/* Heure */}
-                            <div className="text-[10px] text-gray-600 tracking-widest">
-                                Time: {new Date().toLocaleTimeString('fr-FR', {hour: '2-digit', minute:'2-digit'})} GMT+1
+                            <div className="text-[10px] text-gray-600 tracking-widest min-h-[1.5em]">
+                                Time: {time} GMT+1
                             </div>
                             {/* Localisation */}
                             <div className="text-[10px] text-gray-600 tracking-widest">

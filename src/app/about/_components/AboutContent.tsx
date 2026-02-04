@@ -37,16 +37,18 @@ export default function AboutContent() {
         });
 
         // PARALLAXE IMAGE
-        gsap.to('.parallax-img', {
-            scrollTrigger: {
-                trigger: container.current,
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: true
-            },
-            y: -100,
-            ease: 'none'
-        });
+        if (document.querySelector('.animate-about-image')) {
+            gsap.to('.animate-about-image', {
+                scrollTrigger: {
+                    trigger: container.current,
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: true
+                },
+                y: -100,
+                ease: 'none'
+            });
+        }
     }, { scope: container });
 
     return (
