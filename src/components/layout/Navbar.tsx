@@ -35,8 +35,8 @@ export default function Navbar() {
             setDownloadStatus('downloading');
             
             const link = document.createElement('a');
-            link.href = '/CV_Samuel_DARRY.pdf'; // Nom exact du fichier
-            link.download = 'Samuel_Darry_CV.pdf'; // Nom suggéré au téléchargement
+            link.href = '/CV_Samuel_DARRY.pdf';
+            link.download = 'Samuel_Darry_CV.pdf';
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
@@ -88,11 +88,11 @@ export default function Navbar() {
                                 <div className="absolute w-[1px] h-full bg-gradient-to-b from-transparent via-white to-transparent" />
                                 <div className="absolute w-full h-[1px] bg-gradient-to-r from-transparent via-white to-transparent" />
                                 
-                                {/* Branches secondaires  */}
+                                {/* Branches secondaires */}
                                 <div className="absolute w-[1px] h-1/2 bg-gradient-to-b from-transparent via-white/40 to-transparent rotate-45" />
                                 <div className="absolute w-[1px] h-1/2 bg-gradient-to-b from-transparent via-white/40 to-transparent -rotate-45" />
                                 
-                                {/* Le Cœur  */}
+                                {/* Le Cœur */}
                                 <div className="absolute w-1 h-1 bg-white rounded-full shadow-[0_0_15px_#fff] group-hover:shadow-[0_0_20px_#3b82f6] transition-all" />
                             </div>
 
@@ -108,7 +108,7 @@ export default function Navbar() {
                                 <span className="tracking-[0.2em] text-white/90 group-hover:text-white transition-colors"> D ]</span>
                             </div>
                             <span className="text-[7px] font-mono text-blue-500/60 uppercase tracking-[0.5em] mt-1 group-hover:text-blue-400 transition-colors">
-                                Polaris_Ref_01
+                                Portfolio_Ref_02
                             </span>
                         </div>
                     </Link>
