@@ -69,7 +69,7 @@ export const metadata: Metadata = {
         title: "Samuël Darry | Développeur Full-Stack",
         description: portfolioData.personal.description,
         images: ['/project/portfolio/portfolio-v2.webp'],
-        creator: '@Eultype', // Placeholder basé sur GitHub, à ajuster
+        creator: '@Eultype',
     },
     icons: {
         icon: '/favicon.ico',
@@ -86,11 +86,29 @@ export default function RootLayout({
                                    }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: portfolioData.personal.name,
+        url: 'https://www.samueldarry.com',
+        sameAs: portfolioData.personal.socials.map(s => s.url),
+        jobTitle: portfolioData.personal.role,
+        description: portfolioData.personal.description,
+        address: {
+            '@type': 'PostalAddress',
+            addressLocality: portfolioData.personal.location,
+        }
+    };
+
     return (
         <html lang="fr">
         <body
             className={`${spaceGrotesk.variable} font-sans antialiased`}
         >
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <SceneProvider>
             <GlobalPreloader />
             <SceneWrapper />

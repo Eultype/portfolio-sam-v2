@@ -99,7 +99,7 @@ export default function LiquidImage({
     .to(scanLineRef.current, { opacity: 0, duration: 0.3 }, "-=0.4");
   };
 
-      const handleMouseLeave = () => {
+  const handleMouseLeave = () => {
         // Si verrouillé (clic mobile en cours), on ignore la sortie de souris
         if (isLockedRef.current) return;
 

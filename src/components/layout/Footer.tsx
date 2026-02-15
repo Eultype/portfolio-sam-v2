@@ -1,15 +1,21 @@
 'use client';
 
+// Import Next
+import dynamic from 'next/dynamic';
 // Import React
-import React from 'react';
-// Import Spline
-import Spline from "@splinetool/react-spline";
+import React, { useState, useEffect } from 'react';
 // Import Lucide
 import { Github, Linkedin, Terminal } from "lucide-react";
 // Import des composants
 import MagneticButton from '../ui/MagneticButton';
 // Import des data
 import { portfolioData } from '@/data/portfolio';
+
+// Lazy load Spline
+const Spline = dynamic(() => import('@splinetool/react-spline'), {
+  ssr: false,
+  loading: () => <div className="w-full h-full flex items-center justify-center text-blue-500/20 font-mono text-xs tracking-widest">LOADING 3D MODULE...</div>
+});
 
 // Mappage des icônes
 const IconMap: Record<string, any> = {
