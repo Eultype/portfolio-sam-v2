@@ -13,10 +13,17 @@ export async function sendEmail(data: ContactFormData) {
         return { error: "Données invalides." };
     }
 
-    const { name, email, message } = result.data;
+    const { name, email, message, honeypot } = result.data;
+
+    // 2. Vérification Anti-Spam (Honeypot)
+    // Si ce champ invisible est rempli, c'est un robot. On renvoie un faux succès.
+    if (honeypot) {
+        console.warn("Spam évité : Honeypot déclenché.");
+        return { success: true };
+    }
 
     try {
-        // 2. Envoi de l'email via Resend
+        // 3. Envoi de l'email via Resend
         const { data: resData, error } = await resend.emails.send({
             from: 'Samuël Darry <contact@samueldarry.com>',
             to: ['Sdarryy59@gmail.com'],

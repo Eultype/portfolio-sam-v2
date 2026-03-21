@@ -67,6 +67,16 @@ export default function ContactForm() {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 relative">
+            {/* HONEYPOT (Anti-Spam) : Invisible pour les humains, rempli par les bots */}
+            <div className="hidden" aria-hidden="true">
+                <input
+                    type="text"
+                    {...register("honeypot")}
+                    tabIndex={-1}
+                    autoComplete="off"
+                />
+            </div>
+
             <div className="grid md:grid-cols-2 gap-8">
                 {/* NOM */}
                 <div className="space-y-2 group">

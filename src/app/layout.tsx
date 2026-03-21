@@ -6,7 +6,7 @@ import SmoothScroll from "@/components/layout/SmoothScroll";
 import CustomCursor from "@/components/ui/CustomCursor";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
-import SceneWrapper from "@/components/3d/SceneWrapper";
+import SceneWrapper from "@/components/3d/DynamicSceneWrapper";
 import GlobalPreloader from "@/components/layout/GlobalPreloader";
 // Import du contexte
 import { SceneProvider } from "@/context/SceneContext";
