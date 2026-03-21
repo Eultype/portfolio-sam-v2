@@ -1,59 +1,24 @@
-'use client';
-
-// Import React
-import { useRef, useEffect } from 'react';
-// Import GSAP
-import gsap from 'gsap';
-// Import des composants
+// Import des composants statiques et interactifs
 import MagneticButton from '@/components/ui/MagneticButton';
 import AboutSection from '@/components/sections/About';
 import SkillsSection from '@/components/sections/Skills';
 import ProjectsSection from '@/components/sections/Projects';
 import ExperienceSection from '@/components/sections/Experience';
 import ContactSection from '@/components/sections/Contact';
+import ClientHomeWrapper from '@/components/layout/ClientHomeWrapper';
+
 // Import data
 import { portfolioData } from '@/data/portfolio';
-// Import context
-import { useScene } from '@/context/SceneContext';
 
-// Page d'accueil
+// Page d'accueil - Désormais un Server Component
 export default function Home() {
-    const { status, introPlayed } = useScene();
-    const contentRef = useRef<HTMLDivElement>(null);
-
-    // Gestion de l'affichage du contenu basé sur l'état de l'intro
-    useEffect(() => {
-        if (introPlayed) {
-            // L'intro est finie : on révèle le contenu et on lance l'animation d'entrée
-            gsap.to(contentRef.current, {
-                opacity: 1,
-                scale: 1,
-                filter: "blur(0px)",
-                duration: 2.5,
-                ease: "power4.out"
-            });
-
-            // Animation des éléments Hero
-            gsap.fromTo('.hero-animate',
-                { y: 100, opacity: 0, rotateX: -30 },
-                { y: 0, opacity: 1, rotateX: 0, duration: 2, stagger: 0.1, ease: "expo.out", delay: 0 }
-            );
-        } else {
-            // L'intro n'est pas finie : on cache le contenu
-            gsap.set(contentRef.current, { opacity: 0, scale: 0.9, filter: "blur(20px)" });
-        }
-    }, [introPlayed]);
-
     return (
         <main className="relative w-full text-white font-sans selection:bg-blue-500/30">
-
-            {/* Pilotage de la 3D via le context (Scene est dans le layout) */}
-            <div
-                ref={contentRef}
-                className="relative z-10 opacity-0"
-                style={{ pointerEvents: introPlayed ? 'all' : 'none' }}
-            >
-
+            {/* 
+              ClientHomeWrapper gère les animations GSAP et la scène 3D.
+              Tout le contenu enfant est généré côté serveur (SSR) pour le SEO !
+            */}
+            <ClientHomeWrapper>
                 {/* Hero */}
                 <section id="home" className="relative min-h-[100svh] flex flex-col items-center px-6 overflow-hidden pt-28">
                     <div className="flex-1 flex flex-col justify-center text-center max-w-6xl mx-auto z-10 w-full">
@@ -92,6 +57,7 @@ export default function Home() {
                         </div>
                     </div>
                 </section>
+                
                 {/* À Propos */}
                 <AboutSection />
                 {/* Compétences */}
@@ -102,7 +68,7 @@ export default function Home() {
                 <ExperienceSection />
                 {/* Contact */}
                 <ContactSection />
-            </div>
+            </ClientHomeWrapper>
         </main>
     );
 }

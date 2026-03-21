@@ -16,8 +16,8 @@ export default function ProjectCardImage({ src, alt, className = "" }: ProjectCa
     const scanLineRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        // Initialisation stricte
-        gsap.set(cleanImageRef.current, { clipPath: "inset(0 100% 0 0)" } as any);
+        // Initialisation stricte en utilisant un cast sécurisé vers TweenVars
+        gsap.set(cleanImageRef.current, { clipPath: "inset(0 100% 0 0)" } as gsap.TweenVars);
         gsap.set(scanLineRef.current, { left: "0%", opacity: 0 });
     }, []);
 
@@ -33,11 +33,11 @@ export default function ProjectCardImage({ src, alt, className = "" }: ProjectCa
             { left: "100%", duration: 0.6, ease: "power2.inOut" }
         );
 
-        // 2. L'image nette se révèle en suivant la barre
-        (gsap as any).fromTo(cleanImageRef.current,
-            { clipPath: "inset(0 100% 0 0)" },
-            { clipPath: "inset(0 0% 0 0)", duration: 0.6, ease: "power2.inOut" },
-            "<" // Synchro parfaite
+        // 2. L'image nette se révèle en suivant la barre. Plus besoin de "as any"
+        tl.fromTo(cleanImageRef.current,
+            { clipPath: "inset(0 100% 0 0)" } as gsap.TweenVars,
+            { clipPath: "inset(0 0% 0 0)", duration: 0.6, ease: "power2.inOut" } as gsap.TweenVars,
+            "<" // Synchro parfaite avec la barre de scan
         );
 
         // Cacher la barre à la fin
@@ -52,7 +52,7 @@ export default function ProjectCardImage({ src, alt, className = "" }: ProjectCa
             clipPath: "inset(0 100% 0 0)",
             duration: 0.4,
             ease: "power2.out"
-        } as any);
+        } as gsap.TweenVars);
 
         gsap.to(scanLineRef.current, { opacity: 0, duration: 0.2 });
     };
@@ -70,7 +70,6 @@ export default function ProjectCardImage({ src, alt, className = "" }: ProjectCa
                     src={src}
                     alt={alt}
                     fill
-                    priority
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover brightness-100 xl:brightness-50 grayscale-0 xl:grayscale blur-0 xl:blur-[2px]"
                 />
@@ -85,7 +84,6 @@ export default function ProjectCardImage({ src, alt, className = "" }: ProjectCa
                     src={src}
                     alt={alt}
                     fill
-                    priority
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover brightness-100 grayscale-0 contrast-105"
                 />

@@ -75,23 +75,6 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         }, '-=0.1');
     };
 
-    // Gestion de la navigation clavier
-    useEffect(() => {
-        const handleKeyDown = (e: KeyboardEvent) => {
-            if (e.key === 'Escape') handleClose();
-            if (e.key === 'ArrowRight') nextImage();
-            if (e.key === 'ArrowLeft') prevImage();
-        };
-        window.addEventListener('keydown', handleKeyDown);
-        // Empêcher le scroll du body quand la modale est ouverte
-        document.body.style.overflow = 'hidden';
-
-        return () => {
-            window.removeEventListener('keydown', handleKeyDown);
-            document.body.style.overflow = '';
-        };
-    }, []);
-
     const nextImage = () => {
         setCurrentImageIndex((prev) => (prev + 1) % images.length);
     };
@@ -100,13 +83,72 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
     };
 
+    // Gestion de la navigation clavier et Focus Trap
+    useEffect(() => {
+        const previousFocus = document.activeElement as HTMLElement;
+        
+        // Focus initial sur la modale pour l'accessibilité
+        if (modalRef.current) {
+            modalRef.current.focus();
+        }
+
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') handleClose();
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
+
+            // Focus Trap basique pour la touche Tab
+            if (e.key === 'Tab') {
+                if (!modalRef.current) return;
+                
+                const focusableElements = modalRef.current.querySelectorAll<HTMLElement>(
+                    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+                );
+                
+                if (focusableElements.length === 0) return;
+                
+                const firstElement = focusableElements[0];
+                const lastElement = focusableElements[focusableElements.length - 1];
+
+                if (e.shiftKey) { // Shift + Tab
+                    if (document.activeElement === firstElement || document.activeElement === modalRef.current) {
+                        lastElement.focus();
+                        e.preventDefault();
+                    }
+                } else { // Tab
+                    if (document.activeElement === lastElement) {
+                        firstElement.focus();
+                        e.preventDefault();
+                    }
+                }
+            }
+        };
+        
+        window.addEventListener('keydown', handleKeyDown);
+        // Empêcher le scroll du body quand la modale est ouverte
+        document.body.style.overflow = 'hidden';
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+            document.body.style.overflow = '';
+            // Restaurer le focus à la fermeture
+            if (previousFocus && previousFocus.focus) {
+                previousFocus.focus();
+            }
+        };
+    }, []);
+
     if (typeof document === 'undefined') return null;
 
     return createPortal(
         <div 
             ref={modalRef}
-            className="fixed inset-0 z-[999] bg-black/80 backdrop-blur-md opacity-0 overflow-y-auto"
+            tabIndex={-1}
+            className="fixed inset-0 z-[999] bg-black/80 backdrop-blur-md opacity-0 overflow-y-auto focus:outline-none"
             onClick={handleClose}
+            role="dialog"
+            aria-modal="true"
+            aria-label={displayTitle}
         >
             <div className="min-h-full flex items-center justify-center p-4 md:p-8">
                 <div 
@@ -117,6 +159,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                     {/* Bouton Fermer */}
                     <button 
                         onClick={handleClose}
+                        aria-label="Fermer la fenêtre du projet"
                         className="absolute top-4 right-4 z-50 w-10 h-10 flex items-center justify-center rounded-full bg-black/50 hover:bg-white/20 text-white/80 hover:text-white transition-all backdrop-blur-md border border-white/10"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
@@ -139,7 +182,6 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                                 alt={`${project.title} - Image ${currentImageIndex + 1}`}
                                 fill
                                 className="object-contain drop-shadow-2xl"
-                                priority
                                 sizes="(max-width: 1280px) 100vw, 66vw"
                                 onLoad={() => setIsLoading(false)}
                             />
@@ -149,20 +191,25 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                             <>
                                 <button 
                                     onClick={prevImage}
+                                    aria-label="Image précédente"
                                     className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-white/20 p-3 rounded-full text-white transition-all z-20 backdrop-blur-sm border border-white/5"
                                 >
                                     ←
                                 </button>
                                 <button 
                                     onClick={nextImage}
+                                    aria-label="Image suivante"
                                     className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-white/20 p-3 rounded-full text-white transition-all z-20 backdrop-blur-sm border border-white/5"
                                 >
                                     →
                                 </button>
-                                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+                                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20" role="tablist">
                                     {images.map((_, idx) => (
                                         <button 
                                             key={idx}
+                                            role="tab"
+                                            aria-selected={idx === currentImageIndex}
+                                            aria-label={`Voir l'image ${idx + 1}`}
                                             onClick={() => setCurrentImageIndex(idx)}
                                             className={`w-2 h-2 rounded-full transition-all ${idx === currentImageIndex ? 'bg-blue-500 w-4' : 'bg-white/30 hover:bg-white/50'}`}
                                         />
@@ -199,14 +246,18 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
                                 {/* Onglets Version */}
                                 {project.versions && (
-                                    <div className="flex p-1 bg-white/5 rounded-lg w-fit border border-white/10">
+                                    <div className="flex p-1 bg-white/5 rounded-lg w-fit border border-white/10" role="tablist">
                                         <button 
+                                            role="tab"
+                                            aria-selected={activeVersion === 'v1'}
                                             onClick={() => setActiveVersion('v1')}
                                             className={`px-6 py-2 rounded-md text-[10px] font-bold uppercase tracking-widest transition-all ${activeVersion === 'v1' ? 'bg-white text-black' : 'text-white/40 hover:text-white'}`}
                                         >
                                             Version 1
                                         </button>
                                         <button 
+                                            role="tab"
+                                            aria-selected={activeVersion === 'v2'}
                                             onClick={() => setActiveVersion('v2')}
                                             className={`px-6 py-2 rounded-md text-[10px] font-bold uppercase tracking-widest transition-all ${activeVersion === 'v2' ? 'bg-blue-500 text-white' : 'text-white/40 hover:text-white'}`}
                                         >
