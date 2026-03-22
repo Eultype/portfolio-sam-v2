@@ -106,7 +106,7 @@ export default function Preloader({ onComplete }: { onComplete?: () => void }) {
 
             <div className="absolute bottom-10 w-full flex justify-between px-10 text-[8px] font-mono text-gray-700 uppercase tracking-widest loader-ui">
                 <span>System.Version: 1.0.4</span>
-                <span>Core.Samuël: Active</span>
+                <span>Core.Samuel: Active</span>
             </div>
         </div>
     );

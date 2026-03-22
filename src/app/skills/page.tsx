@@ -5,7 +5,7 @@ import SkillsContent from './_components/SkillsContent';
 
 // Metadata de la page Compétences
 export const metadata: Metadata = {
-    title: "Compétences & Stack | Samuël Darry | Développeur Full-Stack",
+    title: "Compétences & Stack | Samuel Darry | Développeur Full-Stack",
     description: "Expertise technique : Frontend (React, Next.js), Backend (Node.js, PostgreSQL) et Outils modernes.",
     alternates: {
         canonical: '/skills',

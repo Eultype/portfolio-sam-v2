@@ -3,7 +3,7 @@ import { PortfolioData } from '@/types/portfolio';
 export const portfolioData: PortfolioData = {
     // Coordonnées personnelles
     personal: {
-        name: "Samuël",
+        name: "Samuel",
         role: "Disponible immédiatement",
         tagline: "Je crée des expériences web rapides, modernes et scalables.",
         description: "Passionné par le lien entre design et technique, je développe des applications web performantes. Mon objectif est simple : allier un code propre à une expérience utilisateur fluide et soignée.",

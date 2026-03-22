@@ -29,11 +29,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
     metadataBase: new URL('https://www.samueldarry.com'),
     title: {
-        default: "Samuël Darry | Développeur Full-Stack",
-        template: "%s | Samuël"
+        default: "Samuel Darry | Développeur Full-Stack",
+        template: "%s | Samuel"
     },
     description: portfolioData.personal.description,
-    keywords: ["Développeur Web", "Full-Stack Developer", "React", "Next.js", "Samuël Darry", "Portfolio", "Bruxelles", "Développeur Front-end", "Développeur Full-Stack"],
+    keywords: ["Développeur Web", "Full-Stack Developer", "React", "Next.js", "Samuel Darry", "Portfolio", "Bruxelles", "Développeur Front-end", "Développeur Full-Stack"],
     authors: [{ name: portfolioData.personal.name, url: portfolioData.personal.socials.find(s => s.name === 'GitHub')?.url }],
     creator: portfolioData.personal.name,
     publisher: portfolioData.personal.name,
@@ -52,21 +52,21 @@ export const metadata: Metadata = {
         type: 'website',
         locale: 'fr_BE',
         url: 'https://www.samueldarry.com',
-        title: "Samuël | Développeur Créatif Full-Stack",
+        title: "Samuel | Développeur Créatif Full-Stack",
         description: portfolioData.personal.description,
-        siteName: "Portfolio Samuël Darry",
+        siteName: "Portfolio Samuel Darry",
         images: [
             {
                 url: '/project/portfolio/portfolio-v2.webp',
                 width: 1200,
                 height: 630,
-                alt: 'Portfolio Samuël - Developer Full-Stack',
+                alt: 'Portfolio Samuel - Developer Full-Stack',
             },
         ],
     },
     twitter: {
         card: 'summary_large_image',
-        title: "Samuël Darry | Développeur Full-Stack",
+        title: "Samuel Darry | Développeur Full-Stack",
         description: portfolioData.personal.description,
         images: ['/project/portfolio/portfolio-v2.webp'],
         creator: '@Eultype',
@@ -86,19 +86,31 @@ export default function RootLayout({
                                    }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const jsonLd = {
-        '@context': 'https://schema.org',
-        '@type': 'Person',
-        name: portfolioData.personal.name,
-        url: 'https://www.samueldarry.com',
-        sameAs: portfolioData.personal.socials.map(s => s.url),
-        jobTitle: portfolioData.personal.role,
-        description: portfolioData.personal.description,
-        address: {
-            '@type': 'PostalAddress',
-            addressLocality: portfolioData.personal.location,
+    const jsonLd = [
+        {
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: "Portfolio Samuel Darry",
+            url: 'https://www.samueldarry.com',
+            description: portfolioData.personal.description,
+            inLanguage: "fr-BE"
+        },
+        {
+            '@context': 'https://schema.org',
+            '@type': 'Person',
+            name: portfolioData.personal.name,
+            url: 'https://www.samueldarry.com',
+            sameAs: portfolioData.personal.socials.map(s => s.url),
+            jobTitle: "Développeur Full-Stack",
+            description: portfolioData.personal.description,
+            knowsAbout: [...portfolioData.skills.frontend, ...portfolioData.skills.backend, ...portfolioData.skills.tools],
+            address: {
+                '@type': 'PostalAddress',
+                addressLocality: "Bruxelles",
+                addressCountry: "BE"
+            }
         }
-    };
+    ];
 
     return (
         <html lang="fr">

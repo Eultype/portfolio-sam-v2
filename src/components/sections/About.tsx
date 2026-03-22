@@ -74,7 +74,7 @@ export default function AboutSection() {
                     <div className="h-1 w-20 bg-white mb-8 animate-about-text" />
 
                     <p className="text-xl md:text-2xl leading-relaxed text-gray-300 animate-about-text max-w-lg font-light">
-                        Je m'appelle Samuël. Développeur par choix, geek par nature. J'aime quand les choses sont carrées
+                        Je m'appelle Samuel. Développeur par choix, geek par nature. J'aime quand les choses sont carrées
                         : un code propre, une architecture logique et une expérience utilisateur sans friction.
                         Bref, je ne fais pas que coder, je donne vie à des idées.
                     </p>
@@ -87,7 +87,7 @@ export default function AboutSection() {
                     <div className="aspect-[3/4] w-full relative parallax-img animate-about-image will-change-transform">
                         <LiquidImage
                             src="/personnal/solitude.webp"
-                            alt="Portrait Samuël"
+                            alt="Portrait Samuel"
                             className="w-full h-full rounded-sm transition-all duration-700"
                         />
                     </div>

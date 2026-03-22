@@ -71,7 +71,7 @@ export default function AboutContent() {
                         <div className="aspect-[3/4] w-full relative animate-about-image will-change-transform">
                             <LiquidImage
                                 src="/personnal/me_dolomites.webp"
-                                alt="Portrait Samuël"
+                                alt="Portrait Samuel"
                                 className="w-full h-full rounded-sm transition-all duration-700"
                                 location={portfolioData.personal.location2}
                                 coordinates={portfolioData.personal.coordinates2}
