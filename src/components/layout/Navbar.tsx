@@ -35,7 +35,7 @@ export default function Navbar() {
             setDownloadStatus('downloading');
             
             const link = document.createElement('a');
-            link.href = '/CV_Samuel_DARRY.pdf';
+            link.href = '/CV_Samuel_Darry_Dev.pdf';
             link.download = 'Samuel_Darry_CV.pdf';
             document.body.appendChild(link);
             link.click();
